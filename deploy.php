@@ -55,4 +55,4 @@ after('deploy:failed', 'deploy:unlock');
 task('artisan:migrate')->disable();
 
 // Deploy files.
-before('deploy:symlink', 'files:push');
+#before('deploy:symlink', 'files:push');
