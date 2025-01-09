@@ -1,0 +1,61 @@
+name: omegapoint
+recipe: laravel
+config:
+  webroot: public
+  via: nginx
+  php: '8.2'
+  composer-version: '2'
+  composer:
+    'deployer/deployer' : '~7'
+services:
+  appserver:
+    overrides:
+      environment:
+        - SSH_AUTH_SOCK=/ssh-agent
+      volumes:
+        - ${SSH_AUTH_SOCK}:/ssh-agent
+  database:
+    creds:
+      user: omegapoint
+      password: omegapoint
+      database: omegapoint
+  node:
+    type: node:20
+    build:
+      - npm install
+    scanner: false
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  pma:
+    type: phpmyadmin
+    hosts: database
+tooling:
+  rector:
+    service: appserver
+    cmd:
+      - "vendor/bin/rector"
+  node:
+    service: node
+  npm:
+    service: node
+  dep:
+    service: appserver
+    desription: run deployer commands
+    cmd:
+      - "dep"
+  reset:
+    service: appserver
+    desription: erase DB and re-seed
+    cmd:
+      - "php artisan db:wipe"
+      - "php artisan migrate"
+      - "php artisan db:seed"
+proxy:
+  appserver_nginx:
+    - omegapoint.lndo.site
+  node:
+    - bs.omegapoint.lndo.site:3000
+  pma:
+    - pma.omegapoint.lndo.site:80

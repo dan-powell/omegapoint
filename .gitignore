@@ -21,3 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+# Custom
+*.sql
+*.sql.gz
+hosts.yml
