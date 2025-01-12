@@ -3,8 +3,8 @@ recipe: laravel
 config:
   webroot: public
   via: nginx
-  php: '8.2'
-  composer-version: '2'
+  php: '8.4'
+  composer_version: 2-latest
   composer:
     'deployer/deployer' : '~7'
 services:
@@ -15,22 +15,15 @@ services:
       volumes:
         - ${SSH_AUTH_SOCK}:/ssh-agent
   database:
-    creds:
-      user: omegapoint
-      password: omegapoint
-      database: omegapoint
+    scanner: false
+    healthcheck: false
   node:
     type: node:20
-    build:
-      - npm install
     scanner: false
   mailhog:
     type: mailhog
     hogfrom:
       - appserver
-  pma:
-    type: phpmyadmin
-    hosts: database
 tooling:
   rector:
     service: appserver
@@ -52,10 +45,14 @@ tooling:
       - "php artisan db:wipe"
       - "php artisan migrate"
       - "php artisan db:seed"
+  csfixer:
+    service: appserver
+    description: Run PHP Coding Standards Fixer.
+    cmd: /app/vendor/bin/php-cs-fixer --config=cs-fixer.php
+    env:
+      PHP_CS_FIXER_IGNORE_ENV: 1
 proxy:
   appserver_nginx:
     - omegapoint.lndo.site
   node:
-    - bs.omegapoint.lndo.site:3000
-  pma:
-    - pma.omegapoint.lndo.site:80
+    - node.omegapoint.lndo.site:80

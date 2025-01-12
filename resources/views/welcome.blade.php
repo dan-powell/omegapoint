@@ -4,65 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omega Point</title>
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0; /* Remove default body margin */
-            background-color: #292929; /* Example background color */
-        }
-
-        #particles-js {
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        /* Add styles for your logo/graphic if needed */
-        .logo {
-            max-width: 100%; /* Adjust as needed */
-            height: auto;
-            padding: 15px;
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="{{ asset('assets/js/particles.js') }}"></script>
 </head>
 <body>
     <div id="particles-js"></div>
     <div class="container">
-        <svg width="279" height="350" viewBox="0 0 279 350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" class="logo">
-            <style>
-                @keyframes spin {
-                    100% { transform: rotateY(180deg) perspective(500vw); }
-                }
-                #spinner {
-                    animation: spin 2s linear infinite;
-                    transform-origin: center;
-                }
-            </style>
-
-            <path d="M139.398,345.283L1.861,70.21L71.148,70.21C71.147,70.323 71.147,70.437 71.147,70.551C71.147,77.384 72.153,83.983 74.025,90.21L34.222,90.21L139.398,300.562L139.398,345.283Z" style="fill:rgb(190,254,3);" id="spinner"/>
-            <path d="M139.398,2.299C177.067,2.299 207.649,32.882 207.649,70.551C207.649,108.22 177.067,138.802 139.398,138.802C101.729,138.802 71.147,108.22 71.147,70.551C71.147,32.882 101.729,2.299 139.398,2.299ZM139.398,22.299C112.768,22.299 91.147,43.92 91.147,70.551C91.147,97.181 112.768,118.802 139.398,118.802C166.029,118.802 187.649,97.181 187.649,70.551C187.649,43.92 166.029,22.299 139.398,22.299Z" style="fill:rgb(233,44,168);"/>
-            <path d="M139.398,300.562L244.574,90.21L204.771,90.21C206.643,83.983 207.649,77.384 207.649,70.551C207.649,70.437 207.649,70.323 207.649,70.21L276.935,70.21L139.398,345.283L139.398,300.562Z" style="fill:rgb(190,254,3);" id="spinner"/>
-        </svg>
+        <a class="link" href="/" title="Home">
+            <svg width="330" height="300" viewBox="0 0 330 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" class="logo">
+                <style>
+                    @keyframes spin {
+                        100% { transform: rotateY(180deg) perspective(500vw); }
+                    }
+                    .spinner {
+                        animation: spin 2s linear infinite;
+                        transform-origin: center;
+                    }
+                </style>
+                <path d="M165,291.989L1.344,8.318L165,8.318L165,30.318L54.155,30.318C51.118,30.318 48.312,31.938 46.793,34.568C45.274,37.198 45.273,40.438 46.791,43.068L157.636,235.2C159.154,237.832 161.962,239.453 165,239.453L165,291.989Z" style="fill:rgb(190,254,3);" class="spinner"/>
+                <path d="M165,56.068C190.822,56.068 211.786,77.032 211.786,102.854C211.786,128.675 190.822,149.639 165,149.639C139.178,149.639 118.214,128.675 118.214,102.854C118.214,77.032 139.178,56.068 165,56.068ZM165,75.928C150.139,75.928 138.075,87.993 138.075,102.854C138.075,117.714 150.139,129.779 165,129.779C179.861,129.779 191.925,117.714 191.925,102.854C191.925,87.993 179.861,75.928 165,75.928Z" style="fill:rgb(233,44,168);"/>
+                <path d="M165,8.318L328.656,8.318L165,291.989L165,239.453C168.038,239.453 170.846,237.832 172.364,235.2L283.209,43.068C284.727,40.438 284.726,37.198 283.207,34.568C281.688,31.938 278.882,30.318 275.845,30.318L165,30.318L165,8.318Z" style="fill:rgb(190,254,3);" class="spinner"/>        
+            </svg>        
+        </a>
         <script>
             particlesJS.load('particles-js', '{{ asset('assets/js/particles.json') }}', function() {
                 console.log('callback - particles.js config loaded');
             });
-            </script>
+        </script>
     </div>
 </body>
 </html>
