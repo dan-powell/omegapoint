@@ -1,13 +1,24 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BSU3U2P7.css",
+    "file": "assets/app-BOidNMAg.css",
     "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/news/news.css": {
+    "file": "assets/news-VWk4xp3e.css",
+    "src": "resources/css/news/news.css",
     "isEntry": true
   },
   "resources/js/app.js": {
     "file": "assets/app-Xaw6OIO1.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/news/news.js": {
+    "file": "assets/news-l0sNRNKZ.js",
+    "name": "news",
+    "src": "resources/js/news/news.js",
     "isEntry": true
   }
 }

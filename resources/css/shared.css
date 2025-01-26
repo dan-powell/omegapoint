@@ -1,0 +1,29 @@
+@import 'shared/wrapper.css';
+@import 'shared/reset.css';
+
+@view-transition {
+  navigation: auto;
+}
+
+/*
+  default blend mode is multiple. Set to normal to avoid effects we don't want.
+*/
+::view-transition-old(root),
+::view-transition-new(root) {
+  /* mix-blend-mode: normal; */
+  animation-fill-mode: both;
+}
+
+/*
+  We don't want the outgoing screen to do anything, just get covered by next page.
+*/
+::view-transition-old(root) {
+  animation: transitionOut 0.5s;
+  animation-fill-mode: both;
+}
+
+::view-transition-new(root) {
+  animation: transitionIn 1s ;
+}
+
+
