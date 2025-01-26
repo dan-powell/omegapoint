@@ -1,4 +1,5 @@
 <?php
+
 namespace Deployer;
 
 require 'recipe/laravel.php';
@@ -53,6 +54,15 @@ after('deploy:failed', 'deploy:unlock');
 
 // Disable database migrations (because we don't use a DB)
 task('artisan:migrate')->disable();
+
+task('artisan:filament:optimize', function () {
+	artisan('filament:optimize');
+})->desc('Optimize Filament Panels');
+
+after('artisan:config:cache', 'artisan:filament:optimize');
+
+after('deploy:failed', 'deploy:unlock');
+
 
 // Deploy files.
 #before('deploy:symlink', 'files:push');

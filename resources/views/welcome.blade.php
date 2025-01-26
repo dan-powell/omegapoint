@@ -11,7 +11,13 @@
     <div id="body">
         <div id="particles-js"></div>
         <img src="{{ Image::url('assets/images/omega_point.png') }}" />
+
+        @php
+            $test = \App\Models\Area\District::find(1)->tier_name;
+        @endphp
+
         <div class="container">
+            {{ $test}}
             <a class="link" href="/" title="Home">
                 <svg width="330" height="300" viewBox="0 0 330 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" class="logo">
                     <style>
