@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://omegapoint.lndo.site'),
+    'url_admin' => env('APP_URL_ADMIN', 'http://admin.omegapoint.lndo.site'),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 @view-transition {
@@ -50,8 +52,7 @@
   animation: transitionIn 1s ;
 }
 
-
-body {
+#body {
     display: flex;
     justify-content: center;
     flex-direction: column;

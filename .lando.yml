@@ -54,5 +54,7 @@ tooling:
 proxy:
   appserver_nginx:
     - omegapoint.lndo.site
+    - admin.omegapoint.lndo.site
+    - news.omegapoint.lndo.site
   node:
     - node.omegapoint.lndo.site:80
