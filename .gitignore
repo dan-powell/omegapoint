@@ -24,3 +24,4 @@ yarn-error.log
 *.sql
 *.sql.gz
 hosts.yml
+.lando.local.yml

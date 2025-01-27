@@ -1,0 +1,5 @@
+# Custom Lando Config
+services:
+  node:
+    ports:
+      - 43346:43346

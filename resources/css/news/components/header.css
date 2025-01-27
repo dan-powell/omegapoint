@@ -2,7 +2,7 @@
     0% {
       transform: translate3d(0, 0, 0);
     }
-  
+
     100% {
       transform: translate3d(-100%, 0, 0);
     }
@@ -63,7 +63,8 @@
         padding-left: 100%;
         box-sizing: content-box;
         display: inline-flex;
-        animation: ticker 20s linear infinite; 
+        animation: ticker 20s linear infinite;
+        will-change: translate3d;
     }
     &_list {
         display: flex;
@@ -83,7 +84,7 @@
         color: var(--color-heading);
         font-size: 2rem;
         text-decoration: none;
-        &:hover, 
+        &:hover,
         &:focus {
             color: var(--color-link);
         }

@@ -1,16 +1,16 @@
 {
   "resources/css/home.css": {
-    "file": "assets/home-CIfMaADN.css",
+    "file": "assets/home-D2j6Mqkn.css",
     "src": "resources/css/home.css",
     "isEntry": true
   },
   "resources/css/news.css": {
-    "file": "assets/news-DY8Y3IWG.css",
+    "file": "assets/news-Bn-mDhgR.css",
     "src": "resources/css/news.css",
     "isEntry": true
   },
   "resources/css/shared.css": {
-    "file": "assets/shared-ClVdZxk5.css",
+    "file": "assets/shared-Fe2DhuBJ.css",
     "src": "resources/css/shared.css",
     "isEntry": true
   },
@@ -25,13 +25,13 @@
     "isEntry": true
   },
   "resources/js/news.js": {
-    "file": "assets/news-l0sNRNKZ.js",
+    "file": "assets/news-PZNi-cm_.js",
     "name": "news",
     "src": "resources/js/news.js",
     "isEntry": true
   },
   "resources/js/shared.js": {
-    "file": "assets/shared-CU0a2NDf.js",
+    "file": "assets/shared-DyZ-UdmO.js",
     "name": "shared",
     "src": "resources/js/shared.js",
     "isEntry": true

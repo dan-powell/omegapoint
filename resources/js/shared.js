@@ -1,9 +1,9 @@
 import './shared/bootstrap';
-import {} from "./shared/overlay";
+import Overlay from './shared/overlay.js';
 
 (function() {
 
-    let sidebar = new Overlay('.Wrapper_overlay', '.js-overlay', {
+    new Overlay('.Wrapper_overlay', '.js-overlay', {
         open: 'false', // Initial state
         class_open: 'is-open', // Class applied to overlay when active
         class_open_control: 'is-active', // Class applied to buttons when active

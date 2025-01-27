@@ -1,5 +1,7 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
+
+const env = loadEnv('', '');
 
 export default defineConfig({
     plugins: [
@@ -21,9 +23,9 @@ export default defineConfig({
     server: {
         https: false,
         host: true,
-        port: 80,
+        port: env.VITE_PORT ?? 80,
         hmr: {
-            host: 'node.omegapoint.lndo.site',
+            host: env.VITE_HOST ?? 'localhost',
             protocol: 'ws'
         },
         watch: {
