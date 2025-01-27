@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "postcss-mixins": "^11.0.3",
-        "postcss-nested": "^7.0.2"
+        "postcss-nested": "^7.0.2",
+        "webfontloader": "^1.6.28"
     }
 }

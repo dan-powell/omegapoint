@@ -1,23 +1,16 @@
-@keyframes transitionIn{
-    from {
-        filter: blur(50px);
-        opacity: 0;
-    }
-    to {
-        filter: blur(0);
-        opacity: 1;
-    }
-}
-
-@keyframes transitionOut{
-    from {
-        filter: blur(0);
-        opacity: 1;
-    }
-    to {
-        filter: blur(50px);
-        opacity: 0;
-    }
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    1%   { opacity:0; }
+    2%   { opacity:1; }
+    10%  { opacity:1; }
+    11%  { opacity:0; }
+    12%  { opacity:1; }
+    60%  { opacity:1; }
+    61%  { opacity:0; }
+    62%  { opacity:1; }
+    70%  { opacity:1; }
+    71%  { opacity:0; }
+    72%  { opacity:1; }
 }
   
 #body {
@@ -25,15 +18,15 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100lvh;
     margin: 0;
-    background-color: #292929;
+    background-color:rgb(24, 24, 24);
 }
 
 #particles-js {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 99lvh;
     top: 0;
     left: 0;
 }
@@ -42,19 +35,33 @@
     text-align: center;
 }
 
-/* Add styles for your logo/graphic if needed */
+.logowrapper {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
 .logo {
     max-width: 100%; /* Adjust as needed */
     height: auto;
     padding: 15px;
-    view-transition-name: 'logo';
-}
-.logo.test {
-    width: 800px;
 }
 
-.link {
-    display: block;
-    position: relative;
-    z-index: 10;
+.logo1 {
+    filter: hue-rotate(90deg);
+    transform: translate(1px , 1px);
+    opacity: 0.5;
+    animation: flickerAnimation 2.5s infinite;
+}
+
+.logo2 {
+    filter: hue-rotate(-90deg);
+    transform: translate(-1px , -1px);
+    opacity: 0.5;
+    animation: flickerAnimation 2.5s infinite .2s;
 }

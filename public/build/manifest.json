@@ -1,24 +1,39 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app-BOidNMAg.css",
-    "src": "resources/css/app.css",
+  "resources/css/home.css": {
+    "file": "assets/home-CIfMaADN.css",
+    "src": "resources/css/home.css",
     "isEntry": true
   },
-  "resources/css/news/news.css": {
-    "file": "assets/news-VWk4xp3e.css",
-    "src": "resources/css/news/news.css",
+  "resources/css/news.css": {
+    "file": "assets/news-DY8Y3IWG.css",
+    "src": "resources/css/news.css",
     "isEntry": true
   },
-  "resources/js/app.js": {
-    "file": "assets/app-Xaw6OIO1.js",
-    "name": "app",
-    "src": "resources/js/app.js",
+  "resources/css/shared.css": {
+    "file": "assets/shared-ClVdZxk5.css",
+    "src": "resources/css/shared.css",
     "isEntry": true
   },
-  "resources/js/news/news.js": {
+  "resources/img/button.svg": {
+    "file": "assets/button-DIF3ZlFh.svg",
+    "src": "resources/img/button.svg"
+  },
+  "resources/js/home.js": {
+    "file": "assets/home-l0sNRNKZ.js",
+    "name": "home",
+    "src": "resources/js/home.js",
+    "isEntry": true
+  },
+  "resources/js/news.js": {
     "file": "assets/news-l0sNRNKZ.js",
     "name": "news",
-    "src": "resources/js/news/news.js",
+    "src": "resources/js/news.js",
+    "isEntry": true
+  },
+  "resources/js/shared.js": {
+    "file": "assets/shared-CU0a2NDf.js",
+    "name": "shared",
+    "src": "resources/js/shared.js",
     "isEntry": true
   }
 }

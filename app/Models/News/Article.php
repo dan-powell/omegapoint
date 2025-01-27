@@ -6,10 +6,12 @@ use App\Models\Area\District;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
 
+    use HasFactory;
     use HasUlids;
     
     protected $table = 'news_article';

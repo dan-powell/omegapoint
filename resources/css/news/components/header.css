@@ -1,0 +1,91 @@
+@keyframes ticker {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+  
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.Header {
+    display: flex;
+    gap: 1em;
+    padding: 0.5em;
+}
+
+.HeaderLogo {
+    font-family: "Righteous", serif;
+    text-transform: uppercase;
+    line-height: 1;
+    &_link {
+        display: flex;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.6em;
+    }
+    &_dynamic {
+        color: #888;
+        max-width: 0;
+        overflow: hidden;
+        transition: max-width .6s ease-in-out;
+    }
+    &:hover & {
+        &_dynamic {
+            max-width: 999px;
+        }
+    }
+}
+
+.HeaderControls {
+    display: flex;
+    gap: 0.25em;
+    &_button {
+        width: 2em;
+    }
+}
+
+.HeaderTicker {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding: 3px 0;
+    overflow-x: hidden;
+    &:hover &,
+    &:focus & {
+        &_track {
+            animation-play-state: paused;
+        }
+    }
+    &_track {
+        padding-left: 100%;
+        box-sizing: content-box;
+        display: inline-flex;
+        animation: ticker 20s linear infinite; 
+    }
+    &_list {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+    &_item {
+        white-space: nowrap;
+        &::after {
+            content: ' ▽';
+            color: var(--color-heading);
+            font-size: 1.6rem;
+        }
+    }
+    &_link {
+        font-family: var(--font-heading);
+        color: var(--color-heading);
+        font-size: 2rem;
+        text-decoration: none;
+        &:hover, 
+        &:focus {
+            color: var(--color-link);
+        }
+    }
+}

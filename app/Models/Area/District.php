@@ -5,10 +5,14 @@ namespace App\Models\Area;
 use App\Enum\Area\Tier;
 use App\Models\News\Article;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class District extends Model
 {
+
+    use HasFactory;
+
     protected $table = 'area_district';
 
     protected $fillable = [
@@ -23,7 +27,7 @@ class District extends Model
         );
     }
 
-    public function pointOfInterests()
+    public function pointsOfInterest()
     {
         return $this->belongsToMany(PointOfInterest::class, 'area_district_poi', 'district_id', 'poi_id');
     }

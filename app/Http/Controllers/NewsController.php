@@ -15,15 +15,15 @@ class NewsController extends Controller
     public function index(): View
     {
         return view('news.index', [
-            //
+            
         ]);
     }
     /**
      * Show an article
      */
-    public function show(string $id): View
+    public function articleShow(string $id): View
     {
-        return view('news.show', [
+        return view('news.article.show', [
             'article' => Article::findOrFail($id)
         ]);
     }

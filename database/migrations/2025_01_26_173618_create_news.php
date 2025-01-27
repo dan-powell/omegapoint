@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('news_article', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('title');
-            $table->string('slug')->index()->unique();
             $table->string('short')->nullable();
             $table->string('summary')->nullable();
             $table->string('thumbnail')->nullable();

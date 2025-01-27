@@ -6,10 +6,19 @@
     @vite(['resources/css/shared.css', 'resources/js/shared.js'])
     @stack('head')
 </head>
-<body>
-    <button class="Wrapper_button">Navigation</button>
+<body class="Wrapper">
+    <button class="Wrapper_button js-overlay">
+        <span class="u-sronly">Navigation</span>
+    </button>
     <div class="Wrapper_overlay">
-        <a href="{{ route('home.index') }}">Home</a>
+        <ul class="Wrapper_overlay_nav">
+            <li class="Wrapper_overlay_nav_item">
+                <a class="Wrapper_overlay_nav_link" href="{{ route('home.index') }}">Home</a>
+            </li>
+            <li class="Wrapper_overlay_nav_item">
+                <a class="Wrapper_overlay_nav_link" href="{{ route('news.index')}}">News</a>
+            </li>
+        </ul>
     </div>
     @yield('body')
 </body>

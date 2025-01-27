@@ -1,1 +1,27 @@
 @import 'news/layouts/default.css';
+@import 'news/components/header.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Righteous&display=swap');
+
+:root {
+    --color-line: #fff;
+    --color-heading: #fff;
+    --color-body: #fff;
+    --color-link: #00FFFF;
+    --font-heading: "Righteous", serif;
+    --font-body: "Geo", serif;
+
+    /* --font-heading: "Libre Barcode 128", serif;
+    --font-body: var(--font-heading); */
+
+    --line-height: 1;
+}
+
+body {
+    background: #2A2A2A;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: normal;
+    line-height: var(--line-height);
+    vertical-align: bottom;
+}

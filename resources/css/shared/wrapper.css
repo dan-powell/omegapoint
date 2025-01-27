@@ -1,6 +1,57 @@
 .Wrapper {
+    overflow-x: hidden;
     &_button {
         position: fixed;
-        top: 0px; right: 0px;
+        top: 0px; 
+        right: 0px;
+        width: 75px;
+        height: 75px;
+        z-index: 99999;
+        background: none;
+        background-image: url('/resources/img/button.svg');
+        background-position: 5px -5px;
+        background-repeat: no-repeat;
+        border: none;
+        transition: background .2s ease;
+        &:hover, 
+        &:focus {
+            cursor: pointer;
+            background-position: 0 0;
+        }
+    }
+    &_overlay {
+        position: fixed;
+        top: 0px; 
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 99998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity .2s ease, left .2s ease;
+        opacity: 0;
+        backdrop-filter: blur(20px);
+        &.is-open {
+            opacity: 1;
+            left: 0;
+        }
+        &_nav {
+            &_link {
+                display: inline-block;
+                font-family: arial;
+                text-transform: uppercase;
+                text-decoration: none;
+                font-size: 2em;
+                padding: 0.5em;
+                color: #fff;
+                transition: all .2s ease;
+                &:hover, 
+                &:focus {
+                    color: rgb(190,254,3);
+                }
+            }
+        }
     }
 }
