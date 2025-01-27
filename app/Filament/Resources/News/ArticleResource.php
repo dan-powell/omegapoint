@@ -31,11 +31,14 @@ class ArticleResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\TextInput::make('slug')
-                    ->required(),
                 Forms\Components\TextInput::make('short'),
                 Forms\Components\TextInput::make('summary'),
-                Forms\Components\TextInput::make('thumbnail'),
+                Forms\Components\FileUpload::make('thumbnail')
+                    ->disk('news')
+                    ->directory('thumbnail')
+                    ->image()
+                    ->imageEditor()
+                    ->nullable(),
                 Forms\Components\TextInput::make('lead'),
                 Forms\Components\Textarea::make('introduction')
                     ->columnSpanFull(),

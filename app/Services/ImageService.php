@@ -4,21 +4,27 @@ namespace App\Services;
 
 use Closure;
 use Illuminate\Http\Request;
-use League\Glide\Urls\UrlBuilderFactory;
+use Illuminate\Support\Facades\Storage;
+use InvalidArgumentException;
 use League\Glide\Responses\SymfonyResponseFactory;
 use League\Glide\ServerFactory;
-use Illuminate\Support\Facades\Storage;
+use League\Glide\Urls\UrlBuilderFactory;
+use Throwable;
 
 /**
  * Image Helper for generating URL's used by Glide to manipulate images.
  *
  *  Example usage:
  *
- *   Get a URL using default disk
- *   {{ ImageRender::url(<path to image>) }}
+ *    Get a URL using default disk
+ *    {{ ImageRender::url(<path to image>) }}
  *
- *   Get a URL using default disk
- *   {{ ImageRender::disk('public')->url(<path to image>) }}
+ *    Get a URL using specific disk
+ *    {{ ImageRender::disk(<disk name>)->url(<path to image>) }}
+ *
+ *    Get a URL to image directly on cache disk
+ *    SLOW PAGE RENDERING - also requires cache disk to be publically available
+ *    {{ ImageRender::cache(<path to image>) }}
  *
  *    Crop an image and make greyscale
  *    <img src="{{ ImageRender::crop(200, 300)->greyscale()->url() }}"/>
@@ -39,11 +45,12 @@ class ImageService
         $signkey = config('glide.key');
 
         // Create instance of URL factory
-        $this->urlBuilder = UrlBuilderFactory::create(config('glide.route') . '/', $signkey);
+        $this->urlBuilder = UrlBuilderFactory::create(config('glide.route'), $signkey);
+        // $this->urlBuilder = UrlBuilderFactory::create('imagerender.php', $signkey);
 
         $this->reset();
 
-        if($properties) {
+        if ($properties) {
             $this->properties = $properties;
         }
     }
@@ -55,33 +62,49 @@ class ImageService
      */
     public function reset(): self
     {
-
         // Reset all properties
         $this->properties = [];
 
         // Set the default quality (optional)
-        if(config('image.quality')) {
+        if (config('glide.quality')) {
             $this->quality(config('glide.quality'));
         }
 
         // Set default format (optional)
-        if(config('image.format')) {
+        if (config('glide.format')) {
             $this->format(config('glide.format'));
         }
 
         return $this;
-
     }
 
-    // Returns the image server factory used to process images
+    /**
+     * Returns the image server factory used to process images
+     *
+     * @param Request $request
+     * @param string $source
+     *
+     * @return void
+     */
     public function createServer(Request $request, string $source)
     {
+
+        if(config('glide.cache')) {
+            $cache = Storage::disk(config('glide.cache'))->getDriver();
+        } else {
+            $cache = Storage::build([
+                'driver' => 'local',
+                'root' => storage_path('framework/cache/glide'),
+                'visibility' => 'private',
+            ])->getDriver();
+        }
+
         return ServerFactory::create([
-            'driver' => 'imagick',
+            'driver' => config('glide.driver'),
             'response' => new SymfonyResponseFactory($request),
             'source' => $source,
-            'cache' => Storage::disk(config('glide.cache'))->getDriver(),
-            'cache_path_prefix' => 'cache',
+            'cache' => $cache,
+            'cache_path_prefix' => '',
             'cache_with_file_extensions' => true,
             'presets' => config('glide.presets'),
         ]);
@@ -91,13 +114,31 @@ class ImageService
      * Get direct URL to cached image
      *
      * @param string $path
-     * @param string|null $preset
      *
      * @return string
      */
     public function cache(string $path): string
     {
-        $filesystem = Storage::disk(config('glide.disk'));
+        if (isset($this->properties['resource']) && $this->properties['resource']) {
+            // Image is located in resources folder, so build a temp storage class
+            $filesystem = Storage::build([
+                'driver' => 'local',
+                'root' => resource_path(''),
+                'url' => env('APP_URL'),
+                'visibility' => 'public',
+            ]);
+        } elseif (isset($this->properties['public']) && $this->properties['public']) {
+            // Image is located in public folder, so build a temp storage class
+            $filesystem = Storage::build([
+                'driver' => 'local',
+                'root' => public_path(''),
+                'url' => env('APP_URL'),
+                'visibility' => 'public',
+            ]);
+        } else {
+            $filesystem = Storage::disk($this->properties['disk'] ?? config('glide.disk'));
+        }
+
         $filesystem_cache = Storage::disk(config('glide.cache'));
 
         // Copy properties, and reset them.
@@ -112,15 +153,32 @@ class ImageService
     }
 
     /**
-     * Set disk where image is stored
+     * Set the image to load from the public folder
+     * Overrides any disk option set
      *
-     * @param string|null $disk
+     * @param bool $bool
      *
      * @return self
      */
     public function public(bool $bool = true): self
     {
         $this->props_single('public', $bool);
+
+        return $this;
+    }
+
+    /**
+     * Set the image to load from the resources folder
+     * Overrides any disk()/public() option set
+     *
+     * @param bool $bool
+     *
+     * @return self
+     */
+    public function resource(bool $bool = true): self
+    {
+        $this->props_single('resource', $bool);
+
         return $this;
     }
 
@@ -134,6 +192,7 @@ class ImageService
     public function disk(string $disk): self
     {
         $this->props_single('disk', $disk);
+
         return $this;
     }
 
@@ -143,7 +202,6 @@ class ImageService
      * Generate a URL for image processor
      *
      * @param string $path
-     * @param array $properties
      *
      * @return string
      */
@@ -152,8 +210,18 @@ class ImageService
         // Copy properties, and reset them.
         $properties = $this->properties;
         $this->reset();
-        // Generate a URL
-        return $this->urlBuilder->getUrl($path, $properties);
+
+        if(config('glide.standalone')) {
+            $str = '';
+            foreach($properties as $key => $property) {
+                $str .= '&' . $key . '=' . $property;
+            }
+            $url = $this->urlBuilder->getUrl($path, $properties);
+            $parse = parse_url($url);
+            return 'image.php?' . $parse['query']. '&path=' . substr($parse['path'], strlen('image.php//'));
+        }
+        return $this->urlBuilder->getUrl($path, $properties); // OG
+
     }
 
     /**
@@ -184,7 +252,7 @@ class ImageService
     {
         $str = '';
         foreach (config('glide.srcset') as $width) {
-            $img = (new self($this->properties));
+            $img = (new ImageService($this->properties));
             if ($modifiers) {
                 $modifiers($img, $width);
             } else {
@@ -195,7 +263,7 @@ class ImageService
 
         $this->reset();
 
-        return $str;
+        return rtrim($str, ',');
     }
 
     /**
@@ -243,7 +311,7 @@ class ImageService
     }
 
     /**
-     * Set device pixel ration
+     * Set device pixel ratio
      *
      * @param integer $amount Accepts 1 to 8
      *
@@ -273,11 +341,11 @@ class ImageService
     /**
      * Set the output format
      *
-     * @param string $type Accepts jpg, pjpg (progressive jpeg), png, gif, webp or avif. Defaults to png
+     * @param string $type Accepts jpg, pjpg (progressive jpeg), png, gif, webp or avif. Defaults to webp
      *
      * @return self
      */
-    public function format(string $type = 'png'): self
+    public function format(string $type = 'webp'): self
     {
         $this->props_single('fm', $type);
 
@@ -621,5 +689,17 @@ class ImageService
     private function props_array(array $array): void
     {
         $this->properties = array_merge($this->properties, $array);
+    }
+
+    /**
+     * Add multiple manipulation properties
+     *
+     * @param array $array
+     *
+     * @return void
+     */
+    private function cache_disk(array $array): void
+    {
+
     }
 }

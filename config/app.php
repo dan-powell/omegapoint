@@ -61,8 +61,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://omegapoint.lndo.site'),
-    'url_admin' => env('APP_URL_ADMIN', 'http://admin.omegapoint.lndo.site'),
+    'url' => env('APP_URL', 'https://omegapoint.lndo.site'),
+    'url_admin' => env('APP_URL_ADMIN', 'https://admin.omegapoint.lndo.site'),
+    'url_media' => env('APP_URL_MEDIA', 'https://media.omegapoint.lndo.site'),
 
     /*
     |--------------------------------------------------------------------------

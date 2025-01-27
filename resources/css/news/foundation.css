@@ -1,0 +1,225 @@
+/*  Foundation
+    Set core styles for basic elements/tags
+*/
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base);
+    font-optical-sizing: auto;
+    font-variation-settings:
+        "wdth" 100;
+}
+body {
+    font-family: var(--font-family);
+    text-rendering: optimizelegibility; /* Fix the character spacing for headings */
+    -webkit-font-smoothing: antialiased;
+    background: var(--theme-bg);
+    color: var(--color-text);
+}
+p {
+    margin: 0;
+    padding: 0;
+    line-height: var(--line-height-content);
+    color: var(--color-text);
+}
+a {
+    font-weight: bold;
+    color: var(--color-link);
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    &:hover {
+        color: var(--color-link-hover);
+        text-decoration: none;
+    }
+}
+small {
+    font-size: 0.8em;
+}
+sub,
+sup {
+    font-size: 0.6em;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.7em;
+}
+sub {
+    bottom: -0.2em;
+}
+/*  --- Headings ---
+    ------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    line-height: 1.1;
+    font-family: var(--font-family-heading);
+    word-break: break-word;
+    hyphens: auto;
+    hyphenate-limit-chars: 10 4 4;
+    text-wrap: balance;
+    strong,
+    em {
+        font-family: inherit;
+    }
+}
+h1 { font-size: var(--h1); }
+h2 { font-size: var(--h2); }
+h3 { font-size: var(--h3); }
+h4 { font-size: var(--h4); }
+h5 { font-size: var(--h5); }
+h6 { font-size: var(--h6); }
+
+/*  --- Lists ---
+    ------------------------------------------------------------------------- */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+ol {
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+    > li {
+        display: table;
+        counter-increment: item;
+        line-height: 1.4;
+        margin: 0.75em 0em;
+    }
+    > li:before {
+        content: counters(item, ".") ". ";
+        display: table-cell;
+        padding-right: 0.6em;
+        color: var(--theme-primary);
+        font-weight: bold;
+    }
+    li ol > li {
+        margin: 0.75em 0em;
+    }
+    li ol > li:before {
+        content: counters(item, ".") " ";
+    }
+}
+dl {
+    list-style-position: inside;
+    dt {
+        font-weight: bold;
+    }
+    dd {
+        margin-bottom: 10px;
+    }
+}
+
+/*  --- Blockquote ---
+    ------------------------------------------------------------------------- */
+
+blockquote {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-family-serif);
+    color: var(--color-blockquote);
+    font-style: italic;
+    font-size: 1.6em;
+    line-height: 1.1;
+    margin: 0;
+    &::before,
+    &::after {
+        flex: 1 1 auto;
+        display: block;
+        min-width: 2rem;
+        max-width: 2rem;
+        height: 2rem;
+        opacity: 0.8;
+        box-sizing: border-box;
+    }
+    &::before {
+        content: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%231A848D' d='M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z'></path></svg>");
+        margin-right: 1rem;
+        margin-bottom: auto;
+    }
+    &::after {
+        content: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%231A848D' d='M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z'></path></svg>");
+        margin-left: 1rem;
+        margin-top: auto;
+    }
+    * {
+        font-family: var(--font-family-serif);
+        color: var(--color-blockquote);
+    }
+}
+
+/*  --- Horizontal Rule ---
+    ------------------------------------------------------------------------- */
+
+hr {
+    border-top: rgba(0, 0, 0, 0.2) 2px dotted;
+}
+
+/*  --- Media ---
+    ------------------------------------------------------------------------- */
+
+img {
+    /* Make all images responsive by default */
+    display: block;
+    border: none;
+    max-width: 100%;
+    height: auto;
+}
+figure {
+
+}
+video {
+    width: 100%;
+    height: auto;
+}
+
+/*  --- Code & Pre ---
+    ------------------------------------------------------------------------- */
+
+code,
+pre {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-indent: 0;
+    white-space: pre-wrap;
+    line-height: var(--line-height-content);
+    font-size: .9em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    border-color: #ddd;
+    font-family: "Lucida Console", "DejaVu Sans Mono", "Ubuntu Mono", Monaco, monospace;
+}
+code {
+    display: inline;
+}
+
+/*  --- Table ---
+    ------------------------------------------------------------------------- */
+
+table {
+    width: 100%;
+    th {
+        background: rgba(0, 0, 0, 0.2);
+        text-align: left;
+    }
+    td,
+    th {
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    td {}
+}
+
+/*  --- Form ---
+    ------------------------------------------------------------------------- */
+
+textarea,
+input {
+
+}

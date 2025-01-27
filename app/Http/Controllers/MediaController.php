@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\MediaGetRequest;
 
-class ImageController extends Controller
+class MediaController extends Controller
 {
 
     // Returns an image from a particular disk & path
