@@ -1,0 +1,21 @@
+:root {
+    --color-bg: #000;
+    --color-primary: #fff;
+    --color-primary-invert: #000;
+    --color-secondary: #757575;
+    --color-active: #00FFFF;
+
+
+
+    --color-warning: #FF0400;
+
+    --color-line: var(--color-secondary);
+    --color-heading: var(--color-primary);
+    --color-body: var(--color-primary);
+    --color-link: var(--color-active);
+
+    --font-size-base: 20px;
+    --font-heading: "Righteous", serif;
+    --font-body: "Geo", serif;
+}
+

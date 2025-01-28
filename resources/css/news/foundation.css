@@ -5,25 +5,19 @@ html {
     scroll-behavior: smooth;
     font-size: var(--font-size-base);
     font-optical-sizing: auto;
-    font-variation-settings:
-        "wdth" 100;
+    font-variation-settings: "wdth" 100;
 }
 body {
-    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background: var(--color-bg);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-style: normal;
     text-rendering: optimizelegibility; /* Fix the character spacing for headings */
     -webkit-font-smoothing: antialiased;
-    background: var(--theme-bg);
-    color: var(--color-text);
-}
-p {
-    margin: 0;
-    padding: 0;
-    line-height: var(--line-height-content);
-    color: var(--color-text);
 }
 a {
-    font-weight: bold;
-    color: var(--color-link);
+    color: var(--color-active);
     transition: all 0.2s ease-in-out;
     text-decoration: none;
     &:hover {
@@ -49,9 +43,9 @@ sub {
 /*  --- Headings ---
     ------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
+    color: var(--color-heading);
     line-height: 1.1;
-    font-family: var(--font-family-heading);
+    font-family: var(--font-heading);
     word-break: break-word;
     hyphens: auto;
     hyphenate-limit-chars: 10 4 4;

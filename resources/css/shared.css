@@ -48,7 +48,3 @@
 ::view-transition-new(root) {
   animation: transitionIn 0.5s ;
 }
-
-body{
-  background-color: #333;
-}

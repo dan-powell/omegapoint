@@ -1,11 +1,1 @@
-body{
-    background-color: #004;
-    
-}
-
-.box {
-    &-inner {
-        padding: 50px;
-        background: pink;
-    }
-}
+/* dadassd */

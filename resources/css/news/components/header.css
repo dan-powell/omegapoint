@@ -1,10 +1,20 @@
-@keyframes ticker {
+@keyframes logo {
     0% {
-      transform: translate3d(0, 0, 0);
+        max-width: 999px;
     }
 
     100% {
-      transform: translate3d(-100%, 0, 0);
+        max-width: 0
+    }
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-100%, 0, 0);
     }
 }
 
@@ -12,28 +22,44 @@
     display: flex;
     gap: 1em;
     padding: 0.5em;
+    align-items: center;
 }
 
 .HeaderLogo {
+    flex: 0 0 auto;
     font-family: "Righteous", serif;
+    font-szie: 1em;
     text-transform: uppercase;
-    line-height: 1;
     &_link {
         display: flex;
-        color: #fff;
+        color: var(--color-primary);
         text-decoration: none;
-        font-size: 1.6em;
+        font-size: 3em;
+        line-height: 1;
+        &:hover,
+        &:focus {
+            .HeaderLogo_dynamic {
+                animation: none;
+                max-width: 999px;
+            }
+        }
     }
     &_dynamic {
-        color: #888;
+        color: var(--color-secondary);
         max-width: 0;
         overflow: hidden;
+        white-space: nowrap;
         transition: max-width .6s ease-in-out;
+        animation: logo .6s ease;
+        animation-delay: 1s;
+        animation-fill-mode: backwards;
+        animation-iteration-count: 1;
     }
-    &:hover & {
-        &_dynamic {
-            max-width: 999px;
-        }
+}
+
+@keyframes linearGradientMove {
+    100% {
+        background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px;
     }
 }
 
@@ -41,7 +67,35 @@
     display: flex;
     gap: 0.25em;
     &_button {
-        width: 2em;
+        /* width: 2em; */
+        background: none;
+        border: none;
+        transition: background-color .2s ease-in-out;
+        /* border: 2px dashed var(--color-active); */
+        /* border: 2px solid transparent; */
+        /* box-sizing: content-box; */
+        background: 
+            linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
+            linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
+            linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y,
+            linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y;
+        background-size: 8px 2px, 8px 2px, 2px 8px, 2px 8px;
+        background-position: 0 0, 0 100%, 0 0, 100% 0;
+        animation: linearGradientMove .3s infinite linear;
+
+        &:hover {
+            cursor: pointer;
+            background: var(--color-primary);
+        }
+        &:hover & {
+            &_icon {
+                stroke: var(--color-primary-invert);
+            }
+        }
+        &_icon {
+            width: 2.6em;
+            stroke: var(--color-primary);
+        }
     }
 }
 
@@ -82,8 +136,10 @@
     &_link {
         font-family: var(--font-heading);
         color: var(--color-heading);
-        font-size: 2rem;
+        font-size: 1.6rem;
         text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 300;
         &:hover,
         &:focus {
             color: var(--color-link);
