@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models\Weather;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Prediction extends Model
+{
+
+    use HasFactory;
+
+    protected $table = 'weather_prediction';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'start',
+        'end',
+        'type',
+        'temperature_min',
+        'temperature_max',
+        'windspeed_min',
+        'windspeed_max',
+        'radiation_min',
+        'radiation_max',
+        'pressure_min',
+        'pressure_max',
+        'humidity_min',
+        'humidity_max',
+        'precipitation_min',
+        'precipitation_max',
+    ];
+
+}

@@ -16,8 +16,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call([
-            AreaSeeder::class,
-            NewsSeeder::class
+            // AreaSeeder::class,
+            WeatherSeeder::class,
+            // NewsSeeder::class
         ]);
     }
 }

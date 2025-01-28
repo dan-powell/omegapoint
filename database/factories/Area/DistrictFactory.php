@@ -2,6 +2,7 @@
 
 namespace Database\Factories\Area;
 
+use App\Enum\Area\Tier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class DistrictFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->sentence(1)
+            'name' => fake()->sentence(1), 
+            'tier' => Tier::cases()[array_rand(Tier::cases(), 1)]->value
         ];
     }
 }
