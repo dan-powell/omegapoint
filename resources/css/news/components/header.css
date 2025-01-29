@@ -28,7 +28,7 @@
 .HeaderLogo {
     flex: 0 0 auto;
     font-family: "Righteous", serif;
-    font-szie: 1em;
+    font-size: 1em;
     text-transform: uppercase;
     &_link {
         display: flex;
@@ -74,7 +74,7 @@
         /* border: 2px dashed var(--color-active); */
         /* border: 2px solid transparent; */
         /* box-sizing: content-box; */
-        background: 
+        background:
             linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
             linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
             linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y,

@@ -7,5 +7,5 @@
 
 @section('body')
     @include('news.components.header')
-    @yield('content')
+    @yield('main')
 @endsection

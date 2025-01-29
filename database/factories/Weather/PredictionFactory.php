@@ -30,7 +30,7 @@ class PredictionFactory extends Factory
 
         return [
             'start' => $start,
-            'end' => Carbon::parse($start)->addHour()->toFormattedDateString(),
+            'end' => Carbon::parse($start)->addHour()->toIso8601String(),
             'type' => Type::cases()[array_rand(Type::cases(), 1)]->value,
             'temperature_min' => $temperature_min,
             'temperature_max' => $temperature_min + rand(0, 30),
@@ -57,6 +57,7 @@ class PredictionFactory extends Factory
         return $this->state(function (array $attributes) use ($start) {
             return [
                 'start' => $start,
+                'end' => Carbon::parse($start)->addHour()->toIso8601String(),
             ];
         });
     }

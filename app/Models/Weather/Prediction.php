@@ -32,4 +32,12 @@ class Prediction extends Model
         'precipitation_max',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'start' => 'datetime',
+            'end' => 'datetime',
+        ];
+    }
+
 }
