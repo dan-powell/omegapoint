@@ -3,9 +3,12 @@
 @import 'news/config.css';
 @import 'news/foundation.css';
 @import 'news/layouts/default.css';
+
 @import 'news/components/header.css';
-
-
+@import 'news/components/ticker.css';
+@import 'news/components/top.css';
+@import 'news/components/clock.css';
+@import 'news/components/weather.css';
 
 
 

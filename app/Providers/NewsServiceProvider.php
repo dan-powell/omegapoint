@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Composers\News\ArticleComposer;
+use App\Composers\News\ClockComposer;
 use App\Composers\News\WeatherComposer;
-use App\Composers\NewsHeaderComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,8 +24,13 @@ class NewsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(
-            ['news.components.header'],
-            NewsHeaderComposer::class
+            ['news.components.ticker'],
+            ArticleComposer::class
+        );
+
+        View::composer(
+            ['news.components.clock'],
+            ClockComposer::class
         );
 
         View::composer(

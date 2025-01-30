@@ -1,0 +1,9 @@
+.Weather {
+    display: flex;
+    gap: 1em;
+    &_track {
+        display: flex;
+        gap: 1em;
+        overflow-x: clip;
+    }
+}

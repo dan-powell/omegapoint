@@ -16,10 +16,13 @@ class WeatherSeeder extends Seeder
     {
         Prediction::factory()
             ->count(20)
-            ->sequence(fn (Sequence $sequence) => [
-                'start' => Carbon::now()->addHours($sequence->index)->toIso8601String(),
-                'end' => Carbon::now()->addHours($sequence->index + 1)->toIso8601String()
-                ])
+            ->sequence(function (Sequence $sequence) {
+                $start = Carbon::now()->addHours($sequence->index);
+                return [
+                    'start' => $start->toIso8601String(),
+                    'end' => $start->addMinutes(59)->toIso8601String()
+                ];
+            })
             ->create();
     }
 }

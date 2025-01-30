@@ -26,13 +26,6 @@
             </svg>
         </button>
     </div>
-    <div class="HeaderTicker">
-        <div class="HeaderTicker_track">
-            <ul class="HeaderTicker_list">
-                @foreach($ticker as $article)
-                    <li class="HeaderTicker_item"><a class="HeaderTicker_link" href="{{ route('news.article.show', ['id' => $article->id]) }}">{{ $article->title }}</a></li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
+    @include('news.components.ticker')
+
 </header>

@@ -2,6 +2,8 @@
 
 @push('head')
     <title>Basic Blade Layout Template</title>
+    @livewireStyles
+    @livewireScripts
     @vite(['resources/css/news.css', 'resources/js/news.js'])
 @endpush
 

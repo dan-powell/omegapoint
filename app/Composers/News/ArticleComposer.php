@@ -1,11 +1,11 @@
 <?php 
 
-namespace App\Composers;
+namespace App\Composers\News;
 
 use Illuminate\View\View;
 use App\Models\News\Article;
 
-class NewsHeaderComposer
+class ArticleComposer
 {
 
     /**
@@ -15,6 +15,6 @@ class NewsHeaderComposer
      */
     public function compose(View $view)
     {
-        $view->with('ticker', Article::orderBy('date')->limit(6)->get(['id', 'title'])->shuffle());
+        $view->with('articles', Article::orderBy('date')->limit(6)->get(['id', 'title'])->shuffle());
     }
 }
