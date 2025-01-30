@@ -2,6 +2,8 @@
 
 namespace App\Models\Weather;
 
+use App\Enum\Weather\Type;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -38,6 +40,13 @@ class Prediction extends Model
             'start' => 'datetime',
             'end' => 'datetime',
         ];
+    }
+
+    protected function typeIcon(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Type::from($this->type)->icon(),
+        );
     }
 
 }

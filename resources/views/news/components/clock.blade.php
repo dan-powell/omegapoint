@@ -1,7 +1,10 @@
 <div class="Clock" x-data="clock('{{ $time->format('d/M/Y H:i:s') }}')">
     <div class="Clock_time">
-        <time class="Clock_time_time" datetime="{{ $time->format('H:i:s') }}" x-text="formatTime()">
-            {{ $time->format('Hi') }}</time>
+        <time class="Clock_time_time" datetime="{{ $time->format('H:i:s') }}">
+            <span x-text="formatHours()">{{ $time->format('H') }}</span>
+            <span x-text="formatMinutes()">{{ $time->format('i') }}</span>
+            <span x-text="formatSeconds()">{{ $time->format('s') }}</span>
+        </time>
         <p class="Clock_time_zone">OPST</p>
     </div>
     <div class="Clock_stars">
@@ -31,14 +34,14 @@
             formatDate() {
                 return ((Date.UTC(this.currentTime.getFullYear(), this.currentTime.getMonth(), this.currentTime.getDate()) - Date.UTC(this.currentTime.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000) + '|' + this.currentTime.getFullYear();
             },
-            formatTime() {
-                return (
-                    ((this.currentTime.getHours() < 10) ? "0" + this.currentTime.getHours() : this.currentTime.getHours())
-                    + '' + 
-                    ((this.currentTime.getMinutes() < 10) ? "0" + this.currentTime.getMinutes() : this.currentTime.getMinutes()) 
-                    + '' + 
-                    ((this.currentTime.getSeconds() < 10) ? "0" + this.currentTime.getSeconds() : this.currentTime.getSeconds())
-                ) 
+            formatHours() {
+                return (((this.currentTime.getHours() < 10) ? "0" + this.currentTime.getHours() : this.currentTime.getHours()))
+            },
+            formatMinutes() {
+                return ((this.currentTime.getMinutes() < 10) ? "0" + this.currentTime.getMinutes() : this.currentTime.getMinutes())
+            },
+            formatSeconds() {
+                return ((this.currentTime.getSeconds() < 10) ? "0" + this.currentTime.getSeconds() : this.currentTime.getSeconds())
             },
 
             // Update the time every second

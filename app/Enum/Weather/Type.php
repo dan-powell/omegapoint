@@ -10,28 +10,28 @@ enum Type: string
 
     public function name(): string
     {
-        return match($this) 
+        return match($this)
         {
-            Type::SUNNY => 'Sunny',   
-            Type::CLOUDY => 'Cloudy',   
-            Type::WINDY => 'Windy',   
+            Type::SUNNY => 'Sunny',
+            Type::CLOUDY => 'Cloudy',
+            Type::WINDY => 'Windy',
         };
     }
 
     public function icon(): string
     {
-        return match($this) 
+        return match($this)
         {
-            Type::SUNNY => 'sunny',   
-            Type::CLOUDY => 'cloudy',   
-            Type::WINDY => 'windy',   
+            Type::SUNNY => 'sun-light.svg',
+            Type::CLOUDY => 'cloud.svg',
+            Type::WINDY => 'wind.svg',
         };
     }
 
     public static function values(): array
     {
         $arr = [];
-        foreach(Type::cases() as $tier) 
+        foreach(Type::cases() as $tier)
         {
             $arr[$tier->value] =  $tier->name();
         }

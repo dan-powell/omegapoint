@@ -1,10 +1,11 @@
 .Clock {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         "time stars"
         "time moons"
         "time date";
     gap: 0.5em;
+    white-space: nowrap;
     &_time {
         grid-area: time;
         display: flex;
@@ -16,7 +17,7 @@
         background-size: contain;
         text-align: center;
         &_time {
-            font-size:2.4em;
+            font-size: clamp(2em, 2.5vw, 3em);
             width: 6ch;
             letter-spacing: -.1em;
         }

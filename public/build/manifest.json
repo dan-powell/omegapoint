@@ -5,7 +5,7 @@
     "isEntry": true
   },
   "resources/css/news.css": {
-    "file": "assets/news-CulmoWn0.css",
+    "file": "assets/news-C4DOeloZ.css",
     "src": "resources/css/news.css",
     "isEntry": true
   },
@@ -17,6 +17,10 @@
   "resources/img/button.svg": {
     "file": "assets/button-DIF3ZlFh.svg",
     "src": "resources/img/button.svg"
+  },
+  "resources/img/news/triangle_inverted.svg": {
+    "file": "assets/triangle_inverted-BTnxcuMb.svg",
+    "src": "resources/img/news/triangle_inverted.svg"
   },
   "resources/js/home.js": {
     "file": "assets/home-l0sNRNKZ.js",

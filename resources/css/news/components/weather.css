@@ -3,7 +3,56 @@
     gap: 1em;
     &_track {
         display: flex;
-        gap: 1em;
+        gap: 2em;
         overflow-x: clip;
+    }
+    &_prediction {
+        display: grid;
+        gap: 0 0.5em;
+        grid-template-areas:
+            "timespan icon temperature"
+            "timespan icon windspeed"
+            "timespan icon radiation"
+            "timespan icon pressure"
+            "timespan icon humidity"
+            "timespan icon precipitation";
+        &_timespan {
+            grid-area: timespan;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-align: center;
+        }
+        &_icon {
+            grid-area: icon;
+            svg {
+                height: 100%;
+                width: 4em;
+                aspect-ratio: 1 / 1;
+                /* fill: #fff; */
+                stroke: #fff;
+                stroke-width: 1px;
+            }
+        }
+        &_stat {
+            white-space: nowrap;
+            &.-temperature {
+                grid-area: temperature;
+            }
+            &.-windspeed {
+                grid-area: windspeed;
+            }
+            &.-radiation {
+                grid-area: radiation;
+            }
+            &.-pressure {
+                grid-area: pressure;
+            }
+            &.-humidity {
+                grid-area: humidity;
+            }
+            &.-precipitation {
+                grid-area: precipitation;
+            }
+        }
     }
 }
