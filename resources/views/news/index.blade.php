@@ -20,7 +20,9 @@
 @endsection
 
 @section('center')
-    <img src="{{ Vite::asset('resources/img/news/test/thumb2.jpg') }}"/>
+    <div class="Image">
+        <img src="{{ Vite::asset('resources/img/news/test/thumb2.jpg') }}"/>
+    </div>
     <p>You're correct that the directive in Laravel Blade templates is designed for including other template files, not directly for including HTML content like an SVG file.</p>
 @endsection
 
