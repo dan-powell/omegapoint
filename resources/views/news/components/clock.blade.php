@@ -1,9 +1,9 @@
 <div class="Clock" x-data="clock('{{ $time->format('d/M/Y H:i:s') }}')">
     <div class="Clock_time">
         <time class="Clock_time_time" datetime="{{ $time->format('H:i:s') }}">
-            <span x-text="formatHours()">{{ $time->format('H') }}</span>
-            <span x-text="formatMinutes()">{{ $time->format('i') }}</span>
-            <span x-text="formatSeconds()">{{ $time->format('s') }}</span>
+            <span class="Clock_time_unit" x-text="formatHours()">{{ $time->format('H') }}</span>
+            <span class="Clock_time_unit" x-text="formatMinutes()">{{ $time->format('i') }}</span>
+            <span class="Clock_time_unit" x-text="formatSeconds()">{{ $time->format('s') }}</span>
         </time>
         <p class="Clock_time_zone">OPST</p>
     </div>

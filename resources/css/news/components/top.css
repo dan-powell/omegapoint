@@ -1,4 +1,5 @@
 .Top {
     display: flex;
-    gap: 1em;
+    gap: 4em;
+    align-items: center;
 }

@@ -1,0 +1,10 @@
+.Stats {
+    color: var(--color-secondary);
+    &_list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &_stat {
+        flex: 1 1 50%;
+    }
+}

@@ -1,40 +1,44 @@
 .Weather {
     display: flex;
     gap: 1em;
+    color: var(--color-secondary);
     &_track {
         display: flex;
         gap: 2em;
         overflow-x: clip;
+        align-items: center;
     }
     &_prediction {
         display: grid;
-        gap: 0 0.5em;
+        gap: 0 1em;
         grid-template-areas:
-            "timespan icon temperature"
-            "timespan icon windspeed"
-            "timespan icon radiation"
-            "timespan icon pressure"
-            "timespan icon humidity"
-            "timespan icon precipitation";
+            "timespan stats"
+            "icon stats";
         &_timespan {
             grid-area: timespan;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
             text-align: center;
+            white-space: nowrap;
+            color: var(--color-secondary);
         }
         &_icon {
             grid-area: icon;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             svg {
                 height: 100%;
-                width: 4em;
+                width: 3em;
                 aspect-ratio: 1 / 1;
-                /* fill: #fff; */
-                stroke: #fff;
+                stroke: var(--color-secondary);
                 stroke-width: 1px;
             }
         }
+        &_stats {
+            grid-area: stats;
+        }
         &_stat {
             white-space: nowrap;
+            font-size: 0.8em;
             &.-temperature {
                 grid-area: temperature;
             }
