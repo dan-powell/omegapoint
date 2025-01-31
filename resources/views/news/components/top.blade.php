@@ -1,8 +1,8 @@
 <div class="Top">
-    <div class="Top_clock">
+    <div class="Top-clock">
         @include('news.components.clock')
     </div>
-    <div class="Top_weather">
+    <div class="Top-weather">
         @include('news.components.weather')
     </div>
 </div>

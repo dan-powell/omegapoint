@@ -6,7 +6,7 @@
         "time date";
     gap: 0.5em;
     white-space: nowrap;
-    &_time {
+    &-time {
         grid-area: time;
         display: flex;
         flex-direction: column;
@@ -16,30 +16,30 @@
         background-repeat: no-repeat;
         background-size: contain;
         text-align: center;
-        &_time {
+        &-time {
             display: flex;
             font-family: var(--font-heading);
             font-size: 2.5em;
             /* letter-spacing: -.1em; */
         }
-        &_unit {
+        &-unit {
             display: inline-block;
             width: 2ch;
         }
-        &_zone {
+        &-zone {
             font-size: 1.5em;
             font-family: var(--font-heading);
         }
     }
-    &_stars {
+    &-stars {
         grid-area: stars;
         color: var(--color-secondary);
     }
-    &_moons {
+    &-moons {
         grid-area: moons;
         color: var(--color-secondary);
     }
-    &_date {
+    &-date {
         grid-area: date;
         font-size:1.4em;
         color: var(--color-secondary);

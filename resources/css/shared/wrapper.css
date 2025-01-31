@@ -1,6 +1,6 @@
 .Wrapper {
     overflow-x: hidden;
-    &_button {
+    &-button {
         position: fixed;
         top: 0px; 
         right: 0px;
@@ -19,7 +19,7 @@
             background-position: 0 0;
         }
     }
-    &_overlay {
+    &-overlay {
         position: fixed;
         top: 0px; 
         left: 100%;
@@ -37,8 +37,8 @@
             opacity: 1;
             left: 0;
         }
-        &_nav {
-            &_link {
+        &-nav {
+            &-link {
                 display: inline-block;
                 font-family: arial;
                 text-transform: uppercase;

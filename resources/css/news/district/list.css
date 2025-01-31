@@ -1,19 +1,19 @@
 .DistrictList {
-    &_list {
+    &-list {
         display: flex;
         gap: 0.25em;
         flex-wrap: wrap;
     }
-    &_item {
-        &_checkbox {
+    &-item {
+        &-checkbox {
             display: none;
         }
-        &_label {
+        &-label {
             @mixin button;
             text-transform: uppercase;
             color: var(--color-primary);
         }
-        &_checkbox:checked + &_label {
+        &-checkbox:checked + &-label {
             color: var(--color-invert);
             &::after, 
             &::before {

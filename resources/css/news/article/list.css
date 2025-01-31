@@ -1,5 +1,5 @@
 .ArticleList {
-    &_list {
+    &-list {
         --gap: 2em;
         --columns: 3;
         display: flex;

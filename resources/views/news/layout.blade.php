@@ -9,20 +9,20 @@
 
 @section('body')
     <div class="Layout">
-        <div class="Layout_header">
+        <div class="Layout-header">
             @include('news.components.header')
         </div>
-        <div class="Layout_main">
+        <div class="Layout-main">
             @yield('main')
         </div>
-        <div class="Layout_main">
-            <div class="Layout_sidebar">
+        <div class="Layout-main">
+            <div class="Layout-sidebar">
                 @yield('sidebar')
             </div>
-            <div class="Layout_center">
+            <div class="Layout-center">
                 @yield('center')
             </div>
-            <div class="Layout_aside">
+            <div class="Layout-aside">
                 @yield('aside')
             </div>
         </div>

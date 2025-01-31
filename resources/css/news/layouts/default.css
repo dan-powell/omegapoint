@@ -1,11 +1,11 @@
 .Layout {
-    &_main {
+    &-main {
         display: flex;
     }
-    &_sidebar {
+    &-sidebar {
         flex: 0 0 var(--sidebar-width);
     }
-    &_center {
+    &-center {
         --cut: 3rem;
         flex: 1 1 50%;
         /* border: 1px solid var(--color-line); */
@@ -37,7 +37,7 @@
             border-width: 0px 0px 1px 1px;
         }
     }
-    &_aside {
+    &-aside {
         flex: 0 0 var(--aside-width);
     }
 }

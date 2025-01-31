@@ -1,25 +1,25 @@
 <div class="Clock" x-data="clock('{{ $time->format('d/M/Y H:i:s') }}')">
-    <div class="Clock_time">
-        <time class="Clock_time_time" datetime="{{ $time->format('H:i:s') }}">
-            <span class="Clock_time_unit" x-text="formatHours()">{{ $time->format('H') }}</span>
-            <span class="Clock_time_unit" x-text="formatMinutes()">{{ $time->format('i') }}</span>
-            <span class="Clock_time_unit" x-text="formatSeconds()">{{ $time->format('s') }}</span>
+    <div class="Clock-time">
+        <time class="Clock-time-time" datetime="{{ $time->format('H:i:s') }}">
+            <span class="Clock-time-unit" x-text="formatHours()">{{ $time->format('H') }}</span>
+            <span class="Clock-time-unit" x-text="formatMinutes()">{{ $time->format('i') }}</span>
+            <span class="Clock-time-unit" x-text="formatSeconds()">{{ $time->format('s') }}</span>
         </time>
-        <p class="Clock_time_zone">OPST</p>
+        <p class="Clock-time-zone">OPST</p>
     </div>
-    <div class="Clock_stars">
+    <div class="Clock-stars">
         @foreach($stars as $star)
             {{ $star['rise']->format('H:i') }}
             {{ $star['set']->format('H:i') }}
         @endforeach
     </div>
-    <div class="Clock_moons">
+    <div class="Clock-moons">
         @foreach($moons as $moon)
             {{ $moon['phase'] }}
         @endforeach
     </div>
-    <div class="Clock_date">
-        <time class="Clock_date_date" datetime="{{ $time->format('d/m/Y') }}" x-text="formatDate()">{{ $time->format('z|Y') }}</span>
+    <div class="Clock-date">
+        <time class="Clock-date-date" datetime="{{ $time->format('d/m/Y') }}" x-text="formatDate()">{{ $time->format('z|Y') }}</span>
     </div>
 </div>
 

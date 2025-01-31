@@ -5,7 +5,7 @@
             <option value="desc">Descending</option>
         </select>
     </form>
-    <div class="ArticleList_list">
+    <div class="ArticleList-list">
         @foreach($articles as $article)
             @include('news/article/excerpt', ['article' => $article])
         @endforeach

@@ -17,7 +17,7 @@
     font-family: "Righteous", serif;
     font-size: 1em;
     text-transform: uppercase;
-    &_link {
+    &-link {
         display: flex;
         color: var(--color-primary);
         text-decoration: none;
@@ -25,13 +25,13 @@
         line-height: 1;
         &:hover,
         &:focus {
-            .HeaderLogo_dynamic {
+            .HeaderLogo-dynamic {
                 animation: none;
                 max-width: 999px;
             }
         }
     }
-    &_dynamic {
+    &-dynamic {
         color: var(--color-secondary);
         max-width: 0;
         overflow: hidden;
@@ -51,7 +51,7 @@
             background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px;
         }
     }
-    &_button {
+    &-button {
         /* width: 2em; */
         background: none;
         border: none;
@@ -73,11 +73,11 @@
             background: var(--color-primary);
         }
         &:hover & {
-            &_icon {
+            &-icon {
                 stroke: var(--color-primary-invert);
             }
         }
-        &_icon {
+        &-icon {
             width: 2.6em;
             stroke: var(--color-primary);
         }

@@ -1,9 +1,9 @@
 <div class="DistricList">
-    <div class="DistricList_list">
+    <div class="DistricList-list">
         @foreach($districts as $district)
-            <label class="DistrictList_item">
-                <input class="DistrictList_item_checkbox" type="checkbox" wire:model.live="chosenDistricts" value="{{ $district->id }}">
-                <span class="DistrictList_item_label">{{ $district->name }}<span>
+            <label class="DistrictList-item">
+                <input class="DistrictList-item-checkbox" type="checkbox" wire:model.live="chosenDistricts" value="{{ $district->id }}">
+                <span class="DistrictList-item-label">{{ $district->name }}<span>
             </label>
         @endforeach
     </div>

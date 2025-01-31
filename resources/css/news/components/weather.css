@@ -2,25 +2,25 @@
     display: flex;
     gap: 1em;
     color: var(--color-secondary);
-    &_track {
+    &-track {
         display: flex;
         gap: 2em;
         overflow-x: clip;
         align-items: center;
     }
-    &_prediction {
+    &-prediction {
         display: grid;
         gap: 0 1em;
         grid-template-areas:
             "timespan stats"
             "icon stats";
-        &_timespan {
+        &-timespan {
             grid-area: timespan;
             text-align: center;
             white-space: nowrap;
             color: var(--color-secondary);
         }
-        &_icon {
+        &-icon {
             grid-area: icon;
             display: flex;
             justify-content: center;
@@ -33,10 +33,10 @@
                 stroke-width: 1px;
             }
         }
-        &_stats {
+        &-stats {
             grid-area: stats;
         }
-        &_stat {
+        &-stat {
             white-space: nowrap;
             font-size: 0.9em;
             &.-temperature {

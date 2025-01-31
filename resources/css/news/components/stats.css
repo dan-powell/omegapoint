@@ -1,11 +1,11 @@
 .Stats {
     color: var(--color-secondary);
     padding: var(--box-padding);
-    &_list {
+    &-list {
         display: flex;
         flex-wrap: wrap;
     }
-    &_stat {
+    &-stat {
         flex: 1 1 50%;
     }
 }

@@ -1,8 +1,8 @@
 <div class="Ticker">
-    <div class="Ticker_track">
-        <ul class="Ticker_list">
+    <div class="Ticker-track">
+        <ul class="Ticker-list">
             @foreach($ticker as $article)
-                <li class="Ticker_item"><a class="Ticker_link" href="{{ route('news.article.show', ['id' => $article->id]) }}">{{ $article->title }}</a></li>
+                <li class="Ticker-item"><a class="Ticker-link" href="{{ route('news.article.show', ['id' => $article->id]) }}">{{ $article->title }}</a></li>
             @endforeach
         </ul>
     </div>

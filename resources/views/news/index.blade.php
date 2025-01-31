@@ -7,13 +7,13 @@
 
 @section('sidebar')
     <div class="Stats">
-        <ul class="Stats_list">
-            <li class="Stats_stat">230/4000</li>
-            <li class="Stats_stat">!3234</li>
-            <li class="Stats_stat">234/432</li>
-            <li class="Stats_stat">230/4000</li>
-            <li class="Stats_stat">!3234</li>
-            <li class="Stats_stat">234/432</li>
+        <ul class="Stats-list">
+            <li class="Stats-stat">230/4000</li>
+            <li class="Stats-stat">!3234</li>
+            <li class="Stats-stat">234/432</li>
+            <li class="Stats-stat">230/4000</li>
+            <li class="Stats-stat">!3234</li>
+            <li class="Stats-stat">234/432</li>
         </ul>
     </div>
     <h3 class="divider" title="Subject"><span>Subject</span></h3>
