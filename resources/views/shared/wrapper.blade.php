@@ -8,7 +8,7 @@
 </head>
 <body class="Wrapper">
     <button class="Wrapper_button js-overlay">
-        <span class="u-sronly">Navigation</span>
+        <span class="sronly">Navigation</span>
     </button>
     <div class="Wrapper_overlay">
         <ul class="Wrapper_overlay_nav">

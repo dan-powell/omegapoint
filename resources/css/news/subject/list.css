@@ -1,0 +1,27 @@
+.SubjectList {
+    &_list {
+        display: flex;
+        gap: 0.25em;
+        flex-wrap: wrap;
+    }
+    &_item {
+        &_checkbox {
+            display: none;
+        }
+        &_label {
+            @mixin button;
+            text-transform: uppercase;
+            color: var(--color-primary);
+        }
+        &_checkbox:checked + &_label {
+            color: var(--color-invert);
+            &::after, 
+            &::before {
+                background: var(--color-primary);
+            }
+        }
+    }
+    label {
+        cursor: pointer;
+    }
+}

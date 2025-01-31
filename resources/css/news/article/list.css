@@ -1,9 +1,12 @@
 .ArticleList {
     &_list {
+        --gap: 2em;
+        --columns: 3;
         display: flex;
         flex-wrap: wrap;
+        gap: var(--gap);
         > * {
-            flex: 1 1 30%;
+            flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
         }
     }
 }

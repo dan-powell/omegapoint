@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index(): View
     {
         return view('news.index', [
-            
+            'lead' => Article::latest()
         ]);
     }
     /**

@@ -1,0 +1,33 @@
+@define-mixin button {
+    display: inline-block;
+    --cut: 0.5em;
+    min-height: var(--cut);
+    position: relative;
+    border-right: 1px solid var(--color-line);
+    overflow: hidden;
+    padding: 0.25em 0.5em;
+    transition: all .2s ease-in-out;
+    &:after,
+    &:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        left: 0px;
+        z-index: -1;
+        transition: all .2s ease-in-out;
+    }
+    &:before {
+        height: var(--cut);
+        top: 0;
+        border: 1px solid var(--color-line);
+        border-width: 1px 1px 0px 2px;
+        transform: skew(-45deg);
+        transform-origin: right bottom;
+    }
+    &:after {
+        height: calc(100% - var(--cut) - 2px);
+        bottom: 0px;
+        border: 1px solid var(--color-line);
+        border-width: 0px 0px 1px 1px;
+    }
+}

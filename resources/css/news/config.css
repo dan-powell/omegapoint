@@ -1,11 +1,13 @@
 :root {
-    --color-bg: #000;
+    
     --color-primary: #fff;
     --color-primary-invert: #000;
     --color-secondary: #757575;
     --color-active: #00FFFF;
     --color-subtle:rgb(44, 44, 44);
+    --color-invert: #000;
 
+    --color-bg: var(--color-invert);
 
     --color-warning: #FF0400;
 
@@ -21,7 +23,7 @@
     --gap: 1em;
     --box-padding: 1em;
 
-    --sidebar-width: 20%;
-    --aside-width: 200px;
+    --sidebar-width: clamp(200px, 20vw, 450px);
+    --aside-width: clamp(200px, 20vw, 450px);
 }
 
