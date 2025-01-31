@@ -1,10 +1,9 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
-    <select wire:model.live="subject">
-        @foreach($subjects as $subject)
-            <option value="{{ $subject->id }}">
-                {{ $subject->name }}
-            </option>
-        @endforeach
-    </select>
+    @foreach($subjects as $subject)
+        <label>
+            <input type="checkbox" wire:model.live="chosenSubjects" value="{{ $subject->id }}">
+            {{ $subject->name }}
+        </label>
+    @endforeach
 </div>

@@ -9,11 +9,11 @@ use Livewire\Component;
 class SubjectList extends Component
 {
     public Collection $subjects;
-    public string $subject;
+    public array $chosenSubjects = [];
 
-    public function updated($name, $value): void
+    public function updated(): void
     {
-        $this->dispatch($name . 'Changed', $value)->to('news.article-list');
+        $this->dispatch('chosenSubjectsChanged', $this->chosenSubjects)->to('news.article-list');
     }
 
     public function resetFiltering(): void

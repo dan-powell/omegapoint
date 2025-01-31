@@ -13,15 +13,15 @@ class ArticleList extends Component
 
     public string $direction = 'asc';
     public Collection $articles;
-    public ?string $subject = null;
+    public ?array $subjects = null;
 
     public function render()
     {
         $query = Article::limit(10)
             ->orderBy('date', $this->direction);
-            if($this->subject) {
+            if($this->subjects) {
                 $query->whereHas('subjects', function (Builder $query) {
-                    $query->where('id', $this->subject);
+                    $query->whereIn('id', $this->subjects);
                 });
             }
 
@@ -29,10 +29,10 @@ class ArticleList extends Component
         return view('livewire.news.article-list');
     }
 
-    #[On('subjectChanged')]
+    #[On('chosenSubjectsChanged')]
     public function subjectChanged($value): void
     {
-        $this->subject = $value;
+        $this->subjects = $value;
     }
 
     #[On('resetFiltering')]
