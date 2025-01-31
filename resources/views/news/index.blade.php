@@ -17,6 +17,7 @@
         </ul>
     </div>
     <h3 class="divider" title="Subject"><span>Subject</span></h3>
+    @livewire('news.subject-list')
 @endsection
 
 @section('center')
