@@ -5,10 +5,13 @@ namespace App\Livewire\News;
 use App\Models\News\Subject;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
+use Livewire\Attributes\Url;
 
 class SubjectList extends Component
 {
     public Collection $subjects;
+
+    #[Url(as: 'sub', history: true)]
     public array $chosenSubjects = [];
 
     public function updated(): void
