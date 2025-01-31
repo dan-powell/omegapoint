@@ -1,0 +1,9 @@
+.ArticleList {
+    &_list {
+        display: flex;
+        flex-wrap: wrap;
+        > * {
+            flex: 1 1 30%;
+        }
+    }
+}

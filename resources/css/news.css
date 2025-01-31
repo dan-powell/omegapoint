@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Righteous&display=swap');
 
 @import 'news/config.css';
+
+@import 'news/utilities/media.css';
+@import 'news/utilities/divider.css';
+
 @import 'news/foundation.css';
 @import 'news/layouts/default.css';
 
@@ -9,7 +13,6 @@
 @import 'news/components/top.css';
 @import 'news/components/clock.css';
 @import 'news/components/weather.css';
-
 @import 'news/components/stats.css';
 
-
+@import 'news/article/list.css';

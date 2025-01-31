@@ -4,7 +4,7 @@
     --color-primary-invert: #000;
     --color-secondary: #757575;
     --color-active: #00FFFF;
-
+    --color-subtle:rgb(44, 44, 44);
 
 
     --color-warning: #FF0400;
@@ -17,5 +17,11 @@
     --font-size-base: 20px;
     --font-heading: "Righteous", serif;
     --font-body: "Geo", serif;
+
+    --gap: 1em;
+    --box-padding: 1em;
+
+    --sidebar-width: 20%;
+    --aside-width: 200px;
 }
 

@@ -1,5 +1,6 @@
 .Stats {
     color: var(--color-secondary);
+    padding: var(--box-padding);
     &_list {
         display: flex;
         flex-wrap: wrap;

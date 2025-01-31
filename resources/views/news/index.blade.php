@@ -16,16 +16,16 @@
             <li class="Stats_stat">234/432</li>
         </ul>
     </div>
-    <hr/>
+    <h3 class="divider" title="Subject"><span>Subject</span></h3>
 @endsection
 
 @section('center')
-    <div class="Image">
-        <img src="{{ Vite::asset('resources/img/news/test/thumb2.jpg') }}"/>
-    </div>
-    <p>You're correct that the directive in Laravel Blade templates is designed for including other template files, not directly for including HTML content like an SVG file.</p>
+    @livewire('news.article-list')
 @endsection
 
 @section('aside')
-    <hr/>
+    <h3 class="divider" title="Media"><span>Media</span></h3>
+    <div class="media -scanlines">
+        <img src="{{ Vite::asset('resources/img/news/test/advert2.jpg') }}"/>
+    </div>
 @endsection

@@ -8,18 +8,23 @@
 @endpush
 
 @section('body')
-    @include('news.components.header')
-    @yield('main')
     <div class="Layout">
-        <div class="Layout_sidebar">
-            @yield('sidebar')
+        <div class="Layout_header">
+            @include('news.components.header')
         </div>
-        <div class="Layout_center">
-            @yield('center')
-
+        <div class="Layout_main">
+            @yield('main')
         </div>
-        <div class="Layout_aside">
-            @yield('aside')
+        <div class="Layout_main">
+            <div class="Layout_sidebar">
+                @yield('sidebar')
+            </div>
+            <div class="Layout_center">
+                @yield('center')
+            </div>
+            <div class="Layout_aside">
+                @yield('aside')
+            </div>
         </div>
     </div>
 @endsection

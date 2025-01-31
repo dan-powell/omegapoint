@@ -8,7 +8,8 @@ html {
     font-variation-settings: "wdth" 100;
 }
 body {
-    font-size: var(--font-size-base);
+    /* font-size: var(--font-size-base); */
+    font-size: clamp(16px, 1vw, 26px);
     background: var(--color-bg);
     color: var(--color-body);
     font-family: var(--font-body);
