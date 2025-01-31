@@ -1,8 +1,7 @@
 @extends('news.layout')
 
-@section('main')
+@section('top')
     @include('news.components.top')
-    @yield('body')
 @endsection
 
 @section('sidebar')
@@ -16,26 +15,34 @@
             <li class="Stats-stat">234/432</li>
         </ul>
     </div>
-    <h3 class="divider" title="Subject"><span>Subject</span></h3>
-    @livewire('news.subject-list')
-    <h3 class="divider" title="District"><span>District</span></h3>
-    @livewire('news.district-list')
+    <div class="Layout-sticky">
+        <h3 class="divider" title="Subject"><span>Subject</span></h3>
+        @livewire('news.subject-list')
+        <h3 class="divider" title="District"><span>District</span></h3>
+        @livewire('news.district-list')
+    </div>
 @endsection
 
 @section('center')
-    @include('news.article.lead', [
-        'article' => $lead
-    ])
-    @livewire('news.article-list', ['except' => [$lead->id]])
+    <div class="Layout-sticky">
+        @include('news.article.lead', [
+            'article' => $lead
+        ])
+    </div>
+    <div class="Layout-sticky">
+        @livewire('news.article-list', ['except' => [$lead->id]])
+    </div>
 @endsection
 
 @section('aside')
-    <h3 class="divider" title="Media"><span>Media</span></h3>
-    <div class="media -scanlines">
-        <img src="{{ Vite::asset('resources/img/news/test/advert2.jpg') }}"/>
-    </div>
-    <h3 class="divider" title="Live"><span>Live</span></h3>
-    <div class="media -scanlines">
-        <img src="{{ Vite::asset('resources/img/news/test/thumb1.jpg') }}"/>
+    <div class="Layout-sticky">
+        <h3 class="divider" title="Media"><span>Media</span></h3>
+        <div class="media -scanlines">
+            <img src="{{ Vite::asset('resources/img/news/test/advert2.jpg') }}"/>
+        </div>
+        <h3 class="divider" title="Live"><span>Live</span></h3>
+        <div class="media -scanlines">
+            <img src="{{ Vite::asset('resources/img/news/test/thumb1.jpg') }}"/>
+        </div>
     </div>
 @endsection

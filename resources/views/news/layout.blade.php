@@ -12,8 +12,8 @@
         <div class="Layout-header">
             @include('news.components.header')
         </div>
-        <div class="Layout-main">
-            @yield('main')
+        <div class="Layout-top">
+            @yield('top')
         </div>
         <div class="Layout-main">
             <div class="Layout-sidebar">

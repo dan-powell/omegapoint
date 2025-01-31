@@ -27,6 +27,14 @@ class District extends Model
         );
     }
 
+    protected function articleCount(): Attribute
+    {
+        $this->loadMissing('articles');
+        return Attribute::make(
+            get: fn (): int => count($this->articles), 
+        );
+    }
+
     public function pointsOfInterest()
     {
         return $this->belongsToMany(PointOfInterest::class, 'area_district_poi', 'district_id', 'poi_id');

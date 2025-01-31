@@ -1,4 +1,5 @@
 .DistrictList {
+    padding: var(--box-padding);
     &-list {
         display: flex;
         gap: 0.25em;
@@ -18,6 +19,7 @@
             &::after, 
             &::before {
                 background: var(--color-primary);
+                border-bottom: 1px var(--color-primary) solid;
             }
         }
     }

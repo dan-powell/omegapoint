@@ -17,12 +17,13 @@ class Subject extends Model
         'name',
     ];
 
-    // protected function tierName(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn () => 'hello', 
-    //     );
-    // }
+    protected function articleCount(): Attribute
+    {
+        $this->loadMissing('articles');
+        return Attribute::make(
+            get: fn (): int => count($this->articles), 
+        );
+    }
 
     public function articles()
     {

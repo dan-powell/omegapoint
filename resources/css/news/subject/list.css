@@ -1,4 +1,5 @@
 .SubjectList {
+    padding: var(--box-padding);
     &-list {
         display: flex;
         gap: 0.25em;

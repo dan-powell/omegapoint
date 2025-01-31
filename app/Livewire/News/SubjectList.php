@@ -27,7 +27,7 @@ class SubjectList extends Component
 
     public function render()
     {
-        $this->subjects = Subject::all();
+        $this->subjects = Subject::with(['articles'])->get();
         return view('livewire.news.subject-list');
     }
 }

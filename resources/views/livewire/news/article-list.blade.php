@@ -1,4 +1,5 @@
 <div class="ArticleList">
+    <h3 class="divider" title="Articles"><span>Articles</span></h3>
     <form wire:submit>
         <select wire:model.live="direction">
             <option value="asc">Ascending</option>
@@ -6,8 +7,10 @@
         </select>
     </form>
     <div class="ArticleList-list">
-        @foreach($articles as $article)
+        @forelse($articles as $article)
             @include('news/article/excerpt', ['article' => $article])
-        @endforeach
+        @empty
+            <div class="no-results">No results found.</div>
+        @endforelse
     </div>
 </div>

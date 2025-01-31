@@ -11,7 +11,7 @@ use Livewire\Attributes\On;
 class ArticleList extends Component
 {
 
-    public string $direction = 'asc';
+    public string $direction = 'desc';
     public Collection $articles;
     public ?array $except = null;
     public ?array $subjects = null;

@@ -8,6 +8,7 @@
     --color-invert: #000;
 
     --color-bg: var(--color-invert);
+    --color-bg-semi: rgba(0,0,0,0.6);
 
     --color-warning: #FF0400;
 

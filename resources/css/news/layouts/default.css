@@ -1,4 +1,7 @@
 .Layout {
+    &-top {
+        margin-top: 4rem;
+    }
     &-main {
         display: flex;
     }
@@ -12,8 +15,10 @@
         min-height: var(--cut);
         position: relative;
         border-right: 1px solid var(--color-line);
-        overflow: hidden;
-        padding: 2rem;
+        overflow: clip;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
         &:after,
         &:before {
             position: absolute;
@@ -39,5 +44,9 @@
     }
     &-aside {
         flex: 0 0 var(--aside-width);
+    }
+    &-sticky {
+        position: sticky;
+        top: 4rem;
     }
 }

@@ -1,4 +1,6 @@
 .ArticleList {
+    background: var(--color-bg);
+    min-height: 100vh;
     &-list {
         --gap: 2em;
         --columns: 3;
