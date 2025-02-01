@@ -17,6 +17,13 @@ class Subject extends Model
         'name',
     ];
 
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string => route('news.index', ['sub[0]' => $this->id]) . '#article-list', 
+        );
+    }
+
     protected function articleCount(): Attribute
     {
         $this->loadMissing('articles');

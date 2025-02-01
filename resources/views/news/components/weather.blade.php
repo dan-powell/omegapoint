@@ -1,4 +1,8 @@
 <div class="Weather">
+    <div class="Weather-info -warning">
+        <span class="Weather-info-icon">!</span>
+        <p class="Weather-info-message">High radiation levels expected across Topside from 0700 to 0900</p>
+    </div>
     @if(count($predictions))
         <div class="Weather-track">
             @foreach($predictions as $prediction)
@@ -6,7 +10,6 @@
                     <h4 class="Weather-prediction-timespan">
                         {{ $prediction->start->format('Hi') }} - {{ $prediction->end->format('Hi') }}
                     </h4>
-
                     <div class="Weather-prediction-icon">
                         {!! file_get_contents(resource_path('/icons/news/' . $prediction->typeIcon)) !!}
                     </div>

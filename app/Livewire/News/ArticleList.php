@@ -7,15 +7,20 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 
 class ArticleList extends Component
 {
 
+    #[Url(as: 'sub')]
+    public array $subjects = [];
+
+    #[Url(as: 'dis')]
+    public array $districts = [];
+
     public string $direction = 'desc';
     public Collection $articles;
     public ?array $except = null;
-    public ?array $subjects = null;
-    public ?array $districts = null;
 
     public function render()
     {

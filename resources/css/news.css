@@ -8,7 +8,7 @@
 @import 'news/utilities/divider.css';
 
 @import 'news/foundation.css';
-@import 'news/layouts/default.css';
+@import 'news/layouts/layout.css';
 
 @import 'news/components/header.css';
 @import 'news/components/marquee.css';

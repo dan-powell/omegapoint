@@ -2,7 +2,41 @@
     display: flex;
     gap: 1em;
     color: var(--color-secondary);
+    position: relative;
+    /* max-width: 60vw; */
+    &-info {
+        flex: 0 0 26ch;
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.25;
+            }
+        }
+        &.-warning & {
+            &-icon {
+                animation: pulse 1s ease-out infinite alternate;
+                animation-fill-mode: both;
+            }
+        }
+        &-icon {
+            font-family: var(--font-heading);
+            font-size: 5em;
+            color: var(--color-warning);
+            font-weight: bold;
+        }
+        &-message {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 1.2em;
+        }
+    }
     &-track {
+        flex: 0 0 calc(100% - 20px - 26ch);
         display: flex;
         gap: 2em;
         overflow-x: clip;

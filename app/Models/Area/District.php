@@ -20,6 +20,13 @@ class District extends Model
         'tier'
     ];
 
+    protected function url(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string => route('news.index', ['dis[0]' => $this->id]) . '#article-list', 
+        );
+    }
+
     protected function tierName(): Attribute
     {
         return Attribute::make(

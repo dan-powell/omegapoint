@@ -24,7 +24,7 @@ class NewsController extends Controller
     public function articleShow(string $id): View
     {
         return view('news.article.show', [
-            'article' => Article::findOrFail($id)
+            'article' => Article::with(['subjects', 'districts'])->findOrFail($id)
         ]);
     }
 }

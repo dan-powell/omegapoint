@@ -51,6 +51,15 @@ class Article extends Model
         );
     }
 
+    public function bodyFormatted(): Attribute
+    {
+        return Attribute::make(
+            get: function ():string {
+                return $this->body;
+            }
+        );
+    }
+
 
     public static function latest(): ?Article
     {
