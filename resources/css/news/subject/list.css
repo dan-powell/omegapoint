@@ -19,6 +19,7 @@
             &::after, 
             &::before {
                 background: var(--color-primary);
+                border-bottom: 1px var(--color-primary) solid;
             }
         }
     }

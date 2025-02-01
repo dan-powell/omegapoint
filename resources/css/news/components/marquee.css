@@ -1,11 +1,11 @@
-.Ticker {
+.Marquee {
     @keyframes ticker {
         0% {
-            transform: translate3d(0, 0, 0);
+            /* transform: translate3d(0, 0, 0); */
         }
     
         100% {
-            transform: translate3d(-100%, 0, 0);
+            /* transform: translate3d(100vw, 0, 0); */
         }
     }
     flex: 1 1 100%;
@@ -22,16 +22,21 @@
         }
     }
     &-track {
-        padding-left: 100%;
-        box-sizing: content-box;
-        display: inline-flex;
-        animation: ticker 30s linear infinite;
-        will-change: translate3d;
+        /* padding-left: 100%; */
+        /* box-sizing: content-box; */
+        /* display: inline-flex; */
+        /* animation: ticker 30s linear infinite; */
+        /* will-change: translate3d; */
     }
     &-list {
         display: flex;
         gap: 1em;
-        align-items: center;
+        padding-left: 100vw;
+        /* white-space: nowrap; */
+        > * {
+            /* display: inline; */
+        }
+        /* align-items: center; */
     }
     &-item {
         white-space: nowrap;

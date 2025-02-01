@@ -15,6 +15,6 @@ class ArticleComposer
      */
     public function compose(View $view)
     {
-        $view->with('ticker', Article::orderBy('date')->limit(6)->get(['id', 'title'])->shuffle());
+        $view->with('ticker', Article::orderBy('date')->limit(2)->get(['id', 'title'])->shuffle());
     }
 }

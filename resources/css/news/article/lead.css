@@ -5,6 +5,20 @@
     display: flex;
     /* align-items: center; */
     /* position: relative; */
+    &:hover {
+        .ArticleLead-media-mini .ArticleLead-thumb {
+            opacity: 0.1;
+            &:nth-child(1) {
+                transform: translate(-20%, 20%);
+            }
+            &:nth-child(2) {
+                transform: translate(0%, 20%);
+            }
+            &:nth-child(3) {
+                transform: translate(20%, 20%);
+            }
+        }
+    }
     &-link {
         position: absolute;
         top: 0;
@@ -15,6 +29,32 @@
     }
     &-media {
         flex: 1 0 50%;
+        position: relative;
+        margin-right: -4em;
+        &-mini {
+            position: absolute;
+            display: flex;
+            gap: 1em;
+            bottom: -1em;
+            left: -1em;
+            opacity: 1;
+            width: 80%;
+            z-index: 20;
+            .ArticleLead-thumb {
+                filter: drop-shadow(0 0 2px var(--color-primary));
+                --cut: 2em;
+                &:nth-child(1) {
+                    img {
+                        clip-path: polygon(0 var(--cut), 0 100%, calc(100% - var(--cut)) 100%, 100% calc(100% - var(--cut)), 100% 0%, var(--cut) 0);
+                    }
+                }
+                &:nth-child(2) {
+                    img {
+                        clip-path: polygon(0 0, 0 calc(100% - var(--cut)), var(--cut) 100%, 100% 100%, 100% var(--cut), calc(100% - var(--cut)) 0);
+                    }
+                }
+            }
+        }
     }
     &-main {
         flex: 1 1 auto;
@@ -28,11 +68,16 @@
     }
     &-thumb {
         grid-area: thumb;
-        margin-right: -4em;
+        position: relative;
+        
         z-index: -1;
+        /* perspective: 500px; */
         img {
+            /* transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(17deg) rotateY(-24deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg); */
             width: 100%;
         }
+        transition: all .3s ease;
+        
     }
     &-title {
         grid-area: title;

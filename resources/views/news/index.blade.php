@@ -29,7 +29,7 @@
             'article' => $lead
         ])
     </div>
-    <div class="Layout-sticky">
+    <div class="Layout-sticky" id="article-list">
         @livewire('news.article-list', ['except' => [$lead->id]])
     </div>
 @endsection
@@ -37,8 +37,10 @@
 @section('aside')
     <div class="Layout-sticky">
         <h3 class="divider" title="Media"><span>Media</span></h3>
-        <div class="media -scanlines">
-            <img src="{{ Vite::asset('resources/img/news/test/advert2.jpg') }}"/>
+        <div class="media">
+            <video autoplay muted loop>
+                <source src="{{ Vite::asset('resources/img/news/test/1234.mp4') }}" type="video/mp4">
+            </video> 
         </div>
         <h3 class="divider" title="Live"><span>Live</span></h3>
         <div class="media -scanlines">

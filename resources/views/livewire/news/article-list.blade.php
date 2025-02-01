@@ -6,9 +6,11 @@
             <option value="desc">Descending</option>
         </select>
     </form>
-    <div class="ArticleList-list">
+    <div class="ArticleList-list" x-data="flip">
         @forelse($articles as $article)
-            @include('news/article/excerpt', ['article' => $article])
+            <div class="ArticleList-item" wire:key="{{ $article->id }}">
+                @include('news/article/excerpt', ['article' => $article])
+            </div>
         @empty
             <div class="no-results">No results found.</div>
         @endforelse

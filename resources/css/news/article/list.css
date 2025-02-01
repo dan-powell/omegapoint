@@ -9,6 +9,7 @@
         gap: var(--gap);
         > * {
             flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
+            transition: all .2s ease-in;
         }
     }
 }

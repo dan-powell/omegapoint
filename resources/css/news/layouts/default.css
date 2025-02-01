@@ -1,6 +1,17 @@
 .Layout {
+    &-header {
+        /* position: sticky; */
+        top: 0;
+        background: var(--color-background);
+        z-index: 10;
+    }
+    &-body {
+        position: sticky;
+        top: 0;
+
+    }
     &-top {
-        margin-top: 4rem;
+        /* margin-top: 4rem; */
     }
     &-main {
         display: flex;
@@ -47,6 +58,6 @@
     }
     &-sticky {
         position: sticky;
-        top: 4rem;
+        top: 0;
     }
 }

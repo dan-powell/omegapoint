@@ -20,7 +20,7 @@ class ArticleList extends Component
     public function render()
     {
 
-        $query = Article::limit(10)
+        $query = Article::limit(20)
             ->orderBy('date', $this->direction);
 
         // Filter by subject
@@ -49,18 +49,21 @@ class ArticleList extends Component
     #[On('chosenSubjectsChanged')]
     public function subjectChanged($value): void
     {
+        $this->dispatch("articleListChanged"); 
         $this->subjects = $value;
     }
 
     #[On('chosenDistrictsChanged')]
     public function districtChanged($value): void
     {
+        $this->dispatch("articleListChanged"); 
         $this->districts = $value;
     }
 
     #[On('resetFiltering')]
     public function resetFiltering(): void
     {
+        $this->dispatch("articleListChanged"); 
         $this->resetProperties();
         $this->resetPage();
     }

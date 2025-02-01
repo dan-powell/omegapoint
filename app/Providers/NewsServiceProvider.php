@@ -24,7 +24,7 @@ class NewsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(
-            ['news.components.ticker'],
+            ['news.components.marquee'],
             ArticleComposer::class
         );
 

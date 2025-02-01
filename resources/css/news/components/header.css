@@ -3,20 +3,18 @@
     gap: 1em;
     padding: 0.5em;
     align-items: center;
-    position: fixed;
-    top: 0;
     background: var(--color-bg);
     z-index: 30;
 }
 .HeaderLogo {
-    @keyframes logo {
+    /* @keyframes logo {
         0% {
             max-width: 999px;
         }
         100% {
             max-width: 0
         }
-    }
+    } */
     flex: 0 0 auto;
     font-family: "Righteous", serif;
     font-size: 1em;
@@ -37,7 +35,7 @@
     }
     &-dynamic {
         color: var(--color-secondary);
-        max-width: 0;
+        /* max-width: 0; */
         overflow: hidden;
         white-space: nowrap;
         transition: max-width .6s ease-in-out;
