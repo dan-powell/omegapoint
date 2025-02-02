@@ -2,9 +2,19 @@
 
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\MediaGetRequest;
+use Illuminate\Http\Request;
 
 class MediaController extends Controller
 {
+
+    public function admin(Request $request, string $disk, string $path)
+    {
+        $headers = [
+            'Access-Control-Allow-Origin' => config('app.url_admin')
+        ];
+        $filesystem = Storage::disk($disk);
+        return response()->file($filesystem->path($path), $headers);
+    }
 
     // Returns an image from a particular disk & path
     public function handle(MediaGetRequest $request, string $path)

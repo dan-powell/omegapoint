@@ -28,7 +28,7 @@ class Article extends Model
         'tldr',
         'meta_title',
         'meta_description',
-        'body',
+        'sections',
         'updates',
         'date',
         'published_date'
@@ -37,7 +37,7 @@ class Article extends Model
     protected function casts(): array
     {
         return [
-            'body' => 'json',
+            'sections' => 'json',
             'updates' => 'json',
             'date' => 'datetime',
             'published_date' => 'datetime'

@@ -48,7 +48,7 @@ return [
         'news' => [
             'driver' => 'local',
             'root' => storage_path('media'),
-            'url' => env('APP_URL_MEDIA').'/news',
+            'url' => config('app.url_media').'/news',
             'throw' => false,
         ],
 

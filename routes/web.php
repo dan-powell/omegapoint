@@ -19,6 +19,7 @@ Route::domain(config('app.domain'))->name('home.')->group(function() {
 // Media
 Route::domain('media.' . config('app.domain'))->name('media.')->group(function() {
     Route::get(config('glide.route') . '/{path}', [MediaController::class, 'handle'])->where('path', '.*');
+    Route::get('{disk}/{path}', [MediaController::class, 'admin'])->where('path', '.*');
 });
 
 

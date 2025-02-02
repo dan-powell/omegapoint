@@ -6,7 +6,7 @@
         </div>
         <div class="ArticleLead-media-mini">
             <div class="ArticleLead-thumb media">
-                <img src="{{ Vite::asset('resources/img/news/test/thumb2.jpg') }}"/>
+                <img src="{{ Vite::asset('resources/img/news/test/thumb1.jpg') }}"/>
             </div>
             <div class="ArticleLead-thumb media">
                 <img src="{{ Vite::asset('resources/img/news/test/thumb2.jpg') }}"/>

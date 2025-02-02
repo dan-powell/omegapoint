@@ -13,6 +13,10 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\Builder as FormBuilder;
+use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ArticleResource extends Resource
@@ -46,8 +50,24 @@ class ArticleResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('meta_title'),
                 Forms\Components\TextInput::make('meta_description'),
-                Forms\Components\Textarea::make('body')
-                    ->columnSpanFull(),
+
+                FormBuilder::make('sections')
+                    ->columnSpanFull()
+                    ->blocks([
+                        Block::make('section')
+                            ->schema([
+                                MarkdownEditor::make('content'),
+                                FileUpload::make('media')
+                                    ->disk('news')
+                                    ->directory('body')
+                                    ->multiple()
+                                    ->image()
+                                    ->imageEditor(),
+                            ])
+                            ->columns(2),
+                    ]),
+
+
                 Forms\Components\Textarea::make('updates')
                     ->columnSpanFull(),
                 Forms\Components\DateTimePicker::make('date')

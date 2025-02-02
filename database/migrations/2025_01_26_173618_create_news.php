@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('tldr')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
-            $table->json('body')->nullable();
+            $table->json('sections')->nullable();
             $table->json('updates')->nullable();
             $table->datetime('date');
             $table->datetime('published_date')->nullable();

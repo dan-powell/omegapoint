@@ -30,7 +30,7 @@
         ])
     </div>
     <div class="Layout-sticky" id="article-list">
-        @livewire('news.article-list', ['except' => [$lead->id]])
+        <livewire:news.article-list lazy :except="[$lead->id]" />
     </div>
 @endsection
 
