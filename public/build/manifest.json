@@ -5,7 +5,7 @@
     "isEntry": true
   },
   "resources/css/news.css": {
-    "file": "assets/news-UwmL2GfV.css",
+    "file": "assets/news-CpR3bZMR.css",
     "src": "resources/css/news.css",
     "isEntry": true
   },
@@ -62,6 +62,10 @@
     "file": "assets/wind-DCEVHd5I.svg",
     "src": "resources/icons/news/wind.svg"
   },
+  "resources/img/blocks-wave.svg": {
+    "file": "assets/blocks-wave-DyAcP4No.svg",
+    "src": "resources/img/blocks-wave.svg"
+  },
   "resources/img/button.svg": {
     "file": "assets/button-DIF3ZlFh.svg",
     "src": "resources/img/button.svg"
@@ -93,7 +97,7 @@
     "isEntry": true
   },
   "resources/js/news.js": {
-    "file": "assets/news-BCF6vYJI.js",
+    "file": "assets/news-BYl0PP_M.js",
     "name": "news",
     "src": "resources/js/news.js",
     "isEntry": true

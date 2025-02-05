@@ -22,8 +22,8 @@
     </div>
     <div class="ArticleLead-main">
         <h3 class="ArticleLead-title">{{ $article->title }}</h3>
-        @if($article->summary)
-            <p class="ArticleLead-summary">{{ $article->summary }}</p>
+        @if($article->introduction)
+            <p class="ArticleLead-introduction">{{ $article->introduction }}</p>
         @endif
         <a class="ArticleLead-readmore" wire:navigate href="{{ $article->url }}">
             Would you like to know more? <span class="ArticleLead-readmore-arrow">▷</span>

@@ -92,25 +92,31 @@
         z-index: 20;
     }
     &-thumb {
-        grid-area: thumb;
         position: relative;
         /* z-index: -1; */
         img {
             width: 100%;
         }
         transition: all .3s ease;
-        
+
     }
     &-title {
-        grid-area: title;
         font-size: 3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
-    &-summary {
-        grid-area: summary;
+    &-introduction {
         font-size: 1.5em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
     &-readmore {
-        grid-area: readmore;
         font-family: var(--font-heading);
         text-align: right;
         max-width: 18ch;

@@ -1,5 +1,5 @@
 :root {
-    
+
     --color-primary: #fff;
     --color-primary-invert: #000;
     --color-secondary: #757575;
@@ -8,7 +8,7 @@
     --color-invert: #000;
 
     --color-bg: var(--color-invert);
-    --color-bg-semi: rgba(0,0,0,0.6);
+    --color-bg-semi: rgba(0,0,0,0.4);
 
     --color-warning: #FF0400;
 
@@ -29,6 +29,6 @@
 
     --cut: 2em;
 
-    
+
 }
 

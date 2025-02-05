@@ -2,6 +2,7 @@
     background: var(--color-bg);
     min-height: 100vh;
     &-list {
+        padding: 2em;
         --gap: 2em;
         --columns: 3;
         display: flex;
@@ -10,6 +11,16 @@
         > * {
             flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
             transition: all .2s ease-in;
+        }
+    }
+    @media screen and (max-width: 1920px) {
+        &-list {
+            --columns: 2;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        &-list {
+            --columns: 1;
         }
     }
 }

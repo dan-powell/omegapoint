@@ -87,25 +87,14 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
+                    ->description(fn (Article $record): string => $record->short)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('short')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('summary')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('thumbnail')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('lead')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('meta_title')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('meta_description')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\ImageColumn::make('thumbnail'),
+                Tables\Columns\ImageColumn::make('lead'),
                 Tables\Columns\TextColumn::make('date')
                     ->dateTime()
                     ->sortable(),
@@ -131,7 +120,8 @@ class ArticleResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('date', 'desc');
     }
 
     public static function getRelations(): array

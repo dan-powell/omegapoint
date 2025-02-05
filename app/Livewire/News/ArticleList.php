@@ -18,7 +18,12 @@ class ArticleList extends Component
     #[Url(as: 'dis')]
     public array $districts = [];
 
+    #[Url(as: 'order')]
+    public string $order = 'date';
+
+    #[Url(as: 'dir')]
     public string $direction = 'desc';
+
     public Collection $articles;
     public ?array $except = null;
 
@@ -38,7 +43,19 @@ class ArticleList extends Component
     public function render()
     {
         $query = Article::limit(20)
-            ->orderBy('date', $this->direction);
+            ->with(['subjects']);
+
+        switch($this->order) {
+            case 'date':
+                $query->orderBy('date', $this->direction);
+                break;
+            case 'title':
+                $query->orderBy('short', $this->direction)->orderBy('title', $this->direction);
+                break;
+            case 'random':
+                $query->inRandomOrder();
+                break;
+        }
 
         // Filter by subject
         if($this->subjects) {
@@ -66,21 +83,21 @@ class ArticleList extends Component
     #[On('chosenSubjectsChanged')]
     public function subjectChanged($value): void
     {
-        $this->dispatch("articleListChanged"); 
+        $this->dispatch("articleListChanged");
         $this->subjects = $value;
     }
 
     #[On('chosenDistrictsChanged')]
     public function districtChanged($value): void
     {
-        $this->dispatch("articleListChanged"); 
+        $this->dispatch("articleListChanged");
         $this->districts = $value;
     }
 
     #[On('resetFiltering')]
     public function resetFiltering(): void
     {
-        $this->dispatch("articleListChanged"); 
+        $this->dispatch("articleListChanged");
         $this->resetProperties();
         $this->resetPage();
     }
