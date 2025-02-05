@@ -19,10 +19,9 @@ class ArticleList extends Component
     public array $districts = [];
 
     #[Url(as: 'order')]
-    public string $order = 'date';
+    public string $order = 'latest';
 
-    #[Url(as: 'dir')]
-    public string $direction = 'desc';
+    public ?string $search = null;
 
     public Collection $articles;
     public ?array $except = null;
@@ -45,12 +44,21 @@ class ArticleList extends Component
         $query = Article::limit(20)
             ->with(['subjects']);
 
+        // Search
+        if($this->search) {
+            $query->whereLike('short', '%' . $this->search . '%')->orWhereLike('title', '%' . $this->search . '%');
+        }
+
+        // Ordering
         switch($this->order) {
-            case 'date':
-                $query->orderBy('date', $this->direction);
+            case 'latest':
+                $query->orderBy('date', 'desc');
+                break;
+            case 'oldest':
+                $query->orderBy('date', 'asc');
                 break;
             case 'title':
-                $query->orderBy('short', $this->direction)->orderBy('title', $this->direction);
+                $query->orderBy('short', 'asc')->orderBy('title', 'asc');
                 break;
             case 'random':
                 $query->inRandomOrder();
@@ -72,7 +80,7 @@ class ArticleList extends Component
         }
 
         // Except
-        if($this->except) {
+        if($this->except && $this->search == null) {
             $query->whereNotIn('id', $this->except);
         }
 
@@ -85,6 +93,7 @@ class ArticleList extends Component
     {
         $this->dispatch("articleListChanged");
         $this->subjects = $value;
+        $this->search = null;
     }
 
     #[On('chosenDistrictsChanged')]
@@ -92,6 +101,7 @@ class ArticleList extends Component
     {
         $this->dispatch("articleListChanged");
         $this->districts = $value;
+        $this->search = null;
     }
 
     #[On('resetFiltering')]

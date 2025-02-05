@@ -1,6 +1,59 @@
 .ArticleList {
     background: var(--color-bg);
     min-height: 100vh;
+    border-top: 1px solid var(--color-line);
+    &-head {
+        /* display: flex; */
+        /* justify-content: flex-end; */
+    }
+    &-controls {
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+        gap: 2em;
+    }
+    &-search {
+        padding: 0.5rem;
+        display: flex; 
+        gap: 0.5em;
+        border-bottom: 1px solid var(--color-line);
+        &-label {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &-input {
+            width: 3ch;
+            background: none;
+            border: 1px solid var(--color-line);
+            border: none;
+            transition: width .2s ease;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            &:focus {
+                width: 20ch;
+            }
+        }
+    }
+    &-filter {
+        padding: 0.5rem;
+        display: flex;
+        gap: 1em;
+        border-bottom: 1px solid var(--color-line);
+        input {
+            display: none;
+        }
+        label {
+            text-transform: uppercase;
+            color: var(--color-secondary);
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        input:checked + label {
+            color: var(--color-primary);
+        }
+    }
     &-list {
         padding: 2em;
         --gap: 2em;
