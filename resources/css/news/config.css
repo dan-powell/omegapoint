@@ -26,5 +26,9 @@
 
     --sidebar-width: clamp(200px, 20vw, 450px);
     --aside-width: clamp(200px, 20vw, 450px);
+
+    --cut: 2em;
+
+    
 }
 

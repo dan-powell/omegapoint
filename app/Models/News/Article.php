@@ -37,6 +37,7 @@ class Article extends Model
     protected function casts(): array
     {
         return [
+            'lead' => 'array',
             'sections' => 'json',
             'updates' => 'json',
             'date' => 'datetime',
@@ -50,16 +51,6 @@ class Article extends Model
             get: fn ():string => route('news.article.show', $this), 
         );
     }
-
-    public function bodyFormatted(): Attribute
-    {
-        return Attribute::make(
-            get: function ():string {
-                return $this->body;
-            }
-        );
-    }
-
 
     public static function latest(): ?Article
     {

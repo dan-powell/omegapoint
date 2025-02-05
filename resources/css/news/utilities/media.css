@@ -45,7 +45,8 @@
     }
     &.-cut {
         img {
-            clip-path: polygon(0 calc(var(--cut) / 3 * 2), 0 100%, 100% 100%, 100% 0%, calc(var(--cut) / 3 * 2) 0);
+            clip-path: var(--clip-tl);
+            /* clip-path: polygon(0 calc(var(--cut) / 3 * 2), 0 100%, 100% 100%, 100% 0%, calc(var(--cut) / 3 * 2) 0); */
         }
     }
 }

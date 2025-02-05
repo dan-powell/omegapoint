@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\MediaGetRequest;
 use Illuminate\Http\Request;
@@ -19,22 +20,12 @@ class MediaController extends Controller
     // Returns an image from a particular disk & path
     public function handle(MediaGetRequest $request, string $path)
     {
-
-        // Get the image filestorage
-        if($request->input('public')) {
-            // Image is located in public folder, so build a temp storage class
-            $filesystem = Storage::build([
-                'driver' => 'local',
-                'root' => public_path(''),
-                'url' => env('APP_URL'),
-                'visibility' => 'public',
-            ]);
-        } else {
-            //
-            $disk = $request->input('disk') ?? config('glide.disk');
-            $filesystem = Storage::disk($disk);
+        if(!config('glide.enabled')) {
+            abort('403');
         }
 
+        $disk = $request->input('disk') ?? config('glide.disk');
+        $filesystem = Storage::disk($disk);
 
         if ($filesystem->exists($path)) {
             // Check if it's a supported image type first

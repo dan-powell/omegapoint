@@ -3,6 +3,7 @@
 @import 'news/config.css';
 
 @import 'news/mixins/button.css';
+@import 'news/mixins/clip.css';
 
 @import 'news/utilities/media.css';
 @import 'news/utilities/divider.css';
@@ -20,5 +21,6 @@
 @import 'news/article/list.css';
 @import 'news/article/lead.css';
 @import 'news/article/excerpt.css';
+@import 'news/article/show.css';
 @import 'news/subject/list.css';
 @import 'news/district/list.css';

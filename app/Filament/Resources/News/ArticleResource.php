@@ -43,7 +43,13 @@ class ArticleResource extends Resource
                     ->image()
                     ->imageEditor()
                     ->nullable(),
-                Forms\Components\TextInput::make('lead'),
+                Forms\Components\FileUpload::make('lead')
+                    ->multiple()
+                    ->disk('news')
+                    ->directory('lead')
+                    ->image()
+                    ->imageEditor()
+                    ->nullable(),
                 Forms\Components\Textarea::make('introduction')
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('tldr')

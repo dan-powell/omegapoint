@@ -4,21 +4,19 @@ return [
     // Enable public route for processed images
     'enabled' => true,
 
-    'standalone' => true,
-
     // Security key
     'key' => env('GLIDE_KEY', 'fhdjshfoiur32hjiods34432'),
 
     // Validate image requests using keys. Should always be enabled in a production environment to prevent uncontrolled image manipulation
     'validate' => true,
 
-    'url' => 'https://media.' . env('APP_URL'),
+    'url' => config('app.url_media'),
 
     // Route prefix
-    'route' => 'image.php',
+    'route' => '',
 
     // Default image storage disk
-    'disk' => 'news',
+    'disk' => 'public',
 
     // Cache disk for storing processed images
     // Ideally should be set to a private seperate disk

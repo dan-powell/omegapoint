@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('short')->nullable();
             $table->string('summary')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('lead')->nullable();
+            $table->json('lead')->nullable();
             $table->text('introduction')->nullable();
             $table->text('tldr')->nullable();
             $table->string('meta_title')->nullable();

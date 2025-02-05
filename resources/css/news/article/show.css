@@ -1,0 +1,11 @@
+.ArticleShow {
+    &-head {
+        padding: calc(var(--box-padding) * 2);
+    }
+    &-sections {
+        > * {
+            padding: calc(var(--box-padding) * 2);
+            background: var(--color-subtle);
+        }
+    }
+}

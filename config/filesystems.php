@@ -37,18 +37,10 @@ return [
             'throw' => false,
         ],
 
-        // 'admin' => [
-        //     'driver' => 'local',
-        //     'root' => storage_path('media'),
-        //     'url' => env('APP_URL_ADMIN').'/media',
-        //     'visibility' => 'public',
-        //     'throw' => false,
-        // ],
-
         'news' => [
             'driver' => 'local',
-            'root' => storage_path('media'),
-            'url' => config('app.url_media').'/news',
+            'root' => storage_path('media') . '/news',
+            'url' => config('app.url_media').'/admin/news',
             'throw' => false,
         ],
 

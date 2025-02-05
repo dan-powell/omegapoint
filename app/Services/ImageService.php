@@ -46,6 +46,7 @@ class ImageService
 
         // Create instance of URL factory
         $this->urlBuilder = UrlBuilderFactory::create(config('glide.route'), $signkey);
+        $this->urlBuilder->setBaseUrl(config('glide.url'));
         // $this->urlBuilder = UrlBuilderFactory::create('imagerender.php', $signkey);
 
         $this->reset();
@@ -89,16 +90,7 @@ class ImageService
     public function createServer(Request $request, string $source)
     {
 
-        if(config('glide.cache')) {
-            $cache = Storage::disk(config('glide.cache'))->getDriver();
-        } else {
-            $cache = Storage::build([
-                'driver' => 'local',
-                'root' => storage_path('framework/cache/glide'),
-                'visibility' => 'private',
-            ])->getDriver();
-        }
-
+        $cache = Storage::disk(config('glide.cache'))->getDriver();
         return ServerFactory::create([
             'driver' => config('glide.driver'),
             'response' => new SymfonyResponseFactory($request),
@@ -108,48 +100,6 @@ class ImageService
             'cache_with_file_extensions' => true,
             'presets' => config('glide.presets'),
         ]);
-    }
-
-    /**
-     * Get direct URL to cached image
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    public function cache(string $path): string
-    {
-        if (isset($this->properties['resource']) && $this->properties['resource']) {
-            // Image is located in resources folder, so build a temp storage class
-            $filesystem = Storage::build([
-                'driver' => 'local',
-                'root' => resource_path(''),
-                'url' => env('APP_URL'),
-                'visibility' => 'public',
-            ]);
-        } elseif (isset($this->properties['public']) && $this->properties['public']) {
-            // Image is located in public folder, so build a temp storage class
-            $filesystem = Storage::build([
-                'driver' => 'local',
-                'root' => public_path(''),
-                'url' => env('APP_URL'),
-                'visibility' => 'public',
-            ]);
-        } else {
-            $filesystem = Storage::disk($this->properties['disk'] ?? config('glide.disk'));
-        }
-
-        $filesystem_cache = Storage::disk(config('glide.cache'));
-
-        // Copy properties, and reset them.
-        $properties = $this->properties;
-        $this->reset();
-
-        $server = $this->createServer(app('request'), $filesystem->path(''));
-
-        $image = $server->makeImage($path, $properties);
-
-        return $filesystem_cache->url($image);
     }
 
     /**
@@ -210,16 +160,6 @@ class ImageService
         // Copy properties, and reset them.
         $properties = $this->properties;
         $this->reset();
-
-        if(config('glide.standalone')) {
-            $str = '';
-            foreach($properties as $key => $property) {
-                $str .= '&' . $key . '=' . $property;
-            }
-            $url = $this->urlBuilder->getUrl($path, $properties);
-            $parse = parse_url($url);
-            return 'image.php?' . $parse['query']. '&path=' . substr($parse['path'], strlen('image.php//'));
-        }
         return $this->urlBuilder->getUrl($path, $properties); // OG
 
     }
@@ -235,7 +175,7 @@ class ImageService
     public function url(string $path): string
     {
         // Generate a URL
-        return asset($this->get($path));
+        return $this->get($path);
     }
 
     /**
