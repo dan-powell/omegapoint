@@ -5,6 +5,9 @@
     @livewireStyles
     @livewireScripts
     @vite(['resources/css/news.css', 'resources/js/news.js'])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Righteous&display=swap" rel="stylesheet">
 @endpush
 
 @section('body')

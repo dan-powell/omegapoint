@@ -3,18 +3,18 @@
     <div class="ArticleLead-media">
         @if($article->lead && count($article->lead))
             <div class="ArticleLead-media-thumb">
-                <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->lead[0]) }}"/>
+                <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->width(720)->url($article->lead[0]) }}" width="720" height="720"/>
             </div>
         @elseif($article->thumb)
             <div class="ArticleLead-media-thumb">
-                <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->thumb) }}"/>
+                <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->width(720)->url($article->thumb) }}" width="720" height="720"/>
             </div>
         @endif
         @if($article->lead && count($article->lead) > 1)
             <div class="ArticleLead-media-mini">
                 @foreach(array_slice($article->lead, 1) as $lead)
                     <div class="ArticleLead-thumb">
-                        <img class="ArticleLead-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
+                        <img class="ArticleLead-thumb-img" src="{{ Image::disk('news')->width(480)->url($lead) }}" width="480" height="480"/>
                     </div>
                 @endforeach
             </div>

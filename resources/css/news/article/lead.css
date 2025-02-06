@@ -49,6 +49,8 @@
             @mixin clip-tl;
             &-img {
                 transition: filter .2s ease-in;
+                object-fit: cover;
+                aspect-ratio: 1 / 1;
             }
         }
         &-mini {
@@ -64,6 +66,7 @@
                 flex: 1 1 100%;
                 filter: drop-shadow(0 0 1px var(--color-primary));
                 --cut: 2em;
+
                 &:nth-child(1) {
                     img {
                         @mixin clip-tl-br;
