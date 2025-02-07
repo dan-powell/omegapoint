@@ -2,7 +2,7 @@
 
 @section('sidebar')
     <div class="Layout-sticky">
-        <a wire:navigate href="{{ route('news.index') }}">
+        <a class="ArticleShow-return" wire:navigate onclick="history.go(-1)" href="{{ route('news.index') }}">
             ◁ Index
         </a>
         <h3 class="divider" title="Published"><span>Published</span></h3>
@@ -27,20 +27,23 @@
 
 @section('center')
 
-    <article class="ArticleShow">
+    <article class="ArticleShow-main">
         <header class="ArticleShow-head">
-
-            <h1>{{ $article->title }}</h1>
-            @if(isset($article->lead) && count($article->lead))
-                @foreach($article->lead as $lead)
-                    <div class="ArticleShow-thumb media -cut">
-                        <img src="{{ Image::disk('news')->url($lead) }}"/>
-                    </div>
-                @endforeach
-            @endif
+            <h1 class="ArticleShow-title">{{ $article->title }}</h1>
             @if($article->summary)
                 <div class="ArticleShow-summary">
                     {{ $article->summary }}
+                </div>
+            @endif
+        </header>
+        <div class="ArticleShow-intro">
+            @if(isset($article->lead) && count($article->lead))
+                <div class="ArticleShow-lead">
+                    @foreach($article->lead as $lead)
+                        <div class="ArticleShow-thumb">
+                            <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
+                        </div>
+                    @endforeach
                 </div>
             @endif
             @if($article->introduction)
@@ -48,9 +51,7 @@
                     {{ $article->introduction }}
                 </div>
             @endif
-
-        </header>
-
+        </div>
         @if($article->sections)
             <section class="ArticleShow-sections">
                 @foreach($article->sections as $section)
@@ -79,10 +80,20 @@
 
 @section('aside')
     <div class="Layout-sticky">
-        <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
         @if($article->tldr)
             <div class="ArticleShow-tldr">
-                {{ $article->tldr }}
+                <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
+                <div class="ArticleShow-tldr-inner">
+                    {{ $article->tldr }}
+                </div>
+            </div>
+        @endif
+        @if($article->feed)
+            <div class="ArticleShow-tldr">
+                <h3 class="divider" title="Feed"><span>Feed</span></h3>
+                <div class="ArticleShow-tldr-inner">
+                    {{ $article->feed }}
+                </div>
             </div>
         @endif
     </div>
