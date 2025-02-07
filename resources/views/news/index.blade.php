@@ -20,6 +20,7 @@
         @livewire('news.subject-list')
         <h3 class="divider" title="District"><span>District</span></h3>
         @livewire('news.district-list')
+        <h3 class="divider" title="Archive"><span>Archive</span></h3>
     </div>
 @endsection
 
@@ -40,7 +41,7 @@
         <div class="media">
             <video autoplay muted loop>
                 <source src="{{ Vite::asset('resources/img/news/test/1234.mp4') }}" type="video/mp4">
-            </video> 
+            </video>
         </div>
         <h3 class="divider" title="Live"><span>Live</span></h3>
         <div class="media -scanlines">

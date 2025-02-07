@@ -14,7 +14,7 @@ class Article extends Model
 
     use HasFactory;
     use HasUlids;
-    
+
     protected $table = 'news_article';
 
     protected $fillable = [
@@ -48,13 +48,13 @@ class Article extends Model
     public function url(): Attribute
     {
         return Attribute::make(
-            get: fn ():string => route('news.article.show', $this), 
+            get: fn ():string => route('news.article.show', $this),
         );
     }
 
     public static function latest(): ?Article
     {
-        return Article::orderBy('date')->limit(1)->first();
+        return Article::orderBy('date', 'desc')->limit(1)->first();
     }
 
     public function subjects(): BelongsToMany

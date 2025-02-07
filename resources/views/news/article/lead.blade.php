@@ -12,7 +12,8 @@
         @endif
         @if($article->lead && count($article->lead) > 1)
             <div class="ArticleLead-media-mini">
-                @foreach(array_slice($article->lead, 1) as $lead)
+                @foreach(array_slice($article->lead, 1) as $key => $lead)
+                    @break($key > 1)
                     <div class="ArticleLead-thumb">
                         <img class="ArticleLead-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
                     </div>

@@ -10,7 +10,7 @@
             <span>{{ $article->date->format('hm')}}</span>
             <span>{{ $article->date->format('z|Y')}}</span>
         </time>
-        
+
         <h3 class="divider" title="Tagged"><span>Tagged</span></h3>
         @foreach($article->districts as $district)
             <a class="button" href="{{ $district->url }}">
@@ -47,7 +47,7 @@
                 </div>
             @endif
             @if($article->introduction)
-                <div class="ArticleShow-introduction">
+                <div class="ArticleShow-introduction Layout-sticky">
                     {{ $article->introduction }}
                 </div>
             @endif

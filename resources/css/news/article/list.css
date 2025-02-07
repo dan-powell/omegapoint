@@ -1,5 +1,6 @@
 .ArticleList {
-    background: var(--color-bg);
+    background: var(--color-bg-semi);
+    backdrop-filter: blur(40px);
     min-height: 100vh;
     border-top: 1px solid var(--color-line);
     &-head {
@@ -7,14 +8,14 @@
         /* justify-content: flex-end; */
     }
     &-controls {
-        display: flex; 
+        display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 2em;
     }
     &-search {
         padding: 0.5rem;
-        display: flex; 
+        display: flex;
         gap: 0.5em;
         border-bottom: 1px solid var(--color-line);
         &-label {
@@ -61,10 +62,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: var(--gap);
-        > * {
-            flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
-            transition: all .2s ease-in;
-        }
+    }
+    &-item {
+        display: flex;
+        flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
+        transition: all .2s ease-in;
     }
     @media screen and (max-width: 1920px) {
         &-list {

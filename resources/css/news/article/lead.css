@@ -46,9 +46,14 @@
         &-thumb {
             transition: clip-path .2s ease;
             --cut: 2em;
-            @mixin clip-tl;
+            @mixin clip;
+            aspect-ratio: 1 / 1;
             &-img {
                 transition: filter .2s ease-in;
+                object-fit: cover;
+                object-position: 50% 50%;
+                height: 100%;
+                animation: float 10s ease-in-out alternate infinite;
             }
         }
         &-mini {
@@ -64,6 +69,11 @@
                 flex: 1 1 100%;
                 filter: drop-shadow(0 0 1px var(--color-primary));
                 --cut: 2em;
+                aspect-ratio: 1 / 1;
+                &-img {
+                    object-fit: cover;
+                    height: 100%;
+                }
                 &:nth-child(1) {
                     img {
                         @mixin clip-tl-br;
@@ -72,6 +82,11 @@
                 &:nth-child(2) {
                     img {
                         @mixin clip-tr-bl;
+                    }
+                }
+                &:nth-child(3) {
+                    img {
+                        @mixin clip-tl-br;
                     }
                 }
             }

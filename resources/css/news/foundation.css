@@ -17,6 +17,9 @@ body {
     font-style: normal;
     text-rendering: optimizelegibility; /* Fix the character spacing for headings */
     -webkit-font-smoothing: antialiased;
+
+
+
 }
 a {
     color: var(--color-active);
