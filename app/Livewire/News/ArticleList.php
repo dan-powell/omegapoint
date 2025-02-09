@@ -41,7 +41,7 @@ class ArticleList extends Component
 
     public function render()
     {
-        $query = Article::limit(20)
+        $query = Article::limit(10)
             ->with(['subjects']);
 
         // Search

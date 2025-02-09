@@ -1,32 +1,14 @@
 .ArticleLead {
-    /* max-width: 1920px; */
     padding: 2em;
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
-    /* position: relative; */
-    &:hover {
-        /* --cut: 0em; */
-        .ArticleLead-media-mini .ArticleLead-thumb {
-            opacity: 0.3;
-            &:nth-child(1) {
-                transform: translate(-20%, 20%);
-            }
-            &:nth-child(2) {
-                transform: translate(0%, 20%);
-            }
-            &:nth-child(3) {
-                transform: translate(20%, 20%);
-            }
-        }
-    }
     &:hover & {
         &-main {
             --cut: 0em;
         }
         &-media-thumb-img {
-            /* --cut: 0em; */
             filter: saturate(200%);
         }
     }
@@ -43,6 +25,22 @@
         max-width: 640px;
         position: relative;
         margin-right: -4em;
+        &:hover & {
+            &-mini {
+                &-thumb {
+                    opacity: 0.3;
+                    &:nth-child(1) {
+                        transform: translate(-20%, 20%);
+                    }
+                    &:nth-child(2) {
+                        transform: translate(0%, 20%);
+                    }
+                    &:nth-child(3) {
+                        transform: translate(20%, 20%);
+                    }
+                }
+            }
+        }
         &-thumb {
             transition: clip-path .2s ease;
             --cut: 2em;
@@ -65,14 +63,18 @@
             opacity: 1;
             width: 80%;
             z-index: 20;
-            .ArticleLead-thumb {
+            &-thumb {
                 flex: 1 1 100%;
                 filter: drop-shadow(0 0 1px var(--color-primary));
                 --cut: 2em;
                 aspect-ratio: 1 / 1;
+                transition: all .3s ease;
                 &-img {
                     object-fit: cover;
+                    transition: filter .2s ease-in;
+                    object-position: 50% 50%;
                     height: 100%;
+                    animation: float 10s ease-in-out alternate infinite;
                 }
                 &:nth-child(1) {
                     img {
@@ -108,23 +110,24 @@
     }
     &-thumb {
         position: relative;
-        /* z-index: -1; */
         img {
             width: 100%;
         }
         transition: all .3s ease;
-
     }
     &-title {
-        font-size: 3em;
+        font-size: 2em;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
+        &-link {
+            display: block;
+        }
     }
     &-introduction {
-        font-size: 1.5em;
+        font-size: 1.2em;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;

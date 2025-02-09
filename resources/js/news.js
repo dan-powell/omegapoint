@@ -1,40 +1,66 @@
-import {load} from "webfontloader";
 import autoAnimate from '@formkit/auto-animate';
 import { gsap } from "gsap";
 
-window.human = function() {
-    console.log('human');
-    load({
-        google: {
-            families: ['Righteous', 'Geo']
-        }
-    });
-    document.querySelector(':root').style.setProperty('--font-heading', '"Righteous", serif');
-    document.querySelector(':root').style.setProperty('--font-body', '"Geo", serif');
-}
+import.meta.glob([
+    '../img/news/**',
+    '../icons/news/**',
+    '../fonts/**',
+]);
 
-window.alien = function() {
-    console.log('alien');
-    load({
-        google: {
-            families: ['Linefont']
-        }
-    });
-    document.querySelector(':root').style.setProperty('--font-heading', '"Linefont", serif');
-    document.querySelector(':root').style.setProperty('--font-body', '"Linefont", serif');
-}
+// window.human = function() {
+//     console.log('human');
+//     document.querySelector(':root').style.setProperty('--font-heading', '"Quantico", serif');
+//     document.querySelector(':root').style.setProperty('--font-body', '"Quantico", serif');
+// }
+
+// window.alien = function() {
+//     console.log('alien');
+//     document.querySelector(':root').style.setProperty('--font-heading', '"The Orb Report", serif');
+//     document.querySelector(':root').style.setProperty('--font-body', '"The Orb Report", serif');
+// }
 
 
-window.robot = function() {
-    console.log('robot');
-    load({
-        google: {
-            families: ['Libre Barcode 128']
+// window.robot = function() {
+//     console.log('robot');
+//     document.querySelector(':root').style.setProperty('--font-heading', '"QR Font"');
+//     document.querySelector(':root').style.setProperty('--font-body', '"QR Font"');
+// }
+
+
+Alpine.data('lang', () => ({
+    init() {
+        this.lang = localStorage.getItem('lang') ?? 'human';
+        if (this.lang != 'human') {
+            this.setFont();
         }
-    });
-    document.querySelector(':root').style.setProperty('--font-heading', '"Libre Barcode 128"');
-    document.querySelector(':root').style.setProperty('--font-body', '"Libre Barcode 128"');
-}
+    },
+
+    lang: 'human',
+
+    change(lang) {
+        localStorage.setItem('lang', lang)
+        this.lang = lang;
+
+        this.setFont();
+    },
+
+    setFont() {
+        if (this.lang == 'human') {
+            document.querySelector(':root').style.setProperty('--font-heading', '"Quantico", serif');
+            document.querySelector(':root').style.setProperty('--font-body', '"Quantico", serif');
+        }
+        if (this.lang == 'alien') {
+            document.querySelector(':root').style.setProperty('--font-heading', '"The Orb Report", serif');
+            document.querySelector(':root').style.setProperty('--font-body', '"The Orb Report", serif');
+        }
+        if (this.lang == 'robot') {
+            document.querySelector(':root').style.setProperty('--font-heading', '"QR Font"');
+            document.querySelector(':root').style.setProperty('--font-body', '"QR Font"');
+        }
+    }
+
+}))
+
 
 
 document.addEventListener("alpine:init", () => {
@@ -56,7 +82,7 @@ Livewire.on('articleListChanged', (options) => {
 
 
 const logo = document.getElementById('js-logo');
-const logo_bits = document.querySelectorAll('.HeaderLogo-dynamic');
+const logo_bits = document.querySelectorAll('.Header-logo-dynamic');
 let tllogo = gsap.timeline({repeat: 0, repeatDelay: 0, delay: 3, autoRemoveChildren: true});
 tllogo.eventCallback("onComplete", function() {
 

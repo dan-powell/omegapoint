@@ -1,11 +1,6 @@
 import './shared/bootstrap';
 import Overlay from './shared/overlay.js';
 
-import.meta.glob([
-    '../img/**',
-    '../icons/**',
-]);
-
 (function() {
 
     new Overlay('.Wrapper-overlay', '.js-overlay', {

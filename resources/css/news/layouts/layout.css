@@ -1,8 +1,6 @@
 .Layout {
     &-header {
-        /* position: sticky; */
         top: 0;
-        background: var(--color-background);
         z-index: 10;
     }
     &-body {
@@ -10,7 +8,6 @@
         top: 0;
     }
     &-top {
-        /* margin-top: 4rem; */
         padding: var(--gap) 0;
     }
     &-main {
@@ -18,11 +15,11 @@
     }
     &-sidebar {
         flex: 0 0 var(--sidebar-width);
+        max-width: var(--sidebar-width);
     }
     &-center {
         --cut: 3rem;
         flex: 1 1 50%;
-        /* border: 1px solid var(--color-line); */
         min-height: var(--cut);
         position: relative;
         border-right: 1px solid var(--color-line);

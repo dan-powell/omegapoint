@@ -1,11 +1,10 @@
 .Marquee {
-    flex: 1 1 100%;
     display: flex;
     align-items: center;
     border-top: 1px solid var(--color-line);
     border-bottom: 1px solid var(--color-line);
     padding: 3px 0;
-    overflow-x: hidden;
+
     &-track {
         /* padding-left: 100%; */
         /* box-sizing: content-box; */

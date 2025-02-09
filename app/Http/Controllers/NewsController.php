@@ -15,7 +15,8 @@ class NewsController extends Controller
     public function index(): View
     {
         return view('news.index', [
-            'lead' => Article::latest()
+            'lead' => Article::latest(), 
+            'archive' => Article::limit(10)->orderBy('date', 'desc')->get()
         ]);
     }
     /**

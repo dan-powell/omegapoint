@@ -20,7 +20,18 @@
         @livewire('news.subject-list')
         <h3 class="divider" title="District"><span>District</span></h3>
         @livewire('news.district-list')
-        <h3 class="divider" title="Archive"><span>Archive</span></h3>
+        @if(count($archive))
+            <h3 class="divider" title="Archive"><span>Archive</span></h3>
+            <div class="NewsIndex-archive">
+                <ul class="NewsIndex-archive-list">
+                    @foreach($archive as $article)
+                        <li class="NewsIndex-archive-item">
+                            <a class="NewsIndex-archive-link" href="{{ $article->url }}">{{ $article->title }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @endsection
 

@@ -5,14 +5,46 @@
     "isEntry": true
   },
   "resources/css/news.css": {
-    "file": "assets/news-CpR3bZMR.css",
+    "file": "assets/news-C6gK8zp5.css",
     "src": "resources/css/news.css",
     "isEntry": true
   },
   "resources/css/shared.css": {
-    "file": "assets/shared-DZ4hFBgk.css",
+    "file": "assets/shared-DKPnxHgi.css",
     "src": "resources/css/shared.css",
     "isEntry": true
+  },
+  "resources/fonts/barmorse.ttf": {
+    "file": "assets/barmorse-CstrQPAa.ttf",
+    "src": "resources/fonts/barmorse.ttf"
+  },
+  "resources/fonts/barmorse.txt": {
+    "file": "assets/barmorse-CXBMbvkX.txt",
+    "src": "resources/fonts/barmorse.txt"
+  },
+  "resources/fonts/connect-code-39.ttf": {
+    "file": "assets/connect-code-39-BnqJDQ09.ttf",
+    "src": "resources/fonts/connect-code-39.ttf"
+  },
+  "resources/fonts/morse-tech.otf": {
+    "file": "assets/morse-tech-B7WfyP6z.otf",
+    "src": "resources/fonts/morse-tech.otf"
+  },
+  "resources/fonts/morse-tech.txt": {
+    "file": "assets/morse-tech-D7wdnk_i.txt",
+    "src": "resources/fonts/morse-tech.txt"
+  },
+  "resources/fonts/qr-font.ttf": {
+    "file": "assets/qr-font-C84KwbK9.ttf",
+    "src": "resources/fonts/qr-font.ttf"
+  },
+  "resources/fonts/the-orb-report.ttf": {
+    "file": "assets/the-orb-report-CWoqgAHJ.ttf",
+    "src": "resources/fonts/the-orb-report.ttf"
+  },
+  "resources/fonts/the-orb-report.txt": {
+    "file": "assets/the-orb-report-D3kTnukB.txt",
+    "src": "resources/fonts/the-orb-report.txt"
   },
   "resources/icons/news/cloud-sunny.svg": {
     "file": "assets/cloud-sunny-DmIRq5NL.svg",
@@ -46,6 +78,10 @@
     "file": "assets/snow-DC-E2uTv.svg",
     "src": "resources/icons/news/snow.svg"
   },
+  "resources/icons/news/spritesheet.svg": {
+    "file": "assets/spritesheet-DEKTc0Z8.svg",
+    "src": "resources/icons/news/spritesheet.svg"
+  },
   "resources/icons/news/sun-light.svg": {
     "file": "assets/sun-light-D-hbozBi.svg",
     "src": "resources/icons/news/sun-light.svg"
@@ -61,10 +97,6 @@
   "resources/icons/news/wind.svg": {
     "file": "assets/wind-DCEVHd5I.svg",
     "src": "resources/icons/news/wind.svg"
-  },
-  "resources/img/blocks-wave.svg": {
-    "file": "assets/blocks-wave-DyAcP4No.svg",
-    "src": "resources/img/blocks-wave.svg"
   },
   "resources/img/button.svg": {
     "file": "assets/button-DIF3ZlFh.svg",
@@ -97,7 +129,7 @@
     "isEntry": true
   },
   "resources/js/news.js": {
-    "file": "assets/news-BYl0PP_M.js",
+    "file": "assets/news-BrXqS6kU.js",
     "name": "news",
     "src": "resources/js/news.js",
     "isEntry": true

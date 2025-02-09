@@ -3,6 +3,7 @@
 namespace App\Models\News;
 
 use App\Models\Area\District;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -43,6 +44,16 @@ class Article extends Model
             'date' => 'datetime',
             'published_date' => 'datetime'
         ];
+    }
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope('published', function (Builder $builder) {
+            $builder->where('published_date', '<', now());
+        });
     }
 
     public function url(): Attribute

@@ -3,85 +3,75 @@
     gap: 1em;
     padding: 0.5em;
     align-items: center;
-    /* background: var(--color-bg); */
     z-index: 30;
-}
-.HeaderLogo {
-    /* @keyframes logo {
-        0% {
-            max-width: 999px;
+    &-logo {
+        flex: 0 0 auto;
+        font-family: "Quantico", serif;
+        font-size: 1em;
+        text-transform: uppercase;
+        &-link {
+            display: flex;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 3em;
+            line-height: 1;
+            &:hover,
+            &:focus {
+                .Header-logo-dynamic {
+                    animation: none;
+                    max-width: 999px;
+                }
+            }
         }
-        100% {
-            max-width: 0
+        &-dynamic {
+            color: var(--color-secondary);
+            /* max-width: 0; */
+            overflow: hidden;
+            white-space: nowrap;
+            transition: max-width .6s ease-in-out;
+            animation: logo .6s ease;
+            animation-delay: 1s;
+            animation-fill-mode: backwards;
+            animation-iteration-count: 1;
         }
-    } */
-    flex: 0 0 auto;
-    font-family: "Righteous", serif;
-    font-size: 1em;
-    text-transform: uppercase;
-    &-link {
+    }
+    &-marquee {
+        flex: 1 1 100%;
+        overflow-x: hidden;
+    }
+    &-controls {
         display: flex;
-        color: var(--color-primary);
-        text-decoration: none;
-        font-size: 3em;
-        line-height: 1;
-        &:hover,
-        &:focus {
-            .HeaderLogo-dynamic {
-                animation: none;
-                max-width: 999px;
+        gap: 0.5em;
+        &-button {
+            display: inline-block;
+            padding: 0.5em;
+            background: none;
+            border: none;
+            transition: background-color .2s ease-in-out;
+            background:
+                linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
+                linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
+                linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y,
+                linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y;
+            background-size: 8px 2px, 8px 2px, 2px 8px, 2px 8px;
+            background-position: 0 0, 0 100%, 0 0, 100% 0;
+            animation: linearGradientMove 0.5s infinite linear;
+            &:hover {
+                cursor: pointer;
+                background: var(--color-active);
             }
-        }
-    }
-    &-dynamic {
-        color: var(--color-secondary);
-        /* max-width: 0; */
-        overflow: hidden;
-        white-space: nowrap;
-        transition: max-width .6s ease-in-out;
-        animation: logo .6s ease;
-        animation-delay: 1s;
-        animation-fill-mode: backwards;
-        animation-iteration-count: 1;
-    }
-}
-.HeaderControls {
-    display: flex;
-    gap: 0.5em;
-    @keyframes linearGradientMove {
-        100% {
-            background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px;
-        }
-    }
-    &-button {
-        /* width: 2em; */
-        background: none;
-        border: none;
-        transition: background-color .2s ease-in-out;
-        /* border: 2px dashed var(--color-active); */
-        /* border: 2px solid transparent; */
-        /* box-sizing: content-box; */
-        background:
-            linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
-            linear-gradient(90deg, var(--color-active) 50%, transparent 0) repeat-x,
-            linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y,
-            linear-gradient(0deg, var(--color-active) 50%, transparent 0) repeat-y;
-        background-size: 8px 2px, 8px 2px, 2px 8px, 2px 8px;
-        background-position: 0 0, 0 100%, 0 0, 100% 0;
-        animation: linearGradientMove 0.5s infinite linear;
-
-        &:hover {
-            cursor: pointer;
-            background: var(--color-primary);
-        }
-        &:hover & {
+            &:hover & {
+                &-icon {
+                    fill: var(--color-invert);
+                }
+            }
             &-icon {
-                stroke: var(--color-primary-invert);
+                display: inline-block;
+                width: 2em;
+                aspect-ratio: 1 / 1;
+                /* stroke: var(--color-primary); */
+                fill: var(--color-primary);
             }
-        }
-        &-icon {
-            width: 2.6em;
-            stroke: var(--color-primary);
         }
     }
 }

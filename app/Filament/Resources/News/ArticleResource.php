@@ -17,7 +17,9 @@ use Filament\Forms\Components\Builder as FormBuilder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Get;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class ArticleResource extends Resource
 {
@@ -33,20 +35,29 @@ class ArticleResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id')
+                    ->default(fn(): string => strtolower(Str::ulid()))
+                    ->readonly()
+                    ->disabled()
+                    ->required(),
+                Forms\Components\DateTimePicker::make('date')
+                    ->default(now())
+                    ->required(),
+                Forms\Components\DateTimePicker::make('published_date'),
                 Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\TextInput::make('short'),
                 Forms\Components\TextInput::make('summary'),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->disk('news')
-                    ->directory('thumbnail')
+                    ->directory(fn(Get $get) => $get('id'). '/thumbnail')
                     ->image()
                     ->imageEditor()
                     ->nullable(),
                 Forms\Components\FileUpload::make('lead')
                     ->multiple()
                     ->disk('news')
-                    ->directory('lead')
+                    ->directory(fn(Get $get) => $get('id') . '/lead')
                     ->image()
                     ->imageEditor()
                     ->nullable(),
@@ -65,7 +76,7 @@ class ArticleResource extends Resource
                                 MarkdownEditor::make('content'),
                                 FileUpload::make('media')
                                     ->disk('news')
-                                    ->directory('body')
+                                    ->directory(fn(Get $get) => $get('id') . '/sections')
                                     ->multiple()
                                     ->image()
                                     ->imageEditor(),
@@ -73,13 +84,25 @@ class ArticleResource extends Resource
                             ->columns(2),
                     ]),
 
+                FormBuilder::make('updates')
+                    ->columnSpanFull()
+                    ->blocks([
+                        Block::make('update')
+                            ->schema([
+                                Forms\Components\DateTimePicker::make('date')
+                                    ->default(now())
+                                    ->required(),
+                                MarkdownEditor::make('content'),
+                                FileUpload::make('media')
+                                    ->disk('news')
+                                    ->directory(fn(Get $get) => $get('id') . '/updates')
+                                    ->image()
+                                    ->imageEditor(),
+                            ])
+                            ->columns(2),
+                    ]),
 
-                Forms\Components\Textarea::make('updates')
-                    ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('date')
-                    ->default(now())
-                    ->required(),
-                Forms\Components\DateTimePicker::make('published_date'),
+               
             ]);
     }
 
@@ -139,5 +162,13 @@ class ArticleResource extends Resource
             'create' => Pages\CreateArticle::route('/create'),
             'edit' => Pages\EditArticle::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                'published'
+            ]);
     }
 }

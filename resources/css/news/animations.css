@@ -1,3 +1,9 @@
+@keyframes linearGradientMove {
+    100% {
+        background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px;
+    }
+}
+
 @keyframes float {
     0% {
         object-position: 0% 0%;

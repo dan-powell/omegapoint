@@ -1,0 +1,34 @@
+.NewsIndex {
+    &-archive {
+        padding: var(--box-padding);
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        &-item {
+            overflow: hidden;
+            /* max-width: 20ch; */
+            font-size: 1.2em;
+            position: relative;
+            &::after {
+                content: '';
+                width: 3ch;
+                height: 100%;
+                top: 0;
+                right: 0;
+                position: absolute;
+                background-image: linear-gradient(90deg, transparent, var(--color-bg));
+
+            }
+        }
+        &-link {
+            display: inline-block;
+            transition: all 2s ease-out;
+            &:hover {
+                transform: translateX(calc(-100% + 18ch));
+            }
+            white-space: nowrap;
+        }
+    }
+}
