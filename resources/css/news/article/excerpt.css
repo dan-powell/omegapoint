@@ -1,6 +1,7 @@
 .ArticleExcerpt {
     display: flex;
     position: relative;
+    width: 100%;
     > * {
         flex: 1 1 100%;
     }
@@ -12,6 +13,11 @@
         }
         &-thumb {
             filter: saturate(200%);
+        }
+        &-thumb {
+            &-img {
+                animation-play-state: running;
+            }
         }
     }
     &-link {
@@ -38,11 +44,12 @@
     &-thumb {
         margin-left: -2em;
         transition: filter .2s ease-in;
-        aspect-ratio: 1 / 1;
         &-img {
             object-fit: cover;
             animation: float 10s ease-in-out alternate infinite;
+            animation-play-state: paused;
             height: 100%;
+            width: 100%;
         }
     }
     &-head {

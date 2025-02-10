@@ -10,13 +10,13 @@
             display: none;
         }
         &-label {
-            @mixin button;
+            @mixin button-active;
             text-transform: uppercase;
             color: var(--color-primary);
         }
         &-checkbox:checked + &-label {
             color: var(--color-invert);
-            &::after, 
+            &::after,
             &::before {
                 background: var(--color-primary);
                 border-bottom: 1px var(--color-primary) solid;

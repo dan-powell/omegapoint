@@ -57,16 +57,20 @@
     }
     &-list {
         padding: 2em;
-        --gap: 2em;
+        --gap: 1em;
         --columns: 3;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
         gap: var(--gap);
     }
     &-item {
+        /* width: 100%; */
+        aspect-ratio: 3 / 2;
         display: flex;
-        flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
-        transition: all .2s ease-in;
+        flex-direction: column;
+        > * {
+            height: 100%;
+        }
     }
     @media screen and (max-width: 1920px) {
         &-list {

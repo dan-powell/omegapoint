@@ -1,13 +1,17 @@
 <article class="ArticleLead">
-    <a class="ArticleLead-link" wire:navigate href="{{ $article->url }}"></a>
+    {{-- <a class="ArticleLead-link" wire:navigate href="{{ $article->url }}"></a> --}}
     <div class="ArticleLead-media">
         @if($article->lead && count($article->lead))
             <div class="ArticleLead-media-thumb">
-                <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->lead[0]) }}"/>
+                <a wire:navigate href="{{ $article->url }}">
+                    <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->lead[0]) }}"/>
+                </a>
             </div>
         @elseif($article->thumb)
             <div class="ArticleLead-media-thumb">
-                <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->thumb) }}"/>
+                <a wire:navigate href="{{ $article->url }}">
+                    <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->thumb) }}"/>
+                </a>
             </div>
         @endif
         @if($article->lead && count($article->lead) > 1)
@@ -15,7 +19,9 @@
                 @foreach(array_slice($article->lead, 1) as $key => $lead)
                     @break($key > 1)
                     <div class="ArticleLead-media-mini-thumb">
-                        <img class="ArticleLead-media-mini-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
+                        <a wire:navigate href="{{ $article->url }}">
+                            <img class="ArticleLead-media-mini-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
+                        </a>
                     </div>
                 @endforeach
             </div>

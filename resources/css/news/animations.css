@@ -6,9 +6,22 @@
 
 @keyframes float {
     0% {
+        object-position: 50% 50%;
+        animation-timing-function: ease-out;
+    }
+    25% {
         object-position: 0% 0%;
+        animation-timing-function: ease-in;
+    }
+    50% {
+        object-position: 50% 50%;
+        animation-timing-function: ease-out;
+    }
+    75% {
+        object-position: 100% 100%;
+        animation-timing-function: ease-in;
     }
     100% {
-        object-position: 100% 100%;
+        object-position: 50% 50%;
     }
 }

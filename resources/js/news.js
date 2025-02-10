@@ -91,7 +91,7 @@ tllogo.eventCallback("onComplete", function() {
     tllogo.to(logo_bits, {width: "auto", duration: 0.25});
     logo.addEventListener("mouseenter", () => tllogo.play());
     logo.addEventListener("mouseleave", () => tllogo.reverse())
-});    
+});
 tllogo.to(logo_bits, {width: 0, duration: 1, ease: "bounce.out"});
 
 
@@ -108,4 +108,3 @@ marquee.addEventListener("mouseenter", () => gsap.to(tl, {timeScale: 0, overwrit
 marquee.addEventListener("mouseleave", () => gsap.to(tl, {timeScale: 1, overwrite: true}));
 
 
-  
