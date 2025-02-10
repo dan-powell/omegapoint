@@ -47,8 +47,10 @@
                 </div>
             @endif
             @if($article->introduction)
-                <div class="ArticleShow-introduction Layout-sticky">
-                    {{ $article->introduction }}
+                <div class="ArticleShow-introduction">
+                    <div class="Layout-sticky">
+                        {{ $article->introduction }}
+                    </div>
                 </div>
             @endif
         </div>
@@ -59,18 +61,20 @@
                     @switch($section['type'])
                         @case('section')
                             <div class="ArticleSectionDefault">
-                                @if($section['data']['content'])
-                                    <div class="ArticleSectionDefault-content">
-                                        {!! str($section['data']['content'])->markdown()->sanitizeHtml() !!}
-                                    </div>
-                                @endif
-                                @if($section['data']['media'])
-                                    <div class="ArticleSectionDefault-media">
-                                        @foreach($section['data']['media'] as $media)
-                                            <img class="ArticleSectionDefault-media-img" src="{{ Image::disk('news')->url($media) }}"/>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                <div class="ArticleSectionDefault-inner">
+                                    @if($section['data']['content'])
+                                        <div class="ArticleSectionDefault-content">
+                                            {!! str($section['data']['content'])->markdown()->sanitizeHtml() !!}
+                                        </div>
+                                    @endif
+                                    @if($section['data']['media'])
+                                        <div class="ArticleSectionDefault-media">
+                                            @foreach($section['data']['media'] as $media)
+                                                <img class="ArticleSectionDefault-media-img" src="{{ Image::disk('news')->url($media) }}"/>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
                             @break
                     @endswitch
