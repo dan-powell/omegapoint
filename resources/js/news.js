@@ -1,5 +1,9 @@
 import autoAnimate from '@formkit/auto-animate';
 import { gsap } from "gsap";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 import.meta.glob([
     '../img/news/**',

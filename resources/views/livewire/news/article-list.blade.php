@@ -10,7 +10,7 @@
                     <path d="M11 3C18 3 18 6 18 6C18 6 18 9 11 9C4 9 4 6 4 6C4 6 4 3 11 3Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                     <path d="M11 21C4 21 4 18 4 18V12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-            </label> 
+            </label>
             <input id="search" class="ArticleList-search-input" type="text" wire:model.live.debounce="search"/>
         </div>
         <div class="ArticleList-filter">
@@ -22,7 +22,7 @@
     </form>
     <div class="ArticleList-list" x-data="flip">
         @forelse($articles as $article)
-            <div class="ArticleList-item" wire:key="{{ $article->id }}">
+            <div class="ArticleList-item" wire:key="{{ $article->id }}" data-aos="fade-in">
                 @include('news/article/excerpt', ['article' => $article])
             </div>
         @empty
