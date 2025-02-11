@@ -6,6 +6,7 @@
 
 @import 'news/mixins/button.css';
 @import 'news/mixins/clip.css';
+@import 'news/mixins/effects.css';
 
 @import 'news/utilities/media.css';
 @import 'news/utilities/divider.css';

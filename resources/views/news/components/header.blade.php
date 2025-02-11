@@ -5,46 +5,28 @@
                 O<span class="Header-logo-dynamic">mega</span> P<span class="Header-logo-dynamic">oint</span> N<span class="Header-logo-dynamic">ews</span>
             </a>
         </h1>
-        <div class="Header-controls" x-data="lang">
-            <input id="language_human" type="radio" name="lang" x-model="lang" value="human" @change="change('human')">
-            <label for="language_human">
-                <svg class="Header-controls-button-icon" aria-hidden="true" focusable="false">
+        <div class="Header-lang" x-data="lang">
+            <input class="Header-lang-input" id="language_human" type="radio" name="lang" x-model="lang" value="human" @change="change('human')">
+            <label class="Header-lang-label" for="language_human" tab-index="0">
+                <svg class="Header-lang-label-icon" aria-hidden="true" focusable="false">
                     <use xlink:href="/news/spritesheet.svg#human"></use>
                 </svg>
-                Human
+                <span class="Header-lang-label-span sronly">Human</span>
             </label>
-            <input id="language_alien" type="radio" name="lang" x-model="lang" value="alien" @change="change('alien')">
-            <label for="language_alien">
-                <svg class="Header-controls-button-icon" aria-hidden="true" focusable="false">
+            <input class="Header-lang-input" id="language_alien" type="radio" name="lang" x-model="lang" value="alien" @change="change('alien')">
+            <label class="Header-lang-label" for="language_alien" tab-index="0">
+                <svg class="Header-lang-label-icon" aria-hidden="true" focusable="false">
                     <use xlink:href="/news/spritesheet.svg#alien"></use>
                 </svg>
-                Alien
+                <span class="Header-lang-label-span sronly">Alien</span>
             </label>
-            <input id="language_robot" type="radio" name="lang" x-model="lang" value="robot" @change="change('robot')">
-            <label for="language_robot">
-                <svg class="Header-controls-button-icon" aria-hidden="true" focusable="false">
+            <input class="Header-lang-input" id="language_robot" type="radio" name="lang" x-model="lang" value="robot" @change="change('robot')">
+            <label class="Header-lang-label" for="language_robot" tab-index="0">
+                <svg class="Header-lang-label-icon" aria-hidden="true" focusable="false">
                     <use xlink:href="/news/spritesheet.svg#robot"></use>
                 </svg>
-                Robot
+                <span class="Header-lang-label-span sronly">Robot</span>
             </label>
-
-
-
-            {{-- <button class="Header-controls-button" onclick="window.human()" title="Human Language"><span class="sronly">Human</span>
-                <svg class="Header-controls-button-icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="/news/spritesheet.svg#human"></use>
-                </svg>
-            </button>
-            <button class="Header-controls-button" onclick="window.alien()" title="Alien Language"><span class="sronly">Alien</span>
-                <svg class="Header-controls-button-icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="/news/spritesheet.svg#alien"></use>
-                </svg>
-            </button>
-            <button class="Header-controls-button" onclick="window.robot()" title="Robot Language"><span class="sronly">Robot</span>
-                <svg class="Header-controls-button-icon" aria-hidden="true" focusable="false">
-                    <use xlink:href="/news/spritesheet.svg#robot"></use>
-                </svg>
-            </button> --}}
         </div>
         <div class="Header-marquee">
             @include('news.components.marquee')
