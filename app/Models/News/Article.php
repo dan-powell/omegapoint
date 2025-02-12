@@ -38,7 +38,7 @@ class Article extends Model
     protected function casts(): array
     {
         return [
-            'lead' => 'array',
+            'lead' => 'collection',
             'sections' => 'json',
             'updates' => 'json',
             'date' => 'datetime',

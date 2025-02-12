@@ -29,23 +29,27 @@
 
     <article class="ArticleShow-main">
         <header class="ArticleShow-head">
-            <h1 class="ArticleShow-title">{{ $article->title }}</h1>
-            @if($article->summary)
-                <div class="ArticleShow-summary">
-                    {{ $article->summary }}
-                </div>
-            @endif
-        </header>
-        <div class="ArticleShow-intro">
+            <div class="ArticleShow-heading">
+                <h1 class="ArticleShow-title">{{ $article->title }}</h1>
+            </div>
             @if(isset($article->lead) && count($article->lead))
                 <div class="ArticleShow-lead">
-                    @foreach($article->lead as $lead)
+                    <div class="ArticleShow-thumb">
+                        <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($article->lead->first()) }}"/>
+                    </div>
+                </div>
+            @endif
+            @if(isset($article->lead) && count($article->lead) > 1)
+                <div class="ArticleShow-mini">
+                    @foreach($article->lead->slice(1) as $lead)
                         <div class="ArticleShow-thumb">
                             <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
                         </div>
                     @endforeach
                 </div>
             @endif
+        </header>
+        <div class="ArticleShow-intro">
             @if($article->introduction)
                 <div class="ArticleShow-introduction">
                     <div class="Layout-sticky">

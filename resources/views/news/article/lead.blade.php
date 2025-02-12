@@ -4,7 +4,7 @@
         @if($article->lead && count($article->lead))
             <div class="ArticleLead-media-thumb" data-aos="fade-in">
                 <a wire:navigate href="{{ $article->url }}">
-                    <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->lead[0]) }}"/>
+                    <img class="ArticleLead-media-thumb-img" src="{{ Image::disk('news')->url($article->lead->first()) }}"/>
                 </a>
             </div>
         @elseif($article->thumb)
@@ -16,8 +16,7 @@
         @endif
         @if($article->lead && count($article->lead) > 1)
             <div class="ArticleLead-media-mini">
-                @foreach(array_slice($article->lead, 1) as $key => $lead)
-                    @break($key > 1)
+                @foreach($article->lead->splice(1)->take(2) as $lead)
                     <div class="ArticleLead-media-mini-thumb" data-aos="fade-in" data-aos-delay="{{ $loop->iteration * 50 }}">
                         <a wire:navigate href="{{ $article->url }}">
                             <img class="ArticleLead-media-mini-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>

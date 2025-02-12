@@ -80,7 +80,7 @@ class ArticleList extends Component
         }
 
         // Except
-        if($this->except && $this->search == null) {
+        if($this->except && $this->search == null && !$this->subjects && !$this->districts) {
             $query->whereNotIn('id', $this->except);
         }
 
