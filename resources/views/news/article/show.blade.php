@@ -35,16 +35,14 @@
             @if(isset($article->lead) && count($article->lead))
                 <div class="ArticleShow-lead">
                     <div class="ArticleShow-thumb">
-                        <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($article->lead->first()) }}"/>
+                        <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->crop(640, 480)->url($article->lead->first()) }}"/>
                     </div>
                 </div>
             @endif
             @if(isset($article->lead) && count($article->lead) > 1)
                 <div class="ArticleShow-mini">
                     @foreach($article->lead->slice(1) as $lead)
-                        <div class="ArticleShow-thumb">
-                            <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
-                        </div>
+                        <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
                     @endforeach
                 </div>
             @endif

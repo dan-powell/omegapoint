@@ -42,36 +42,53 @@
         margin: 0 auto;
         border-top: 1px solid var(--color-line);
         border-bottom: 1px solid var(--color-line);
+        z-index: 10;
+        background: var(--color-bg-semi);
+        backdrop-filter: blur(10px);
+        padding: 0.5em;
     }
 
     &-lead {
-        grid-column: 7/13;
+        grid-column: 1/13;
         grid-row: 1/6;
         display: flex;
-        flex-wrap: wrap;
-        --columns: 2;
-        --gap: 1em;
+        justify-content: flex-end;
         gap: var(--gap);
-        > * {
-            flex: 0 1 calc((100% / var(--columns)) - (var(--gap) * (var(--columns) - 1) / var(--columns)));
-            &:first-child {
-                flex: 0 1 100%;
+        .ArticleShow-thumb {
+            min-height: 40vh;
+            width: auto;
+            &-img {
+                height: 100%;
+                width: auto;
+                object-fit: cover;
             }
+        }
+        > * {
+
         }
     }
 
     &-thumb {
         &-img {
             width: 100%;
+            --cut: 1em;
             @mixin clip-tl-br;
         }
     }
     &-mini {
-        grid-column: 1/9;
+        grid-column: 1/10;
         grid-row: 4/7;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        /* grid-template-columns: repeat(4, 1fr); */
         gap: var(--gap);
+        > * {
+            object-fit: cover;
+            flex: 1 1 auto;
+            /* height: 100%;
+            > * {
+                height: 100%;
+            } */
+        }
 
     }
 
@@ -94,7 +111,7 @@
         flex: 1 1 100%;
         font-size: 1.6em;
     }
-    
+
     &-sections {
         /* display: flex; */
         /* flex-direction: column; */
@@ -116,14 +133,15 @@
 .ArticleSectionDefault {
     margin: var(--box-padding);
     &-inner {
-        display: flex;
+        display: grid;
         gap: var(--gap);
-        /* max-width: 80ch;
-        margin: 0 auto; */
+        max-width: 80ch;
+        margin: 0 auto;
     }
     &-content {
         flex: 1 1 auto;
-        max-width: 60ch;
+
+        /* max-width: 60ch; */
     }
     &-media {
         flex: 0 0 20%;
