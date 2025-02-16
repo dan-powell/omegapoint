@@ -10,7 +10,6 @@
             <span>{{ $article->date->format('hm')}}</span>
             <span>{{ $article->date->format('z|Y')}}</span>
         </time>
-
         <h3 class="divider" title="Tagged"><span>Tagged</span></h3>
         @foreach($article->districts as $district)
             <a class="button" href="{{ $district->url }}">
@@ -26,7 +25,6 @@
 @endsection
 
 @section('center')
-
     <article class="ArticleShow-main">
         <header class="ArticleShow-head">
             <div class="ArticleShow-heading">
@@ -47,28 +45,23 @@
                 </div>
             @endif
         </header>
-        <div class="ArticleShow-intro">
-            @if($article->introduction)
-                <div class="ArticleShow-introduction">
-                    <div class="Layout-sticky">
-                        {{ $article->introduction }}
-                    </div>
+        @if($article->introduction)
+            <div class="ArticleShow-intro">
+                <svg class="ArticleShow-intro-icon" aria-hidden="true" focusable="false">
+                    <use xlink:href="{{ asset('news/triangle_sprite.svg#right') }}"></use>
+                </svg>
+                <div class="ArticleShow-intro-inner">
+                    {{ $article->introduction }}
                 </div>
-            @endif
-        </div>
+            </div>
+        @endif
         @if($article->sections)
             <section class="ArticleShow-sections">
                 @foreach($article->sections as $section)
-
                     @switch($section['type'])
                         @case('section')
                             <div class="ArticleSectionDefault">
                                 <div class="ArticleSectionDefault-inner">
-                                    @if($section['data']['content'])
-                                        <div class="ArticleSectionDefault-content">
-                                            {!! str($section['data']['content'])->markdown()->sanitizeHtml() !!}
-                                        </div>
-                                    @endif
                                     @if($section['data']['media'])
                                         <div class="ArticleSectionDefault-media">
                                             @foreach($section['data']['media'] as $media)
@@ -76,17 +69,22 @@
                                             @endforeach
                                         </div>
                                     @endif
+                                    @if($section['data']['content'])
+                                        <div class="ArticleSectionDefault-content">
+                                            {!! str($section['data']['content'])->markdown()->sanitizeHtml() !!}
+                                        </div>
+                                    @endif
+                                    <svg class="ArticleSectionDefault-icon" aria-hidden="true" focusable="false">
+                                        <use xlink:href="{{ asset('news/triangle_sprite.svg#down') }}"></use>
+                                    </svg>
                                 </div>
                             </div>
                             @break
                     @endswitch
-
                 @endforeach
             </section>
         @endif
-
 @endsection
-
 
 @section('aside')
     <div class="Layout-sticky">

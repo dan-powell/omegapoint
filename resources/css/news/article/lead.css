@@ -49,7 +49,7 @@
         }
         &-thumb {
             transition: clip-path .2s ease;
-            --cut: 2em;
+            --cut: calc(var(--cut-lg) * 0.6);
             @mixin clip;
             aspect-ratio: 1 / 1;
             &-img {
@@ -70,7 +70,6 @@
             width: 60%;
             z-index: 20;
             &:hover & {
-
                 &-thumb {
                     transform: translate(0%, 0%) !important;
                     opacity: 1;
@@ -89,7 +88,6 @@
             &-thumb {
                 flex: 1 1 100%;
                 filter: drop-shadow(0 0 1px var(--color-primary));
-                --cut: 2em;
                 aspect-ratio: 1 / 1;
                 transition: all .3s ease;
                 &:hover & {
@@ -124,7 +122,6 @@
         }
     }
     &-main {
-        --cut: 2em;
         @mixin clip-tl-bl;
         transition: clip-path .2s ease;
         flex: 1 1 auto;

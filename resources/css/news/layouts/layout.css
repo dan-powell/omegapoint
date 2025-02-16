@@ -18,9 +18,8 @@
         max-width: var(--sidebar-width);
     }
     &-center {
-        --cut: 3rem;
         flex: 1 1 50%;
-        min-height: var(--cut);
+        min-height: var(--cut-lg);
         position: relative;
         border-right: 1px solid var(--color-line);
         overflow: clip;
@@ -36,7 +35,7 @@
             z-index: -1;
         }
         &:before {
-            height: var(--cut);
+            height: var(--cut-lg);
             top: 0;
             border: 1px solid var(--color-line);
             border-width: 1px 1px 0px 2px;
@@ -44,7 +43,7 @@
             transform-origin: right bottom;
         }
         &:after {
-            height: calc(100% - var(--cut) - 2px);
+            height: calc(100% - var(--cut-lg) - 2px);
             bottom: 0px;
             border: 1px solid var(--color-line);
             border-width: 0px 0px 1px 1px;
