@@ -2,25 +2,43 @@
 
 @section('sidebar')
     <div class="Layout-sticky">
-        <a class="ArticleShow-return" wire:navigate onclick="history.go(-1)" href="{{ route('news.index') }}">
+        <a class="ArticleShow-return" wire:navigate href="{{ route('news.index') }}">
             ◁ Index
         </a>
         <h3 class="divider" title="Published"><span>Published</span></h3>
-        <time>
+        <time class="ArticleShow-published">
             <span>{{ $article->date->format('hm')}}</span>
             <span>{{ $article->date->format('z|Y')}}</span>
         </time>
         <h3 class="divider" title="Tagged"><span>Tagged</span></h3>
-        @foreach($article->districts as $district)
-            <a class="button" href="{{ $district->url }}">
-                {{ $district->name }}
-            </a>
-        @endforeach
-        @foreach($article->subjects as $subject)
-            <a class="button" href="{{ $subject->url }}">
-                {{ $subject->name }}
-            </a>
-        @endforeach
+        <div class="ArticleShow-tagged">
+            @foreach($article->districts as $district)
+                <a class="ArticleShow-tagged-button" wire:navigate href="{{ $district->url }}">
+                    {{ $district->name }}
+                </a>
+            @endforeach
+            @foreach($article->subjects as $subject)
+                <a class="ArticleShow-tagged-button" wire:navigate href="{{ $subject->url }}">
+                    {{ $subject->name }}
+                </a>
+            @endforeach
+        </div>
+        @if($article->tldr)
+            <div class="ArticleShow-tldr">
+                <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
+                <div class="ArticleShow-tldr-inner content">
+                    {{ $article->tldr }}
+                </div>
+            </div>
+        @endif
+        @if($next)
+            <div class="ArticleShow-next">
+                <h3 class="divider" title="Next"><span>Next</span></h3>
+                <a class="ArticleShow-return" wire:navigate href="{{ $next->url }}">
+                    {{ $next->short }} ▷
+                </a>
+            </div>
+        @endif
     </div>
 @endsection
 
@@ -50,7 +68,7 @@
                 <svg class="ArticleShow-intro-icon" aria-hidden="true" focusable="false">
                     <use xlink:href="{{ asset('news/triangle_sprite.svg#right') }}"></use>
                 </svg>
-                <div class="ArticleShow-intro-inner">
+                <div class="ArticleShow-intro-inner content">
                     {{ $article->introduction }}
                 </div>
             </div>
@@ -70,7 +88,7 @@
                                         </div>
                                     @endif
                                     @if($section['data']['content'])
-                                        <div class="ArticleSectionDefault-content">
+                                        <div class="ArticleSectionDefault-content content">
                                             {!! str($section['data']['content'])->markdown()->sanitizeHtml() !!}
                                         </div>
                                     @endif
@@ -88,14 +106,7 @@
 
 @section('aside')
     <div class="Layout-sticky">
-        @if($article->tldr)
-            <div class="ArticleShow-tldr">
-                <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
-                <div class="ArticleShow-tldr-inner">
-                    {{ $article->tldr }}
-                </div>
-            </div>
-        @endif
+        
         @if($article->updates && !empty($article->updates))
             <div class="ArticleShow-tldr">
                 <h3 class="divider" title="Updates"><span>Updates</span></h3>

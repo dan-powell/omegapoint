@@ -4,13 +4,14 @@
         &-list {
             display: flex;
             flex-direction: column;
-            gap: 1em;
+            gap: 0.5em;
         }
         &-item {
             overflow: hidden;
             /* max-width: 20ch; */
-            font-size: 1.2em;
+            font-size: 1em;
             position: relative;
+            padding-top: 0.7em;
             &::after {
                 content: '';
                 width: 3ch;
@@ -25,10 +26,20 @@
         &-link {
             display: inline-block;
             transition: all 2s ease-out;
+            &:focus,
             &:hover {
                 transform: translateX(calc(-100% + 18ch));
+                color: var(--color-primary);
             }
             white-space: nowrap;
+            position: relative;
+        }
+        &-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.6em;
+            color: var(--color-secondary);
         }
     }
 }

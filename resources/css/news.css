@@ -10,6 +10,7 @@
 
 @import 'news/utilities/media.css';
 @import 'news/utilities/divider.css';
+@import 'news/utilities/content.css';
 
 @import 'news/foundation.css';
 @import 'news/layouts/layout.css';

@@ -24,8 +24,10 @@ class NewsController extends Controller
      */
     public function articleShow(string $id): View
     {
+        $article = Article::with(['subjects', 'districts'])->findOrFail($id);
         return view('news.article.show', [
-            'article' => Article::with(['subjects', 'districts'])->findOrFail($id)
+            'article' => $article,
+            'next' => Article::whereNot('id', $id)->whereDate('date', '>', $article->date)->orderBy('date', 'asc')->first()
         ]);
     }
 }

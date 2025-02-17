@@ -6,6 +6,31 @@
         font-size: 2em;
         text-transform: uppercase;
         font-family: var(--font-heading);
+        width: 100%;
+    }
+    &-published {
+        display: block;
+        text-align: center;
+        padding: var(--box-padding);
+        font-size: 1.6em;
+    }
+    &-tagged {
+        display: block;
+        text-align: center;
+        padding: var(--box-padding);
+        font-size: 1.6em;
+        &-button {
+            @mixin button-active;
+        }
+    }
+    &-tldr {
+        &-inner {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            padding: var(--box-padding);
+            font-style: italic;
+            
+        }
     }
     &-main {
         display: flex;
@@ -113,13 +138,7 @@
         /* max-width: 80ch; */
         margin: 0 auto;
     }
-    &-tldr {
-        &-inner {
-            font-family: var(--font-heading);
-            font-size: 1.2em;
-            padding: var(--box-padding);
-        }
-    }
+    
 }
 .ArticleSectionDefault {
     margin: var(--box-padding);

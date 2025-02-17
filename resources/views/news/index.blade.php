@@ -26,7 +26,13 @@
                 <ul class="NewsIndex-archive-list">
                     @foreach($archive as $article)
                         <li class="NewsIndex-archive-item">
-                            <a class="NewsIndex-archive-link" href="{{ $article->url }}">{{ $article->title }}</a>
+                            <a class="NewsIndex-archive-link" href="{{ $article->url }}">
+                                {{ $article->title }} 
+                            </a>
+                            <time class="NewsIndex-archive-date">
+                                <span>{{ $article->date->format('hm')}}</span>
+                                <span>{{ $article->date->format('z|Y')}}</span>
+                            </time>
                         </li>
                     @endforeach
                 </ul>
