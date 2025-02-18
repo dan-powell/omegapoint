@@ -1,15 +1,17 @@
 @extends('news.layout')
 
 @section('sidebar')
-    <div class="Layout-sticky">
-        <a class="ArticleShow-return" wire:navigate href="{{ route('news.index') }}">
-            ◁ Index
-        </a>
+    <a class="ArticleShow-return" wire:navigate href="{{ route('news.index') }}">
+        ◁ Index
+    </a>
+    <section>
         <h3 class="divider" title="Published"><span>Published</span></h3>
         <time class="ArticleShow-published">
             <span>{{ $article->date->format('hm')}}</span>
             <span>{{ $article->date->format('z|Y')}}</span>
         </time>
+    </section>
+    <section>
         <h3 class="divider" title="Tagged"><span>Tagged</span></h3>
         <div class="ArticleShow-tagged">
             @foreach($article->districts as $district)
@@ -23,23 +25,23 @@
                 </a>
             @endforeach
         </div>
-        @if($article->tldr)
-            <div class="ArticleShow-tldr">
-                <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
-                <div class="ArticleShow-tldr-inner content">
-                    {{ $article->tldr }}
-                </div>
+    </section>
+    @if($article->tldr)
+        <div class="ArticleShow-tldr">
+            <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
+            <div class="ArticleShow-tldr-inner content">
+                {{ $article->tldr }}
             </div>
-        @endif
-        @if($next)
-            <div class="ArticleShow-next">
-                <h3 class="divider" title="Next"><span>Next</span></h3>
-                <a class="ArticleShow-return" wire:navigate href="{{ $next->url }}">
-                    {{ $next->short }} ▷
-                </a>
-            </div>
-        @endif
-    </div>
+        </div>
+    @endif
+    @if($next)
+        <div class="ArticleShow-next">
+            <h3 class="divider" title="Next"><span>Next</span></h3>
+            <a class="ArticleShow-return" wire:navigate href="{{ $next->url }}">
+                {{ $next->short }} ▷
+            </a>
+        </div>
+    @endif
 @endsection
 
 @section('center')

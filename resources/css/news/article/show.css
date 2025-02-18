@@ -29,7 +29,6 @@
             font-size: 1.2em;
             padding: var(--box-padding);
             font-style: italic;
-            
         }
     }
     &-main {
@@ -109,9 +108,6 @@
         /* align-items: center; */
         font-size: 1.6em;
         grid-template-columns: 1fr var(--content-width) 1fr;
-        > * {
-            flex: 1 1 auto;
-        }
         &-icon {
             grid-column: 1;
             flex: 0 0 auto;
@@ -138,30 +134,49 @@
         /* max-width: 80ch; */
         margin: 0 auto;
     }
-    
+    @media screen and (max-width: 960px) {
+        &-head {
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+        }
+        &-heading {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        &-lead {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        &-mini {
+            grid-column: 1;
+            grid-row: 3;
+        }
+    }
 }
 .ArticleSectionDefault {
-    margin: var(--box-padding);
+    margin: calc(var(--gap) * 2) var(--box-padding);
     &-inner {
         display: grid;
         gap: var(--gap);
-        /* margin: 0 auto; */
         grid-template-columns: 1fr var(--content-width) 1fr;
         grid-template-rows: 1fr;
+        align-items: start;
     }
     &-content {
         /* max-width: 80ch; */
         /* grid-column: 2; */
     }
     &-media {
-        /* grid-column: 1; */
         display: flex;
         gap: var(--gap);
         flex-wrap: wrap;
-        /* flex-direction: column; */
+        /* filter: drop-shadow(0 0 1px var(--color-primary)); */
+        > * {
+            flex: 1 1 auto;
+        }
         &-img {
             @mixin clip-tl-br;
-            filter: drop-shadow(0 0 1px var(--color-primary));
+            max-width: 24em;
         }
     }
     &-icon {
@@ -178,6 +193,20 @@
         }
         &-icon {
             order: 1;
+        }
+    }
+    @media screen and (max-width: 960px) {
+        &-inner {
+            grid-template-columns: auto;
+        }
+        &-intro {
+            grid-template-columns: auto;
+            &-icon {
+                display: none;
+            }
+            &-inner {
+                grid-column: 1;
+            }
         }
     }
 }

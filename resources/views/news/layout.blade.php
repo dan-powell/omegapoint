@@ -21,7 +21,9 @@
             </div>
             <div class="Layout-main">
                 <div class="Layout-sidebar">
-                    @yield('sidebar')
+                    <div class="Layout-sidebar-inner">
+                        @yield('sidebar')
+                    </div>
                 </div>
                 <div class="Layout-center">
                     @yield('center')
