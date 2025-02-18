@@ -134,6 +134,39 @@
         /* max-width: 80ch; */
         margin: 0 auto;
     }
+    &-next {
+        position: relative;
+        &-thumb {
+            &-img {
+                transition: filter .2s ease-in;
+                object-fit: cover;
+                animation: float 10s ease-in-out alternate infinite;
+                /* animation-play-state: paused; */
+                height: 100%;
+                width: 100%;
+                aspect-ratio: 1 / 1;
+            }
+            &:hover &,
+            &:focus & {
+                /* background-color: rgba(255,255,255,0.1) */
+                &-img {
+                    filter: brightness(160%) contrast(80%);
+                    /* animation-play-state: running; */
+                }
+            }
+        }
+        &-link {
+            width: 100%;
+            display: block;
+            text-align: center;
+            padding: 0.5em 1em;
+            position: absolute;
+            bottom: 0;
+            font-size: 1.4em;
+            background-color: var(--color-bg-semi);
+            backdrop-filter: blur(5px);
+        }
+    }
     @media screen and (max-width: 960px) {
         &-head {
             grid-template-columns: auto;

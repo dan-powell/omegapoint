@@ -11,35 +11,29 @@
             <span>{{ $article->date->format('z|Y')}}</span>
         </time>
     </section>
-    <section>
-        <h3 class="divider" title="Tagged"><span>Tagged</span></h3>
-        <div class="ArticleShow-tagged">
-            @foreach($article->districts as $district)
-                <a class="ArticleShow-tagged-button" wire:navigate href="{{ $district->url }}">
-                    {{ $district->name }}
-                </a>
-            @endforeach
-            @foreach($article->subjects as $subject)
-                <a class="ArticleShow-tagged-button" wire:navigate href="{{ $subject->url }}">
-                    {{ $subject->name }}
-                </a>
-            @endforeach
-        </div>
-    </section>
+    @if($article->districts->count() || $article->subjects->count())
+        <section>
+            <h3 class="divider" title="Tagged"><span>Tagged</span></h3>
+            <div class="ArticleShow-tagged">
+                @foreach($article->districts as $district)
+                    <a class="ArticleShow-tagged-button" wire:navigate href="{{ $district->url }}">
+                        {{ $district->name }}
+                    </a>
+                @endforeach
+                @foreach($article->subjects as $subject)
+                    <a class="ArticleShow-tagged-button" wire:navigate href="{{ $subject->url }}">
+                        {{ $subject->name }}
+                    </a>
+                @endforeach
+            </div>
+        </section>
+    @endif
     @if($article->tldr)
         <div class="ArticleShow-tldr">
             <h3 class="divider" title="TLDR"><span>TLDR</span></h3>
             <div class="ArticleShow-tldr-inner content">
                 {{ $article->tldr }}
             </div>
-        </div>
-    @endif
-    @if($next)
-        <div class="ArticleShow-next">
-            <h3 class="divider" title="Next"><span>Next</span></h3>
-            <a class="ArticleShow-return" wire:navigate href="{{ $next->url }}">
-                {{ $next->short }} ▷
-            </a>
         </div>
     @endif
 @endsection
@@ -107,37 +101,60 @@
 @endsection
 
 @section('aside')
-    <div class="Layout-sticky">
-        
-        @if($article->updates && !empty($article->updates))
-            <div class="ArticleShow-tldr">
-                <h3 class="divider" title="Updates"><span>Updates</span></h3>
-                <div class="ArticleShow-tldr-inner">
-                    @foreach(collect($article->updates)->sortBy('date') as $update)
-                        @switch($update['type'])
-                            @case('update')
-                                <div class="ArticleUpdateDefault">
-                                    @if($update['data']['date'])
-                                        <div class="ArticleUpdateDefault-content">
-                                            {!! Carbon\Carbon::parse($update['data']['date'])->format('H:s') !!}
-                                        </div>
-                                    @endif
-                                    @if($update['data']['media'])
-                                        <div class="ArticleUpdateDefault-media">
-                                            <img class="ArticleUpdateDefault-media-img" src="{{ Image::disk('news')->url($update['data']['media']) }}"/>
-                                        </div>
-                                    @endif
-                                    @if($update['data']['content'])
-                                        <div class="ArticleUpdateDefault-content">
-                                            {!! str($update['data']['content'])->markdown()->sanitizeHtml() !!}
-                                        </div>
-                                    @endif
-                                </div>
-                                @break
-                        @endswitch
-                    @endforeach
-                </div>
+    @if($next)
+        <div class="ArticleShow-next">
+            <h3 class="divider" title="Next"><span>Next</span></h3>
+            @if($next->thumbnail)
+                <a class="ArticleShow-next-thumb media" wire:navigate href="{{ $next->url }}">
+                    <img class="ArticleShow-next-thumb-img" src="{{ Image::disk('news')->height(600)->url($next->thumbnail) }}"/>
+                </a>
+            @endif
+            <a class="ArticleShow-next-link" wire:navigate href="{{ $next->url }}">
+                {{ $next->short }} ▷
+            </a>
+        </div>
+    @endif
+    @if($previous)
+        <div class="ArticleShow-next">
+            <h3 class="divider" title="Previous"><span>Previous</span></h3>
+            @if($previous->thumbnail)
+                <a class="ArticleShow-next-thumb media" wire:navigate href="{{ $previous->url }}">
+                    <img class="ArticleShow-next-thumb-img" src="{{ Image::disk('news')->height(600)->url($previous->thumbnail) }}"/>
+                </a>
+            @endif
+            <a class="ArticleShow-next-link" wire:navigate href="{{ $previous->url }}">
+                ◁ {{ $previous->short }}
+            </a>
+        </div>
+    @endif
+    @if($article->updates && !empty($article->updates))
+        <div class="ArticleShow-tldr">
+            <h3 class="divider" title="Updates"><span>Updates</span></h3>
+            <div class="ArticleShow-tldr-inner">
+                @foreach(collect($article->updates)->sortBy('date') as $update)
+                    @switch($update['type'])
+                        @case('update')
+                            <div class="ArticleUpdateDefault">
+                                @if($update['data']['date'])
+                                    <div class="ArticleUpdateDefault-content">
+                                        {!! Carbon\Carbon::parse($update['data']['date'])->format('H:s') !!}
+                                    </div>
+                                @endif
+                                @if($update['data']['media'])
+                                    <div class="ArticleUpdateDefault-media">
+                                        <img class="ArticleUpdateDefault-media-img" src="{{ Image::disk('news')->url($update['data']['media']) }}"/>
+                                    </div>
+                                @endif
+                                @if($update['data']['content'])
+                                    <div class="ArticleUpdateDefault-content">
+                                        {!! str($update['data']['content'])->markdown()->sanitizeHtml() !!}
+                                    </div>
+                                @endif
+                            </div>
+                            @break
+                    @endswitch
+                @endforeach
             </div>
-        @endif
-    </div>
+        </div>
+    @endif
 @endsection

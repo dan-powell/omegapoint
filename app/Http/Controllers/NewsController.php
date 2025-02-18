@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index(): View
     {
         return view('news.index', [
-            'lead' => Article::latest(), 
+            'lead' => Article::latest(),
             'archive' => Article::limit(10)->orderBy('date', 'desc')->get()
         ]);
     }
@@ -27,7 +27,8 @@ class NewsController extends Controller
         $article = Article::with(['subjects', 'districts'])->findOrFail($id);
         return view('news.article.show', [
             'article' => $article,
-            'next' => Article::whereNot('id', $id)->whereDate('date', '>', $article->date)->orderBy('date', 'asc')->first()
+            'next' => Article::whereNot('id', $id)->whereDate('date', '>', $article->date)->orderBy('date', 'asc')->first(),
+            'previous' => Article::whereNot('id', $id)->whereDate('date', '<', $article->date)->orderBy('date', 'desc')->first()
         ]);
     }
 }

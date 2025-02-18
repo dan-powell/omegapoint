@@ -29,7 +29,9 @@
                     @yield('center')
                 </div>
                 <div class="Layout-aside">
-                    @yield('aside')
+                    <div class="Layout-aside-inner">
+                        @yield('aside')
+                    </div>
                 </div>
             </div>
         </div>
