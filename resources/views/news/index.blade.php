@@ -23,11 +23,11 @@
         @if(count($archive))
             <h3 class="divider" title="Archive"><span>Archive</span></h3>
             <div class="NewsIndex-archive">
-                <ul class="NewsIndex-archive-list">
+                <ul class="NewsIndex-archive-list g-anim">
                     @foreach($archive as $article)
-                        <li class="NewsIndex-archive-item">
+                        <li class="NewsIndex-archive-item g-fade">
                             <a class="NewsIndex-archive-link" href="{{ $article->url }}">
-                                {{ $article->title }} 
+                                {{ $article->title }}
                             </a>
                             <time class="NewsIndex-archive-date">
                                 <span>{{ $article->date->format('hm')}}</span>

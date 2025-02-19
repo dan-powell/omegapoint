@@ -38,11 +38,15 @@
     @endif
 @endsection
 
+@section('top')
+    <h1 class="ArticleShow-title1">{{ $article->title }}</h1>
+@endsection
+
 @section('center')
     <article class="ArticleShow-main">
         <header class="ArticleShow-head">
             <div class="ArticleShow-heading">
-                <h1 class="ArticleShow-title">{{ $article->title }}</h1>
+                <h2 class="ArticleShow-title">{{ $article->summary }}</h2>
             </div>
             @if(isset($article->lead) && count($article->lead))
                 <div class="ArticleShow-lead">

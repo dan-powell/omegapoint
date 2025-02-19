@@ -1,9 +1,11 @@
 import autoAnimate from '@formkit/auto-animate';
 import { gsap } from "gsap";
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+// AOS.init();
+
+
 
 import.meta.glob([
     '../img/news/**',
@@ -101,9 +103,6 @@ tllogo.to(logo_bits, {width: 0, duration: 1, ease: "bounce.out"});
 
 
 
-
-
-
 const marquee = document.getElementById('js-marquee');
 const tl = gsap.timeline({repeat: -1, repeatDelay: 0});
 tl.to(marquee, {xPercent: -100, duration: 30, ease: "none"});
@@ -112,3 +111,29 @@ marquee.addEventListener("mouseenter", () => gsap.to(tl, {timeScale: 0, overwrit
 marquee.addEventListener("mouseleave", () => gsap.to(tl, {timeScale: 1, overwrite: true}));
 
 
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".g-fade").forEach((element, i) => {
+    gsap.set(element, {opacity:0})
+    gsap.from(element, {
+        y: 200,
+        scrollTrigger: {
+            trigger: element,
+            start: "top 100%"
+        }
+    });
+
+});
+
+gsap.utils.toArray(".g-anim").forEach((element, i) => {
+    ScrollTrigger.batch(element.querySelectorAll('.g-fade'), {
+        onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.1}, overwrite: true}),
+        onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 20, overwrite: true})
+    });
+});
+
+
+
+ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".g-fade", {y: 0}));

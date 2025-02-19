@@ -26,7 +26,7 @@
     </div>
     @if($article->thumbnail)
         <div class="ArticleExcerpt-thumb media">
-            <img class="ArticleExcerpt-thumb-img" src="{{ Image::disk('news')->url($article->thumbnail) }}"/>
+            <img class="ArticleExcerpt-thumb-img" width="100" height="100" loading="lazy" srcset="{{ Image::disk('news')->srcset($article->thumbnail) }}" />
         </div>
     @endif
 </article>
