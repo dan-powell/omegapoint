@@ -45,18 +45,18 @@
 @section('center')
     <article class="ArticleShow-main">
         <header class="ArticleShow-head">
-            <div class="ArticleShow-heading">
+            <div class="ArticleShow-heading a-leftin">
                 <h2 class="ArticleShow-title">{{ $article->summary }}</h2>
             </div>
             @if(isset($article->lead) && count($article->lead))
-                <div class="ArticleShow-lead">
+                <div class="ArticleShow-lead a-rightin">
                     <div class="ArticleShow-thumb">
                         <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->crop(640, 480)->url($article->lead->first()) }}"/>
                     </div>
                 </div>
             @endif
             @if(isset($article->lead) && count($article->lead) > 1)
-                <div class="ArticleShow-mini">
+                <div class="ArticleShow-mini a-bottomin g-fadestagger">
                     @foreach($article->lead->slice(1) as $lead)
                         <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
                     @endforeach

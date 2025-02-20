@@ -18,8 +18,19 @@
     --color-link: var(--color-active);
 
     --font-size-base: 20px;
-    --font-heading: "Quantico", serif;
-    --font-body: "Quantico", serif;
+
+    --font-heading-human: "Quantico", serif;
+    --font-body-human: "Quantico", serif;
+
+    --font-heading-alien: "The Orb Report", serif;
+    --font-body-alien: "The Orb Report", serif;
+
+    --font-heading-robot: "QR Font", serif;
+    --font-body-robot: "QR Font", serif;
+
+    --font-heading: var(--font-heading-human);
+    --font-body: var(--font-body-human);
+
 
     --gap: 1em;
     --box-padding: 1em;

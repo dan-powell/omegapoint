@@ -1,6 +1,6 @@
 <article class="ArticleLead">
     {{-- <a class="ArticleLead-link" wire:navigate href="{{ $article->url }}"></a> --}}
-    <div class="ArticleLead-media">
+    <div class="ArticleLead-media a-leftin">
         @if($article->lead && count($article->lead))
             <div class="ArticleLead-media-thumb" data-aos="fade-in">
                 <a wire:navigate href="{{ $article->url }}">
@@ -26,7 +26,7 @@
             </div>
         @endif
     </div>
-    <div class="ArticleLead-main">
+    <div class="ArticleLead-main a-rightin">
         <h3 class="ArticleLead-title">
             <a class="ArticleLead-title-link" wire:navigate href="{{ $article->url }}">{{ $article->title }}</a>
         </h3>

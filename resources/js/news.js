@@ -13,26 +13,6 @@ import.meta.glob([
     '../fonts/**',
 ]);
 
-// window.human = function() {
-//     console.log('human');
-//     document.querySelector(':root').style.setProperty('--font-heading', '"Quantico", serif');
-//     document.querySelector(':root').style.setProperty('--font-body', '"Quantico", serif');
-// }
-
-// window.alien = function() {
-//     console.log('alien');
-//     document.querySelector(':root').style.setProperty('--font-heading', '"The Orb Report", serif');
-//     document.querySelector(':root').style.setProperty('--font-body', '"The Orb Report", serif');
-// }
-
-
-// window.robot = function() {
-//     console.log('robot');
-//     document.querySelector(':root').style.setProperty('--font-heading', '"QR Font"');
-//     document.querySelector(':root').style.setProperty('--font-body', '"QR Font"');
-// }
-
-
 Alpine.data('lang', () => ({
     init() {
         this.lang = localStorage.getItem('lang') ?? 'human';
@@ -46,23 +26,23 @@ Alpine.data('lang', () => ({
     change(lang) {
         localStorage.setItem('lang', lang)
         this.lang = lang;
-
-        this.setFont();
+        gsap.to('body', {opacity:0, duration: 0.4, onComplete: () => {this.setFont()}});
     },
 
     setFont() {
         if (this.lang == 'human') {
-            document.querySelector(':root').style.setProperty('--font-heading', '"Quantico", serif');
-            document.querySelector(':root').style.setProperty('--font-body', '"Quantico", serif');
+            document.querySelector(':root').style.setProperty('--font-heading', 'var(--font-heading-human)');
+            document.querySelector(':root').style.setProperty('--font-body', 'var(--font-body-human)');
         }
         if (this.lang == 'alien') {
-            document.querySelector(':root').style.setProperty('--font-heading', '"The Orb Report", serif');
-            document.querySelector(':root').style.setProperty('--font-body', '"The Orb Report", serif');
+            document.querySelector(':root').style.setProperty('--font-heading', 'var(--font-heading-alien)');
+            document.querySelector(':root').style.setProperty('--font-body', 'var(--font-body-alien)');
         }
         if (this.lang == 'robot') {
-            document.querySelector(':root').style.setProperty('--font-heading', '"QR Font"');
-            document.querySelector(':root').style.setProperty('--font-body', '"QR Font"');
+            document.querySelector(':root').style.setProperty('--font-heading', 'var(--font-heading-robot)');
+            document.querySelector(':root').style.setProperty('--font-body', 'var(--font-body-robot)');
         }
+        gsap.to('body', {opacity:1, duration: 0.6, delay: 0.1});
     }
 
 }))
@@ -115,20 +95,17 @@ marquee.addEventListener("mouseleave", () => gsap.to(tl, {timeScale: 1, overwrit
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.utils.toArray(".g-fade").forEach((element, i) => {
-    gsap.set(element, {opacity:0})
-    gsap.from(element, {
-        y: 200,
-        scrollTrigger: {
-            trigger: element,
-            start: "top 100%"
-        }
+gsap.utils.toArray(".g-fadestagger").forEach((element, i) => {
+    Array.from(element.children).forEach((element) => {
+        gsap.set(element, {opacity:0})
     });
-
 });
 
-gsap.utils.toArray(".g-anim").forEach((element, i) => {
-    ScrollTrigger.batch(element.querySelectorAll('.g-fade'), {
+
+
+
+gsap.utils.toArray(".g-fadestagger").forEach((element, i) => {
+    ScrollTrigger.batch(element.children, {
         onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.1}, overwrite: true}),
         onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 20, overwrite: true})
     });
@@ -136,4 +113,4 @@ gsap.utils.toArray(".g-anim").forEach((element, i) => {
 
 
 
-ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".g-fade", {y: 0}));
+ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".g-fadestagger", {y: 0}));

@@ -1,8 +1,36 @@
 .Marquee {
+
+    @keyframes line-span {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
     display: flex;
     align-items: center;
-    border-top: 1px solid var(--color-line);
-    border-bottom: 1px solid var(--color-line);
+    position: relative;
+
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        animation: line-span 1s ease 1 forwards;
+    }
+    &::before {
+        top: 0;
+        left: 0;
+        border-top: 1px solid var(--color-line);
+    }
+    &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid var(--color-line);
+    }
+
     padding: 3px 0;
 
     &-track {
