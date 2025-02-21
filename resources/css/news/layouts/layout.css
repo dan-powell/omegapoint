@@ -23,7 +23,6 @@
         }
     }
     &-center {
-
         @keyframes line-left {
             0% {
                 height: 0;
@@ -32,7 +31,6 @@
                 height: calc(100% - var(--cut-lg) - 2px);
             }
         }
-
         @keyframes line-cut {
             0% {
                 height: 0;
@@ -43,8 +41,6 @@
                 width: 100%;
             }
         }
-
-
         grid-column: 2;
         min-height: var(--cut-lg);
         position: relative;

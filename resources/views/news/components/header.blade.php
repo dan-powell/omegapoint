@@ -5,7 +5,7 @@
                 O<span class="Header-logo-dynamic">mega</span> P<span class="Header-logo-dynamic">oint</span> N<span class="Header-logo-dynamic">ews</span>
             </a>
         </h1>
-        <div class="Header-lang g-anim" x-data="lang">
+        <div class="Header-lang g-fadestagger" x-data="lang">
             <input class="Header-lang-input" id="language_human" type="radio" name="lang" x-model="lang" value="human" @change="change('human')">
             <label class="Header-lang-label g-fade" for="language_human" tab-index="0">
                 <svg class="Header-lang-label-icon" aria-hidden="true" focusable="false">

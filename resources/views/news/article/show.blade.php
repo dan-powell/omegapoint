@@ -58,7 +58,9 @@
             @if(isset($article->lead) && count($article->lead) > 1)
                 <div class="ArticleShow-mini a-bottomin g-fadestagger">
                     @foreach($article->lead->slice(1) as $lead)
-                        <img class="ArticleShow-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
+                        <div class="ArticleShow-mini-thumb">
+                            <img class="ArticleShow-mini-thumb-img" src="{{ Image::disk('news')->url($lead) }}"/>
+                        </div>
                     @endforeach
                 </div>
             @endif

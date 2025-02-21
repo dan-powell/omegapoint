@@ -1,7 +1,7 @@
 <div class="SubjectList">
-    <div class="SubjectList-list g-anim">
+    <div class="SubjectList-list g-fadestagger">
         @foreach($subjects as $subject)
-            <label class="SubjectList-item g-fade">
+            <label class="SubjectList-item">
                 <input class="SubjectList-item-checkbox" type="checkbox" wire:model.live="chosenSubjects" value="{{ $subject->id }}">
                 <span class="SubjectList-item-label">{{ $subject->name }} [{{ $subject->article_count }}]<span>
             </label>

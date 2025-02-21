@@ -22,7 +22,7 @@
     </form>
     <div class="ArticleList-list" x-data="flip">
         @forelse($articles as $article)
-            <div class="ArticleList-item" wire:key="{{ $article->id }}">
+            <div class="ArticleList-item a-fadein" wire:key="{{ $article->id }}">
                 @include('news/article/excerpt', ['article' => $article])
             </div>
         @empty

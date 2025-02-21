@@ -23,9 +23,9 @@
         @if(count($archive))
             <h3 class="divider" title="Archive"><span>Archive</span></h3>
             <div class="NewsIndex-archive">
-                <ul class="NewsIndex-archive-list g-anim">
+                <ul class="NewsIndex-archive-list g-fadestagger">
                     @foreach($archive as $article)
-                        <li class="NewsIndex-archive-item g-fade">
+                        <li class="NewsIndex-archive-item">
                             <a class="NewsIndex-archive-link" href="{{ $article->url }}">
                                 {{ $article->title }}
                             </a>

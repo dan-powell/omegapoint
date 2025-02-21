@@ -101,9 +101,19 @@
         grid-row: 4/7;
         display: flex;
         gap: var(--gap);
-        > * {
-            object-fit: cover;
-            flex: 1 1 auto;
+        justify-content: space-around;
+        &-thumb {
+            flex: 1 1 100%;
+            filter: drop-shadow(0 0 1px var(--color-primary));
+            max-height: 10rem;
+            max-width: 20rem;
+            &-img {
+                height: 100%;
+                width: 100%;
+                --cut: 2em;
+                object-fit: cover;
+                @mixin clip-tl-br;
+            }
         }
     }
     &-intro {
