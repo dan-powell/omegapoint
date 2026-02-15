@@ -1,0 +1,102 @@
+@keyframes linearGradientMove {
+    100% {
+        background-position: 8px 0, -8px 100%, 0 -8px, 100% 8px;
+    }
+}
+
+@keyframes float {
+    0% {
+        object-position: 50% 50%;
+        animation-timing-function: ease-out;
+    }
+    25% {
+        object-position: 0% 0%;
+        animation-timing-function: ease-in;
+    }
+    50% {
+        object-position: 50% 50%;
+        animation-timing-function: ease-out;
+    }
+    75% {
+        object-position: 100% 100%;
+        animation-timing-function: ease-in;
+    }
+    100% {
+        object-position: 50% 50%;
+    }
+}
+
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes leftin {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rightin {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bottomin {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes topin {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.a-fadein {
+    animation: fadein 0.2s ease-out 1 forwards;
+}
+
+.a-leftin {
+    animation: leftin 0.2s ease-out 1 forwards;
+}
+
+.a-rightin {
+    animation: rightin 0.2s ease-out 1 forwards;
+}
+
+.a-bottomin {
+    animation: bottomin 0.2s ease-out 1 forwards;
+}
+
+.a-topin {
+    animation: topin 0.2s ease-out 1 forwards;
+}

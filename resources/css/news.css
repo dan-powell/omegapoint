@@ -1,15 +1,22 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Righteous&display=swap'); */
 
 @import 'news/config.css';
+@import 'news/animations.css';
+
+@import '../fonts/the-orb-report.css';
+@import '../fonts/qr-font.css';
 
 @import 'news/mixins/button.css';
 @import 'news/mixins/clip.css';
+@import 'news/mixins/effects.css';
 
 @import 'news/utilities/media.css';
 @import 'news/utilities/divider.css';
+@import 'news/utilities/content.css';
 
 @import 'news/foundation.css';
 @import 'news/layouts/layout.css';
+@import 'news/layouts/index.css';
 
 @import 'news/components/header.css';
 @import 'news/components/marquee.css';

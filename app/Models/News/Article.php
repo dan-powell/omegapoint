@@ -3,6 +3,7 @@
 namespace App\Models\News;
 
 use App\Models\Area\District;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -14,7 +15,7 @@ class Article extends Model
 
     use HasFactory;
     use HasUlids;
-    
+
     protected $table = 'news_article';
 
     protected $fillable = [
@@ -37,7 +38,7 @@ class Article extends Model
     protected function casts(): array
     {
         return [
-            'lead' => 'array',
+            'lead' => 'collection',
             'sections' => 'json',
             'updates' => 'json',
             'date' => 'datetime',
@@ -45,16 +46,26 @@ class Article extends Model
         ];
     }
 
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::addGlobalScope('published', function (Builder $builder) {
+            $builder->where('published_date', '<', now());
+        });
+    }
+
     public function url(): Attribute
     {
         return Attribute::make(
-            get: fn ():string => route('news.article.show', $this), 
+            get: fn ():string => route('news.article.show', $this),
         );
     }
 
     public static function latest(): ?Article
     {
-        return Article::orderBy('date')->limit(1)->first();
+        return Article::orderBy('date', 'desc')->limit(1)->first();
     }
 
     public function subjects(): BelongsToMany

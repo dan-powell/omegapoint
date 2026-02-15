@@ -18,17 +18,29 @@
     --color-link: var(--color-active);
 
     --font-size-base: 20px;
-    --font-heading: "Righteous", serif;
-    --font-body: "Geo", serif;
+
+    --font-heading-human: "Quantico", serif;
+    --font-body-human: "Quantico", serif;
+
+    --font-heading-alien: "The Orb Report", serif;
+    --font-body-alien: "The Orb Report", serif;
+
+    --font-heading-robot: "QR Font", serif;
+    --font-body-robot: "QR Font", serif;
+
+    --font-heading: var(--font-heading-human);
+    --font-body: var(--font-body-human);
+
 
     --gap: 1em;
     --box-padding: 1em;
 
     --sidebar-width: clamp(200px, 20vw, 450px);
     --aside-width: clamp(200px, 20vw, 450px);
+    --content-width: clamp(40ch, 20vw, 70ch);
 
-    --cut: 2em;
-
+    --cut: clamp(0.5rem, 1.5vw, 1rem);
+    --cut-lg: 3em;
 
 }
 

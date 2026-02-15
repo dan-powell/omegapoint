@@ -20,6 +20,24 @@
         @livewire('news.subject-list')
         <h3 class="divider" title="District"><span>District</span></h3>
         @livewire('news.district-list')
+        @if(count($archive))
+            <h3 class="divider" title="Archive"><span>Archive</span></h3>
+            <div class="NewsIndex-archive">
+                <ul class="NewsIndex-archive-list g-fadestagger">
+                    @foreach($archive as $article)
+                        <li class="NewsIndex-archive-item">
+                            <a class="NewsIndex-archive-link" href="{{ $article->url }}">
+                                {{ $article->title }}
+                            </a>
+                            <time class="NewsIndex-archive-date">
+                                <span>{{ $article->date->format('hm')}}</span>
+                                <span>{{ $article->date->format('z|Y')}}</span>
+                            </time>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 @endsection
 
@@ -40,7 +58,7 @@
         <div class="media">
             <video autoplay muted loop>
                 <source src="{{ Vite::asset('resources/img/news/test/1234.mp4') }}" type="video/mp4">
-            </video> 
+            </video>
         </div>
         <h3 class="divider" title="Live"><span>Live</span></h3>
         <div class="media -scanlines">

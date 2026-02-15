@@ -2,17 +2,61 @@
   "resources/css/home.css": {
     "file": "assets/home-D2j6Mqkn.css",
     "src": "resources/css/home.css",
-    "isEntry": true
+    "isEntry": true,
+    "name": "home",
+    "names": [
+      "home.css"
+    ]
   },
   "resources/css/news.css": {
-    "file": "assets/news-CQPpdDPH.css",
+    "file": "assets/news-C_BEBpfb.css",
     "src": "resources/css/news.css",
-    "isEntry": true
+    "isEntry": true,
+    "name": "news",
+    "names": [
+      "news.css"
+    ]
   },
   "resources/css/shared.css": {
-    "file": "assets/shared-DZ4hFBgk.css",
+    "file": "assets/shared-BkzO26Lz.css",
     "src": "resources/css/shared.css",
-    "isEntry": true
+    "isEntry": true,
+    "name": "shared",
+    "names": [
+      "shared.css"
+    ]
+  },
+  "resources/fonts/barmorse.ttf": {
+    "file": "assets/barmorse-CstrQPAa.ttf",
+    "src": "resources/fonts/barmorse.ttf"
+  },
+  "resources/fonts/barmorse.txt": {
+    "file": "assets/barmorse-CXBMbvkX.txt",
+    "src": "resources/fonts/barmorse.txt"
+  },
+  "resources/fonts/connect-code-39.ttf": {
+    "file": "assets/connect-code-39-BnqJDQ09.ttf",
+    "src": "resources/fonts/connect-code-39.ttf"
+  },
+  "resources/fonts/morse-tech.otf": {
+    "file": "assets/morse-tech-B7WfyP6z.otf",
+    "src": "resources/fonts/morse-tech.otf"
+  },
+  "resources/fonts/morse-tech.txt": {
+    "file": "assets/morse-tech-D7wdnk_i.txt",
+    "src": "resources/fonts/morse-tech.txt"
+  },
+  "resources/fonts/qr-font.ttf": {
+    "file": "assets/qr-font-C84KwbK9.ttf",
+    "src": "resources/fonts/qr-font.ttf"
+  },
+  "resources/fonts/the-orb-report.ttf": {
+    "file": "assets/the-orb-report-CWoqgAHJ.ttf",
+    "src": "resources/fonts/the-orb-report.ttf"
+  },
+  "resources/fonts/the-orb-report.txt": {
+    "file": "assets/the-orb-report-D3kTnukB.txt",
+    "src": "resources/fonts/the-orb-report.txt"
   },
   "resources/icons/news/cloud-sunny.svg": {
     "file": "assets/cloud-sunny-DmIRq5NL.svg",
@@ -62,13 +106,17 @@
     "file": "assets/wind-DCEVHd5I.svg",
     "src": "resources/icons/news/wind.svg"
   },
-  "resources/img/blocks-wave.svg": {
-    "file": "assets/blocks-wave-DyAcP4No.svg",
-    "src": "resources/img/blocks-wave.svg"
-  },
   "resources/img/button.svg": {
     "file": "assets/button-DIF3ZlFh.svg",
     "src": "resources/img/button.svg"
+  },
+  "resources/img/news/left.svg": {
+    "file": "assets/left-C8VWmWvp.svg",
+    "src": "resources/img/news/left.svg"
+  },
+  "resources/img/news/right.svg": {
+    "file": "assets/right-DbMUUmyd.svg",
+    "src": "resources/img/news/right.svg"
   },
   "resources/img/news/test/1234.mp4": {
     "file": "assets/1234-jnPDvEmT.mp4",
@@ -86,9 +134,17 @@
     "file": "assets/thumb2-BJMMSZ3Z.jpg",
     "src": "resources/img/news/test/thumb2.jpg"
   },
+  "resources/img/news/triangle_down.svg": {
+    "file": "assets/triangle_down-DyFPDMIU.svg",
+    "src": "resources/img/news/triangle_down.svg"
+  },
   "resources/img/news/triangle_inverted.svg": {
     "file": "assets/triangle_inverted-BTnxcuMb.svg",
     "src": "resources/img/news/triangle_inverted.svg"
+  },
+  "resources/img/news/up.svg": {
+    "file": "assets/up-DYks47Tl.svg",
+    "src": "resources/img/news/up.svg"
   },
   "resources/js/home.js": {
     "file": "assets/home-l0sNRNKZ.js",
@@ -97,13 +153,13 @@
     "isEntry": true
   },
   "resources/js/news.js": {
-    "file": "assets/news-BYl0PP_M.js",
+    "file": "assets/news-CT-DjbUf.js",
     "name": "news",
     "src": "resources/js/news.js",
     "isEntry": true
   },
   "resources/js/shared.js": {
-    "file": "assets/shared-Ww48eM_a.js",
+    "file": "assets/shared-2mt3kIup.js",
     "name": "shared",
     "src": "resources/js/shared.js",
     "isEntry": true

@@ -1,7 +1,12 @@
 .ArticleExcerpt {
     display: flex;
     position: relative;
-    height: 100%;
+    width: 100%;
+
+    @container (max-width: 640px)
+    {
+        flex-direction: column;
+    }
     > * {
         flex: 1 1 100%;
     }
@@ -13,6 +18,11 @@
         }
         &-thumb {
             filter: saturate(200%);
+        }
+        &-thumb {
+            &-img {
+                animation-play-state: running;
+            }
         }
     }
     &-link {
@@ -34,13 +44,17 @@
         /* @mixin clip-tl-bl; */
         transition: filter .2s ease-in;
         z-index: 10;
+        overflow: hidden;
     }
     &-thumb {
         margin-left: -10%;
         transition: filter .2s ease-in;
         &-img {
             object-fit: cover;
-            aspect-ratio: 1 / 1;
+            animation: float 10s ease-in-out alternate infinite;
+            animation-play-state: paused;
+            height: 100%;
+            width: 100%;
         }
     }
     &-head {

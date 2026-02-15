@@ -21,12 +21,12 @@ export default defineConfig({
         }),
     ],
     server: {
-        https: false,
-        host: true,
-        port: env.VITE_PORT ?? 80,
-        hmr: {
-            host: env.VITE_HOST ?? 'localhost',
-            protocol: 'ws'
+        host: "0.0.0.0",
+        port: 5173,
+        strictPort: true,
+        origin: `${process.env.DDEV_PRIMARY_URL_WITHOUT_PORT}:5173`,
+        cors: {
+            origin: /https?:\/\/([A-Za-z0-9\-\.]+)?(\.ddev\.site)(?::\d+)?$/,
         },
         watch: {
             ignored: [
@@ -37,5 +37,5 @@ export default defineConfig({
     },
     css: {
         devSourcemap: true
-    }
+    },
 });

@@ -1,0 +1,45 @@
+.NewsIndex {
+    &-archive {
+        padding: var(--box-padding);
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        &-item {
+            overflow: hidden;
+            /* max-width: 20ch; */
+            font-size: 1em;
+            position: relative;
+            padding-top: 0.7em;
+            &::after {
+                content: '';
+                width: 3ch;
+                height: 100%;
+                top: 0;
+                right: 0;
+                position: absolute;
+                background-image: linear-gradient(90deg, transparent, var(--color-bg));
+
+            }
+        }
+        &-link {
+            display: inline-block;
+            transition: all 2s ease-out;
+            &:focus,
+            &:hover {
+                transform: translateX(calc(-100% + 18ch));
+                color: var(--color-primary);
+            }
+            white-space: nowrap;
+            position: relative;
+        }
+        &-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.6em;
+            color: var(--color-secondary);
+        }
+    }
+}

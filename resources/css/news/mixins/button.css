@@ -6,7 +6,7 @@
     border-right: 1px solid var(--color-line);
     overflow: hidden;
     padding: 0.25em 0.5em;
-    transition: all .2s ease-in-out;
+    font-size: 0.8em;
     &:after,
     &:before {
         position: absolute;
@@ -14,7 +14,6 @@
         width: 100%;
         left: 0px;
         z-index: -1;
-        transition: all .2s ease-in-out;
     }
     &:before {
         height: var(--cut);
@@ -29,5 +28,21 @@
         bottom: 0px;
         border: 1px solid var(--color-line);
         border-width: 0px 0px 1px 1px;
+    }
+}
+
+@define-mixin button-active {
+    @mixin button;
+    transition: all .2s ease-in-out;
+    &:after,
+    &:before {
+        transition: all .2s ease-in-out;
+    }
+    &:hover {
+        transform: scale(1.1);
+        &:after,
+        &:before {
+            background-color: var(--color-subtle);
+        }
     }
 }

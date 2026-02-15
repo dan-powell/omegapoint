@@ -4,8 +4,8 @@
         position: fixed;
         top: 0px; 
         right: 0px;
-        width: 75px;
-        height: 75px;
+        width: var(--global-menu-width);
+        height: var(--global-menu-width);
         z-index: 99999;
         background: none;
         background-image: url('/resources/img/button.svg');
