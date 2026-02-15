@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## DDEV Custom Command: reset
+## Description: Reset & re-seed database
+
+php artisan db:wipe
+php artisan migrate
+php artisan db:seed

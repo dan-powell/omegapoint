@@ -2,17 +2,29 @@
   "resources/css/home.css": {
     "file": "assets/home-D2j6Mqkn.css",
     "src": "resources/css/home.css",
-    "isEntry": true
+    "isEntry": true,
+    "name": "home",
+    "names": [
+      "home.css"
+    ]
   },
   "resources/css/news.css": {
-    "file": "assets/news-C6gK8zp5.css",
+    "file": "assets/news-C_BEBpfb.css",
     "src": "resources/css/news.css",
-    "isEntry": true
+    "isEntry": true,
+    "name": "news",
+    "names": [
+      "news.css"
+    ]
   },
   "resources/css/shared.css": {
-    "file": "assets/shared-DKPnxHgi.css",
+    "file": "assets/shared-BkzO26Lz.css",
     "src": "resources/css/shared.css",
-    "isEntry": true
+    "isEntry": true,
+    "name": "shared",
+    "names": [
+      "shared.css"
+    ]
   },
   "resources/fonts/barmorse.ttf": {
     "file": "assets/barmorse-CstrQPAa.ttf",
@@ -78,10 +90,6 @@
     "file": "assets/snow-DC-E2uTv.svg",
     "src": "resources/icons/news/snow.svg"
   },
-  "resources/icons/news/spritesheet.svg": {
-    "file": "assets/spritesheet-DEKTc0Z8.svg",
-    "src": "resources/icons/news/spritesheet.svg"
-  },
   "resources/icons/news/sun-light.svg": {
     "file": "assets/sun-light-D-hbozBi.svg",
     "src": "resources/icons/news/sun-light.svg"
@@ -102,6 +110,14 @@
     "file": "assets/button-DIF3ZlFh.svg",
     "src": "resources/img/button.svg"
   },
+  "resources/img/news/left.svg": {
+    "file": "assets/left-C8VWmWvp.svg",
+    "src": "resources/img/news/left.svg"
+  },
+  "resources/img/news/right.svg": {
+    "file": "assets/right-DbMUUmyd.svg",
+    "src": "resources/img/news/right.svg"
+  },
   "resources/img/news/test/1234.mp4": {
     "file": "assets/1234-jnPDvEmT.mp4",
     "src": "resources/img/news/test/1234.mp4"
@@ -118,9 +134,17 @@
     "file": "assets/thumb2-BJMMSZ3Z.jpg",
     "src": "resources/img/news/test/thumb2.jpg"
   },
+  "resources/img/news/triangle_down.svg": {
+    "file": "assets/triangle_down-DyFPDMIU.svg",
+    "src": "resources/img/news/triangle_down.svg"
+  },
   "resources/img/news/triangle_inverted.svg": {
     "file": "assets/triangle_inverted-BTnxcuMb.svg",
     "src": "resources/img/news/triangle_inverted.svg"
+  },
+  "resources/img/news/up.svg": {
+    "file": "assets/up-DYks47Tl.svg",
+    "src": "resources/img/news/up.svg"
   },
   "resources/js/home.js": {
     "file": "assets/home-l0sNRNKZ.js",
@@ -129,13 +153,13 @@
     "isEntry": true
   },
   "resources/js/news.js": {
-    "file": "assets/news-BrXqS6kU.js",
+    "file": "assets/news-CT-DjbUf.js",
     "name": "news",
     "src": "resources/js/news.js",
     "isEntry": true
   },
   "resources/js/shared.js": {
-    "file": "assets/shared-Ww48eM_a.js",
+    "file": "assets/shared-2mt3kIup.js",
     "name": "shared",
     "src": "resources/js/shared.js",
     "isEntry": true
