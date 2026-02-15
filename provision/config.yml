@@ -1,0 +1,7 @@
+id: omegapoint
+php_version: "8.4"
+php_extensions:
+  - intl
+  - bcmath
+  - gd
+  - exif
