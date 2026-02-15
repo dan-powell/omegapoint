@@ -16,7 +16,9 @@ set('repository', 'git@github.com:dan-powell/omegapoint.git');
 set('git_tty', true);
 
 // Shared files/dirs between deploys
-add('shared_files', []);
+add('shared_files', [
+    'database/database.sqlite'
+]);
 add('shared_dirs', [
 	'public/storage'
 ]);
@@ -62,6 +64,16 @@ task('files:clean', function () {
 		upload('storage/images/', get('deploy_path') . '/shared/storage/images', ['options' => ['--delete']]);
 	}
 })->desc('Removes server-side files that do not exist locally.');
+
+// Push/Pull Database
+task('database:pull', function () {
+	download(get('deploy_path') . '/shared/database/database.sqlite', 'database/database.sqlite');
+})->desc('Copies server database to local.');
+
+task('database:push', function () {
+	upload('database/database.sqlite', get('deploy_path') . '/shared/database/database.sqlite');
+})->desc('Copies local database to server.');
+
 
 // Push/Pull env file
 task('env:pull', function () {
@@ -120,3 +132,12 @@ task('deploy:fix_storage_permissions', function () {
     run('sudo chmod -R g+s {{deploy_path}}/shared/storage');
 });
 after('deploy:writable', 'deploy:fix_storage_permissions');
+
+// Restart the http container
+task('docker:restart:http', function () {
+    $composeFile = get('docker_path') . '/docker-compose.yml';
+    
+    // We use 'restart' on the service name defined in docker-compose
+    run("sudo /usr/bin/docker compose -f $composeFile restart http");
+});
+after('deploy:symlink', 'docker:restart:http');
